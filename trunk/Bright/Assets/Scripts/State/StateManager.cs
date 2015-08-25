@@ -13,6 +13,11 @@ namespace Bright
 
 		public void Change(GameObject stateObject)
 		{
+			if(this.currentState == stateObject)
+			{
+				return;
+			}
+
 			if(this.currentState != null)
 			{
 				ExecuteEvents.Execute<IReceiveDeactiveState>(
