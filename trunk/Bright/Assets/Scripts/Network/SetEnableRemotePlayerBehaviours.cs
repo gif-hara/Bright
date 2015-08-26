@@ -7,8 +7,11 @@ namespace Bright
 	/// <summary>
 	/// .
 	/// </summary>
-	public class DisableRemotePlayerBehaviours : NetworkBehaviour
+	public class SetEnableRemotePlayerBehaviours : NetworkBehaviour
 	{
+		[SerializeField]
+		private bool isActive;
+
 		[SerializeField]
 		private List<Behaviour> refBehaviours;
 		
@@ -20,7 +23,7 @@ namespace Bright
 				return;
 			}
 
-			this.refBehaviours.ForEach(b => b.enabled = false);
+			this.refBehaviours.ForEach(b => b.enabled = isActive);
 		}
 	}
 }
