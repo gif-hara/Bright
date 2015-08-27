@@ -7,8 +7,11 @@ namespace Bright
 	/// <summary>
 	/// .
 	/// </summary>
-	public class SetEnableRemotePlayerBehaviours : NetworkBehaviour
+	public class SetEnableRemotePlayerBehaviours : MonoBehaviour
 	{
+		[SerializeField]
+		private NetworkIdentity refNetworkIdentity;
+
 		[SerializeField]
 		private bool isActive;
 
@@ -18,7 +21,7 @@ namespace Bright
 		// Use this for initialization	
 		void Start ()
 		{
-			if(this.isLocalPlayer)
+			if(this.refNetworkIdentity.isLocalPlayer)
 			{
 				return;
 			}

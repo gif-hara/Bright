@@ -7,7 +7,7 @@ namespace Bright
 	/// <summary>
 	/// .
 	/// </summary>
-	[NetworkSettings(channel = 1, sendInterval=0.2f)]
+	[NetworkSettings(channel = 1, sendInterval=0.0f)]
 	public class SyncPosition : NetworkBehaviour
 	{
 		[SerializeField]
@@ -38,12 +38,10 @@ namespace Bright
 		[Client]
 		void TransmitPosition()
 		{
-			if(!this.isLocalPlayer)
+			if(this.isLocalPlayer)
 			{
-				return;
+				CmdProvidePositionToServer(this.transform.position);
 			}
-
-			CmdProvidePositionToServer(this.transform.position);
 		}
 	}
 }

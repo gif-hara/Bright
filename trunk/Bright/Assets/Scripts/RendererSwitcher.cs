@@ -6,7 +6,7 @@ namespace Bright
 	/// <summary>
 	/// .
 	/// </summary>
-	public class ModelManager : MonoBehaviour
+	public class RendererSwitcher : MonoBehaviour
 	{
 		private Dictionary<string, Renderer> modelDictionary;
 

@@ -1,43 +1,69 @@
 using System;
 using UnityEngine;
+using UnityEngine.Networking;
 using UnityStandardAssets.CrossPlatformInput;
 
 namespace Bright
 {
-    [RequireComponent(typeof (PlatformerCharacter2D))]
-    public class Platformer2DUserControl : MonoBehaviour
+    public class Platformer2DUserControl : NetworkBehaviour
     {
 		[SerializeField]
+		private PlatformerCharacter2D refCharacter;
+
+		[SerializeField]
 		private float moveSpeed = 1.0f;
+
+		[SyncVar]
+		private float syncMove;
 
         private PlatformerCharacter2D m_Character;
         private bool m_Jump;
 
 
-        private void Awake()
-        {
-            m_Character = GetComponent<PlatformerCharacter2D>();
-        }
-
-
         private void Update()
         {
-            if (!m_Jump)
-            {
-                // Read the jump input in Update so button presses aren't missed.
-                m_Jump = CrossPlatformInputManager.GetButtonDown("Jump");
-            }
+			if(this.isLocalPlayer)
+			{
+            	if (!m_Jump)
+            	{
+            	    // Read the jump input in Update so button presses aren't missed.
+            	    m_Jump = CrossPlatformInputManager.GetButtonDown("Jump");
+            	}
+			}
         }
-
 
         private void FixedUpdate()
         {
-			float h = CrossPlatformInputManager.GetAxis("Horizontal");
-			//h = h > 0.0f ? 1.0f : h < 0.0f ? -1.0f : 0.0f;
-			h *= this.moveSpeed;
-            // Pass all parameters to the character control script.
-            m_Character.Move(h, m_Jump);
+			if(this.isLocalPlayer)
+			{
+				float h = CrossPlatformInputManager.GetAxis("Horizontal");
+				h *= this.moveSpeed;
+				this.Move(h);
+				this.TransmitMove(h);
+			}
+			else
+			{
+				this.Move(syncMove);
+			}
             m_Jump = false;
         }
+
+		private void Move(float move)
+		{
+			this.refCharacter.Move(move, m_Jump);
+		}
+
+		[Command]
+		void CmdProvideMoveToServer(float syncMove)
+		{
+			this.syncMove = syncMove;
+		}
+
+		[Client]
+		void TransmitMove(float move)
+		{
+			CmdProvideMoveToServer(move);
+		}
+
     }
 }

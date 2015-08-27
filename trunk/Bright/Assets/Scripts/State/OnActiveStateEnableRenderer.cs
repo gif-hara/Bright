@@ -12,14 +12,14 @@ namespace Bright
 		private Renderer refRenderer;
 
 		[SerializeField]
-		private ModelManager refModelManager;
+		private RendererSwitcher refRendererSwitcher;
 
 		[SerializeField]
 		private bool isActive;
 
 		public void OnActiveState()
 		{
-			this.refModelManager.Change(this.refRenderer);
+			this.refRendererSwitcher.Change(this.refRenderer);
 		}
 	}
 }

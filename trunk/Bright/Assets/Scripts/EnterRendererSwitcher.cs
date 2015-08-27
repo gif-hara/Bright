@@ -6,8 +6,8 @@ namespace Bright
 	/// <summary>
 	/// .
 	/// </summary>
-	[RequireComponent(typeof(ModelManager))]
-	public class InitializeModel : MonoBehaviour
+	[RequireComponent(typeof(RendererSwitcher))]
+	public class EnterRendererSwitcher : MonoBehaviour
 	{
 		[SerializeField]
 		private Renderer refRenderer;
@@ -15,7 +15,7 @@ namespace Bright
 		// Use this for initialization	
 		void Start ()
 		{
-			GetComponent<ModelManager>().Change(this.refRenderer);
+			GetComponent<RendererSwitcher>().Change(this.refRenderer);
 		}
 	}
 }
