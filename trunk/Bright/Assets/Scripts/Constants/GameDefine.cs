@@ -12,6 +12,8 @@ namespace Bright
 		{
 			Idle,
 			Run,
+			Jump,
+			Fall,
 		}
 	}
 }

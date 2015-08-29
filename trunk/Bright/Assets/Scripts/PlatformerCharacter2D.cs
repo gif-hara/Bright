@@ -12,38 +12,28 @@ namespace Bright
         [SerializeField] private LayerMask m_WhatIsGround;                  // A mask determining what is ground to the character
 
 		[SerializeField]
-		private StateManager refStateManager;
-
-		[SerializeField]
-		private GameObject refIdleState;
-
-		[SerializeField]
-		private GameObject refRunState;
-
-		[SerializeField]
         private Transform refGroundCheck;    // A position marking where to check if the player is grounded.
 
 		[SerializeField]
 		private Rigidbody2D refRigidBody2D;
 
-		const float k_GroundedRadius = .2f; // Radius of the overlap circle to determine if grounded
-        private bool m_Grounded;            // Whether or not the player is grounded.
-        const float k_CeilingRadius = .01f; // Radius of the overlap circle to determine if the player can stand up
+		const float GroundedRadius = .2f; // Radius of the overlap circle to determine if grounded
 
+		public bool Grounded{ private set; get; }            // Whether or not the player is grounded.
 
         private bool m_FacingRight = true;  // For determining which way the player is currently facing.
 
         private void FixedUpdate()
         {
-            m_Grounded = false;
+            Grounded = false;
 
             // The player is grounded if a circlecast to the groundcheck position hits anything designated as ground
             // This can be done using layers instead but Sample Assets will not overwrite your project settings.
-            Collider2D[] colliders = Physics2D.OverlapCircleAll(refGroundCheck.position, k_GroundedRadius, m_WhatIsGround);
+            Collider2D[] colliders = Physics2D.OverlapCircleAll(refGroundCheck.position, GroundedRadius, m_WhatIsGround);
             for (int i = 0; i < colliders.Length; i++)
             {
                 if (colliders[i].gameObject != gameObject)
-                    m_Grounded = true;
+                    Grounded = true;
             }
         }
 
@@ -51,7 +41,7 @@ namespace Bright
         public void Move(float move, bool jump)
         {
             //only control the player if grounded or airControl is turned on
-            if (m_Grounded || m_AirControl)
+            if (Grounded || m_AirControl)
             {
 				if(this.isLocalPlayer)
 				{
@@ -73,10 +63,10 @@ namespace Bright
             }
 
             // If the player should jump...
-            if (m_Grounded && jump)
+            if (Grounded && jump)
             {
                 // Add a vertical force to the player.
-                m_Grounded = false;
+                Grounded = false;
 
 				if(this.isLocalPlayer)
 				{

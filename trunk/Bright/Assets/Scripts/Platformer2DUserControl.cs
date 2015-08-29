@@ -15,12 +15,15 @@ namespace Bright
 
 		private SyncPlayerData syncPlayerData;
 
+		private Rigidbody2D rigidBody2D;
+
 		[ClientCallback]
 		void Awake()
 		{
 			this.character = GetComponent<PlatformerCharacter2D>();
 			this.stateSwitcher = GetComponent<PlayerStateSwitcher>();
 			this.syncPlayerData = GetComponent<SyncPlayerData>();
+			this.rigidBody2D = GetComponent<Rigidbody2D>();
 		}
 
 		[ClientCallback]
@@ -36,19 +39,11 @@ namespace Bright
 		[ClientCallback]
         void FixedUpdate()
         {
-			if(this.isLocalPlayer)
-			{
-				float h = CrossPlatformInputManager.GetAxis("Horizontal") * 10;
-				this.Move(h);
-				var stateType = GameDefine.StateType.Idle;
-				if(h > 0.0f || h < 0.0f)
-				{
-					stateType = GameDefine.StateType.Run;
-				}
-
-				this.stateSwitcher.Change(stateType);
-				this.syncPlayerData.CmdProvideStateTypeToServer((int)stateType);
-			}
+			float h = CrossPlatformInputManager.GetAxis("Horizontal") * 10;
+			this.Move(h);
+			var stateType = GetStateType(h);
+			this.stateSwitcher.Change(stateType);
+			this.syncPlayerData.CmdProvideStateTypeToServer((int)stateType);
             jump = false;
         }
 
@@ -57,5 +52,23 @@ namespace Bright
 			this.character.Move(move, jump);
 		}
 
+		private GameDefine.StateType GetStateType(float moveVector)
+		{
+			var result = GameDefine.StateType.Idle;
+
+			if(this.character.Grounded)
+			{
+				if(moveVector > 0.0f || moveVector < 0.0f)
+				{
+					result = GameDefine.StateType.Run;
+				}
+			}
+			else
+			{
+				result = this.rigidBody2D.velocity.y > 0.0f ? GameDefine.StateType.Jump : GameDefine.StateType.Fall;
+			}
+
+			return result;
+		}
     }
 }

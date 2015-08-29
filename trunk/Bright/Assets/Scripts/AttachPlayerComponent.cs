@@ -19,6 +19,7 @@ namespace Bright
 			}
 			else
 			{
+				go.AddComponent<ChangeStateRemotePlayer>();
 			}
 		}
 	}
