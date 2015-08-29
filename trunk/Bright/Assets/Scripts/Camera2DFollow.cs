@@ -6,7 +6,9 @@ namespace Bright
     public class Camera2DFollow : MonoBehaviour
     {
         public Transform target;
-        public float damping = 1;
+		public float lerpSpeedX = 1;
+		public float lerpSpeedY = 1;
+		public float lerpSpeedZ = 1;
         public float lookAheadFactor = 3;
         public float lookAheadReturnSpeed = 0.5f;
         public float lookAheadMoveThreshold = 0.1f;
@@ -42,7 +44,13 @@ namespace Bright
             }
 
             Vector3 aheadTargetPos = target.position + m_LookAheadPos + Vector3.forward*m_OffsetZ;
-            Vector3 newPos = Vector3.SmoothDamp(transform.position, aheadTargetPos, ref m_CurrentVelocity, damping);
+			Vector3 newPos = new Vector3(
+				Mathf.Lerp(this.transform.position.x, aheadTargetPos.x, lerpSpeedX),
+				Mathf.Lerp(this.transform.position.y, aheadTargetPos.y, lerpSpeedY),
+				Mathf.Lerp(this.transform.position.z, aheadTargetPos.z, lerpSpeedZ)
+				);
+				
+//            Vector3 newPos = Vector3.SmoothDamp(transform.position, aheadTargetPos, ref m_CurrentVelocity, damping);
 
             transform.position = newPos;
 

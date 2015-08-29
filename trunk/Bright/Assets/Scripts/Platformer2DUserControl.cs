@@ -39,7 +39,7 @@ namespace Bright
 		[ClientCallback]
         void FixedUpdate()
         {
-			float h = CrossPlatformInputManager.GetAxis("Horizontal") * 10;
+			float h = HorizontalMoveVector;
 			this.Move(h);
 			var stateType = GetStateType(h);
 			this.stateSwitcher.Change(stateType);
@@ -50,6 +50,27 @@ namespace Bright
 		private void Move(float move)
 		{
 			this.character.Move(move, jump);
+		}
+
+		private float HorizontalMoveVector
+		{
+			get
+			{
+				float result = 0.0f;
+
+				if(Bright.Input.LeftButton)
+				{
+					result -= 1.0f;
+				}
+				if(Bright.Input.RightButton)
+				{
+					result += 1.0f;
+				}
+
+				result *= 10;
+
+				return result;
+			}
 		}
 
 		private GameDefine.StateType GetStateType(float moveVector)
