@@ -58,12 +58,6 @@ namespace Bright
                 	refRigidBody2D.velocity = new Vector2(move*m_MaxSpeed, refRigidBody2D.velocity.y);
 				}
 
-				if(m_Grounded)
-				{
-					refRigidBody2D.velocity += Vector2.down;
-					Debug.Log("?");
-				}
-
                 // If the input is moving the player right and the player is facing left...
                 if (move > 0 && !m_FacingRight)
                 {

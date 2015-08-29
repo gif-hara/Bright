@@ -7,72 +7,54 @@ namespace Bright
 {
     public class Platformer2DUserControl : NetworkBehaviour
     {
-		[SerializeField]
-		private PlatformerCharacter2D refCharacter;
+        private bool jump;
 
-		[SerializeField]
-		private float moveSpeed = 1.0f;
-
-		[SyncVar]
-		private float syncMove;
-
-        private PlatformerCharacter2D m_Character;
-        private bool m_Jump;
-
+		private PlatformerCharacter2D character;
+		
 		private PlayerStateSwitcher stateSwitcher;
 
+		private SyncPlayerData syncPlayerData;
+
+		[ClientCallback]
 		void Awake()
 		{
+			this.character = GetComponent<PlatformerCharacter2D>();
 			this.stateSwitcher = GetComponent<PlayerStateSwitcher>();
+			this.syncPlayerData = GetComponent<SyncPlayerData>();
 		}
 
-        private void Update()
+		[ClientCallback]
+        void Update()
         {
-			if(this.isLocalPlayer)
-			{
-            	if (!m_Jump)
-            	{
-            	    // Read the jump input in Update so button presses aren't missed.
-            	    m_Jump = CrossPlatformInputManager.GetButtonDown("Jump");
-            	}
-			}
+        	if (!jump)
+        	{
+        	    // Read the jump input in Update so button presses aren't missed.
+        	    jump = CrossPlatformInputManager.GetButtonDown("Jump");
+        	}
         }
 
-        private void FixedUpdate()
+		[ClientCallback]
+        void FixedUpdate()
         {
 			if(this.isLocalPlayer)
 			{
-				float h = CrossPlatformInputManager.GetAxis("Horizontal");
-				h *= this.moveSpeed;
+				float h = CrossPlatformInputManager.GetAxis("Horizontal") * 10;
 				this.Move(h);
-				this.TransmitMove(h);
+				var stateType = GameDefine.StateType.Idle;
 				if(h > 0.0f || h < 0.0f)
 				{
-					this.stateSwitcher.Change(PlayerStateSwitcher.StateType.Run);
+					stateType = GameDefine.StateType.Run;
 				}
-				else
-				{
-					this.stateSwitcher.Change(PlayerStateSwitcher.StateType.Idle);
-				}
+
+				this.stateSwitcher.Change(stateType);
+				this.syncPlayerData.CmdProvideStateTypeToServer((int)stateType);
 			}
-            m_Jump = false;
+            jump = false;
         }
 
 		private void Move(float move)
 		{
-			this.refCharacter.Move(move, m_Jump);
-		}
-
-		[Command]
-		void CmdProvideMoveToServer(float syncMove)
-		{
-			this.syncMove = syncMove;
-		}
-
-		[Client]
-		void TransmitMove(float move)
-		{
-			CmdProvideMoveToServer(move);
+			this.character.Move(move, jump);
 		}
 
     }

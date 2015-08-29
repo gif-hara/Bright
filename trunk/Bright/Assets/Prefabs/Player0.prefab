@@ -95,6 +95,7 @@ GameObject:
   - 4: {fileID: 466872}
   - 114: {fileID: 11444018}
   - 114: {fileID: 11403556}
+  - 114: {fileID: 11449082}
   m_Layer: 8
   m_Name: CameraPivot
   m_TagString: Untagged
@@ -229,13 +230,14 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 425058}
+  - 50: {fileID: 5036072}
   - 114: {fileID: 11468564}
-  - 114: {fileID: 11489376}
-  - 114: {fileID: 11428886}
-  - 114: {fileID: 11414842}
+  - 114: {fileID: 11477194}
+  - 114: {fileID: 11499558}
+  - 114: {fileID: 11452358}
+  - 114: {fileID: 11441384}
   - 114: {fileID: 11478210}
   - 114: {fileID: 11490508}
-  - 50: {fileID: 5036072}
   m_Layer: 8
   m_Name: Player0
   m_TagString: Untagged
@@ -832,7 +834,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 1
   m_AngularDrag: .0500000007
-  m_GravityScale: 3
+  m_GravityScale: 5
   m_IsKinematic: 0
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -958,19 +960,6 @@ MonoBehaviour:
   refRenderer: {fileID: 2302126}
   refRendererSwitcher: {fileID: 11459428}
   isActive: 1
---- !u!114 &11414842
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 158202}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68fbebf58749342b4bc5eec7a0a4424a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  refCharacter: {fileID: 11478210}
-  moveSpeed: 10
 --- !u!114 &11417454
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -983,17 +972,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   refReceiver: {fileID: 160748}
---- !u!114 &11428886
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 158202}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b3c491dbda9b14143aedda4dfbb81de3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &11434040
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1019,6 +997,17 @@ MonoBehaviour:
   refRenderer: {fileID: 2343666}
   refRendererSwitcher: {fileID: 11459428}
   isActive: 1
+--- !u!114 &11441384
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 158202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3c491dbda9b14143aedda4dfbb81de3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11444018
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1031,7 +1020,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 425058}
-  damping: .300000012
+  damping: .200000003
   lookAheadFactor: 3
   lookAheadReturnSpeed: 0
   lookAheadMoveThreshold: .0500000007
@@ -1049,6 +1038,30 @@ MonoBehaviour:
   refRenderer: {fileID: 2359552}
   refRendererSwitcher: {fileID: 11459428}
   isActive: 1
+--- !u!114 &11449082
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 121046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02ab4040b6873b14ba4fbe59382545e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 158202}
+--- !u!114 &11452358
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 158202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6396faa981022234784cb9da353130fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lerpRate: 1
 --- !u!114 &11455024
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1184,6 +1197,18 @@ MonoBehaviour:
   refRenderer: {fileID: 2331888}
   refRendererSwitcher: {fileID: 11459428}
   isActive: 1
+--- !u!114 &11477194
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 158202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32b84ce177513904594353b122453f5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  networkIdentity: {fileID: 11468564}
 --- !u!114 &11478210
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1196,7 +1221,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_MaxSpeed: .800000012
-  m_JumpForce: 1100
+  m_JumpForce: 1200
   m_AirControl: 1
   m_WhatIsGround:
     serializedVersion: 2
@@ -1232,18 +1257,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   refNextState: {fileID: 169030}
   delay: .119999997
---- !u!114 &11489376
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 158202}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6396faa981022234784cb9da353130fc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lerpRate: 1
 --- !u!114 &11490508
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1283,6 +1296,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   refStateObject: {fileID: 176900}
+--- !u!114 &11499558
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 158202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0d5a0fc504b81148bffe5e5ae592394, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!124 &12440720
 Behaviour:
   m_ObjectHideFlags: 1
@@ -1311,7 +1335,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: lerpRate
@@ -1343,7 +1367,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_JumpForce
-      value: 1100
+      value: 1200
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: lookAheadFactor
@@ -1351,7 +1375,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: damping
-      value: .300000012
+      value: .200000003
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: lookAheadMoveThreshold
@@ -1361,6 +1385,46 @@ Prefab:
       propertyPath: lookAheadReturnSpeed
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_GravityScale
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: maxXAndY.x
+      value: 99999
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: maxXAndY.y
+      value: 99999
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: minXAndY.x
+      value: -99999
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: minXAndY.y
+      value: -99999
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Player
+      value: 
+      objectReference: {fileID: 425058}
+    - target: {fileID: 0}
+      propertyPath: yMargin
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: xSmooth
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: ySmooth
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: networkIdentity
+      value: 
+      objectReference: {fileID: 11468564}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 158202}

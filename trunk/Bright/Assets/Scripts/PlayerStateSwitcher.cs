@@ -9,19 +9,13 @@ namespace Bright
 	/// </summary>
 	public class PlayerStateSwitcher : MonoBehaviour
 	{
-		public enum StateType : int
-		{
-			Idle,
-			Run,
-		}
-
 		[SerializeField]
 		private StateManager refStateManager;
 
 		[SerializeField]
 		private List<GameObject> stateObjects;
 
-		public void Change(StateType stateType)
+		public void Change(GameDefine.StateType stateType)
 		{
 			this.refStateManager.Change(this.stateObjects[(int)stateType]);
 		}

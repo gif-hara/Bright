@@ -11,7 +11,7 @@ namespace Bright
 	public class SyncPosition : NetworkBehaviour
 	{
 		[SerializeField]
-		private float lerpRate;
+		private float lerpRate = 1.0f;
 
 		[SyncVar]
 		private Vector3 syncPos;
