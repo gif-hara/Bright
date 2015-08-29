@@ -98,7 +98,7 @@ GameObject:
   - 20: {fileID: 27951430}
   - 92: {fileID: 27951428}
   m_Layer: 0
-  m_Name: Camera
+  m_Name: DefaultCamera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

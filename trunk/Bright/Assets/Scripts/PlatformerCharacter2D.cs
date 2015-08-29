@@ -58,6 +58,12 @@ namespace Bright
                 	refRigidBody2D.velocity = new Vector2(move*m_MaxSpeed, refRigidBody2D.velocity.y);
 				}
 
+				if(m_Grounded)
+				{
+					refRigidBody2D.velocity += Vector2.down;
+					Debug.Log("?");
+				}
+
                 // If the input is moving the player right and the player is facing left...
                 if (move > 0 && !m_FacingRight)
                 {
@@ -83,18 +89,6 @@ namespace Bright
                 	refRigidBody2D.AddForce(new Vector2(0f, m_JumpForce));
 				}
             }
-
-			if(m_Grounded)
-			{
-				if(move > 0.0f || move < 0.0f)
-				{
-					this.refStateManager.Change(this.refRunState);
-				}
-				else
-				{
-					this.refStateManager.Change(this.refIdleState);
-				}
-			}
         }
 
         private void Flip()

@@ -60,7 +60,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 442270}
   - 61: {fileID: 6133594}
-  - 58: {fileID: 5830640}
+  - 58: {fileID: 5864898}
   m_Layer: 8
   m_Name: Collider
   m_TagString: Untagged
@@ -94,8 +94,9 @@ GameObject:
   m_Component:
   - 4: {fileID: 466872}
   - 114: {fileID: 11444018}
+  - 114: {fileID: 11403556}
   m_Layer: 8
-  m_Name: Camera
+  m_Name: CameraPivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -233,9 +234,10 @@ GameObject:
   - 114: {fileID: 11428886}
   - 114: {fileID: 11414842}
   - 114: {fileID: 11478210}
+  - 114: {fileID: 11490508}
   - 50: {fileID: 5036072}
   m_Layer: 8
-  m_Name: Character0
+  m_Name: Player0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -650,7 +652,7 @@ Camera:
   near clip plane: .300000012
   far clip plane: 1000
   field of view: 60
-  orthographic: 0
+  orthographic: 1
   orthographic size: 5
   m_Depth: -1
   m_CullingMask:
@@ -836,19 +838,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!58 &5830640
+--- !u!58 &5864898
 CircleCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 113404}
   m_Enabled: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 90248314334643d45b129c2e14be1b63, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: 0, y: .300000012}
+  m_Offset: {x: 0, y: .25}
   serializedVersion: 2
-  m_Radius: .300000012
+  m_Radius: .25
 --- !u!61 &6133594
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -856,12 +858,12 @@ BoxCollider2D:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 113404}
   m_Enabled: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 90248314334643d45b129c2e14be1b63, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: 0, y: .75}
+  m_Offset: {x: 0, y: .699999988}
   serializedVersion: 2
-  m_Size: {x: .600000024, y: 1}
+  m_Size: {x: .5, y: 1}
 --- !u!81 &8103964
 AudioListener:
   m_ObjectHideFlags: 1
@@ -876,6 +878,18 @@ Behaviour:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 178384}
   m_Enabled: 1
+--- !u!114 &11403556
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 121046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e63ddfc83fb88745a20a79242e4a67d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timing: 0
 --- !u!114 &11404888
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1011,16 +1025,16 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 121046}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e55f3cd1e2fec7a408c9d610e5b0957e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  damping: 0
-  lookAheadFactor: 0
+  target: {fileID: 425058}
+  damping: .300000012
+  lookAheadFactor: 3
   lookAheadReturnSpeed: 0
-  lookAheadMoveThreshold: 0
+  lookAheadMoveThreshold: .0500000007
 --- !u!114 &11447282
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1182,7 +1196,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_MaxSpeed: .800000012
-  m_JumpForce: 1000
+  m_JumpForce: 1100
   m_AirControl: 1
   m_WhatIsGround:
     serializedVersion: 2
@@ -1230,6 +1244,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lerpRate: 1
+--- !u!114 &11490508
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 158202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37a38288174e0e24fa999175f911ae6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  refStateManager: {fileID: 11410008}
+  stateObjects:
+  - {fileID: 176900}
+  - {fileID: 102086}
 --- !u!114 &11491026
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1303,7 +1332,7 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_Material
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 6200000, guid: 90248314334643d45b129c2e14be1b63, type: 2}
     - target: {fileID: 0}
       propertyPath: m_SleepingMode
       value: 1
@@ -1314,7 +1343,23 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_JumpForce
-      value: 1000
+      value: 1100
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: lookAheadFactor
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: damping
+      value: .300000012
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: lookAheadMoveThreshold
+      value: .0500000007
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: lookAheadReturnSpeed
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

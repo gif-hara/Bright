@@ -19,6 +19,12 @@ namespace Bright
         private PlatformerCharacter2D m_Character;
         private bool m_Jump;
 
+		private PlayerStateSwitcher stateSwitcher;
+
+		void Awake()
+		{
+			this.stateSwitcher = GetComponent<PlayerStateSwitcher>();
+		}
 
         private void Update()
         {
@@ -40,10 +46,14 @@ namespace Bright
 				h *= this.moveSpeed;
 				this.Move(h);
 				this.TransmitMove(h);
-			}
-			else
-			{
-				this.Move(syncMove);
+				if(h > 0.0f || h < 0.0f)
+				{
+					this.stateSwitcher.Change(PlayerStateSwitcher.StateType.Run);
+				}
+				else
+				{
+					this.stateSwitcher.Change(PlayerStateSwitcher.StateType.Idle);
+				}
 			}
             m_Jump = false;
         }
