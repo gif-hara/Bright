@@ -1535,7 +1535,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6396faa981022234784cb9da353130fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lerpRate: 1
+  lerpRate: .800000012
 --- !u!114 &11455024
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1883,7 +1883,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: lerpRate
-      value: 1
+      value: .800000012
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_MaxSpeed
