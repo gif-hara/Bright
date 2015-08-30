@@ -14,6 +14,7 @@ namespace Bright
 			Run,
 			Jump,
 			Fall,
+			Attack,
 		}
 	}
 }

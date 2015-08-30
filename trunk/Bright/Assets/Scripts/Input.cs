@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using UnityStandardAssets.CrossPlatformInput;
 
 namespace Bright
 {
@@ -12,18 +13,20 @@ namespace Bright
 
 		private const string RightName = "Right";
 
+		private const string AttackName = "Attack";
+
 		public static bool LeftButton
 		{
 			get
 			{
-				return UnityEngine.Input.GetButton(LeftName);
+				return CrossPlatformInputManager.GetButton(LeftName);
 			}
 		}
 		public static bool LeftButtonDown
 		{
 			get
 			{
-				return UnityEngine.Input.GetButtonDown(LeftName);
+				return CrossPlatformInputManager.GetButtonDown(LeftName);
 			}
 		}
 
@@ -31,14 +34,37 @@ namespace Bright
 		{
 			get
 			{
-				return UnityEngine.Input.GetButton(RightName);
+				return CrossPlatformInputManager.GetButton(RightName);
 			}
 		}
 		public static bool RightButtonDown
 		{
 			get
 			{
-				return UnityEngine.Input.GetButtonDown(RightName);
+				return CrossPlatformInputManager.GetButtonDown(RightName);
+			}
+		}
+
+		public static bool JumpButtonDown
+		{
+			get
+			{
+				return CrossPlatformInputManager.GetButtonDown("Jump");
+			}
+		}
+
+		public static bool AttackButton
+		{
+			get
+			{
+				return CrossPlatformInputManager.GetButton(AttackName);
+			}
+		}
+		public static bool AttackButtonDown
+		{
+			get
+			{
+				return CrossPlatformInputManager.GetButtonDown(AttackName);
 			}
 		}
 	}

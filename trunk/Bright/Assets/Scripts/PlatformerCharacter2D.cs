@@ -38,7 +38,7 @@ namespace Bright
         }
 
 
-        public void Move(float move, bool jump)
+        public void Move(float move, bool jump, bool lockDirection)
         {
             //only control the player if grounded or airControl is turned on
             if (Grounded || m_AirControl)
@@ -49,13 +49,13 @@ namespace Bright
 				}
 
                 // If the input is moving the player right and the player is facing left...
-                if (move > 0 && !m_FacingRight)
+				if (move > 0 && !m_FacingRight && !lockDirection)
                 {
                     // ... flip the player.
                     Flip();
                 }
                     // Otherwise if the input is moving the player left and the player is facing right...
-                else if (move < 0 && m_FacingRight)
+				else if (move < 0 && m_FacingRight && !lockDirection)
                 {
                     // ... flip the player.
                     Flip();
