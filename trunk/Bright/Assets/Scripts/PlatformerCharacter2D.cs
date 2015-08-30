@@ -23,6 +23,13 @@ namespace Bright
 
         private bool m_FacingRight = true;  // For determining which way the player is currently facing.
 
+		private SyncScale syncScale;
+
+		void Start()
+		{
+			this.syncScale = GetComponent<SyncScale>();
+		}
+
         private void FixedUpdate()
         {
             Grounded = false;
@@ -35,6 +42,8 @@ namespace Bright
                 if (colliders[i].gameObject != gameObject)
                     Grounded = true;
             }
+
+
         }
 
 
@@ -84,6 +93,17 @@ namespace Bright
             Vector3 theScale = transform.localScale;
             theScale.x *= -1;
             transform.localScale = theScale;
+
+			if(this.isLocalPlayer)
+			{
+				TransmitScale();
+			}
         }
+
+		[Client]
+		void TransmitScale()
+		{
+			this.syncScale.CmdProvideScaleToServer(this.transform.localScale);
+		}
     }
 }

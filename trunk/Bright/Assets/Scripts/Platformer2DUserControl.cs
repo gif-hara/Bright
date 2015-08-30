@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.Networking;
 using UnityStandardAssets.CrossPlatformInput;
 
@@ -25,24 +26,31 @@ namespace Bright
 
 		private Rigidbody2D rigidBody2D;
 
+		private GameObject attackEvent;
+
 		void Awake()
 		{
 			this.character = GetComponent<PlatformerCharacter2D>();
 			this.stateSwitcher = GetComponent<PlayerStateSwitcher>();
 			this.syncPlayerData = GetComponent<SyncPlayerData>();
 			this.rigidBody2D = GetComponent<Rigidbody2D>();
+			this.attackEvent = GetComponentInChildren(typeof(IReceiveStartAttack)).gameObject;
 		}
 
         void Update()
         {
         	if (!this.jump)
         	{
-        	    // Read the jump input in Update so button presses aren't missed.
 				jump = Bright.Input.JumpButtonDown;
         	}
 			if(!this.attack && Bright.Input.AttackButton)
 			{
 				this.attack = true;
+				ExecuteEvents.Execute<IReceiveStartAttack>(
+					this.attackEvent,
+					null,
+					(handler, eventData) => handler.OnStartAttack()
+					);
 			}
 			if(!this.lockDirection)
 			{

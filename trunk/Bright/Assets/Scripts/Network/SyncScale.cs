@@ -10,8 +10,17 @@ namespace Bright
 	[NetworkSettings(channel = 1, sendInterval = 0.0f)]
 	public class SyncScale : NetworkBehaviour
 	{
+		[SerializeField]
+		private bool autoProvideToServer;
+
 		[SyncVar]
 		private Vector3 syncScale;
+
+		[ClientCallback]
+		void Start()
+		{
+			syncScale = this.transform.localScale;
+		}
 
 		[ClientCallback]
 		void Update()
@@ -27,7 +36,7 @@ namespace Bright
 		}
 
 		[Command]
-		private void CmdProvideScaleToServer(Vector3 syncScale)
+		public void CmdProvideScaleToServer(Vector3 syncScale)
 		{
 			this.syncScale = syncScale;
 		}
@@ -35,10 +44,12 @@ namespace Bright
 		[Client]
 		private void TransmitScale()
 		{
-			if(this.isLocalPlayer)
+			if(!this.autoProvideToServer)
 			{
-				CmdProvideScaleToServer(this.transform.localScale);
+				return;
 			}
+
+			CmdProvideScaleToServer(this.transform.localScale);
 		}
 
 	}
