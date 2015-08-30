@@ -111,6 +111,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 410988}
+  - 114: {fileID: 11450582}
   m_Layer: 0
   m_Name: AttackEvent
   m_TagString: Untagged
@@ -388,7 +389,7 @@ GameObject:
   - 114: {fileID: 11487706}
   - 114: {fileID: 11478210}
   - 114: {fileID: 11490508}
-  - 114: {fileID: 11475960}
+  - 114: {fileID: 11434680}
   m_Layer: 8
   m_Name: Player0
   m_TagString: Untagged
@@ -1454,6 +1455,18 @@ MonoBehaviour:
   refRenderer: {fileID: 2343666}
   refRendererSwitcher: {fileID: 11459428}
   isActive: 1
+--- !u!114 &11434680
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 158202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14fa0c0657dfd4368b627c2e0cd07c5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  receiver: {fileID: 117800}
 --- !u!114 &11442616
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1524,6 +1537,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 158202}
+--- !u!114 &11450582
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 117800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3cf82095ca2149d9b60f2c90c55b063, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  refParent: {fileID: 410988}
+  prefab: {fileID: 141230, guid: 6eca6088b7991468eb7d13ea793bfc12, type: 2}
 --- !u!114 &11452358
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1535,6 +1561,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6396faa981022234784cb9da353130fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  autoProvideToServer: 0
   lerpRate: .800000012
 --- !u!114 &11455024
 MonoBehaviour:
@@ -1655,19 +1682,6 @@ MonoBehaviour:
   refRenderer: {fileID: 2331888}
   refRendererSwitcher: {fileID: 11459428}
   isActive: 1
---- !u!114 &11475960
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 158202}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d3cf82095ca2149d9b60f2c90c55b063, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  refParent: {fileID: 410988}
-  prefab: {fileID: 141230, guid: 6eca6088b7991468eb7d13ea793bfc12, type: 2}
 --- !u!114 &11476050
 MonoBehaviour:
   m_ObjectHideFlags: 1

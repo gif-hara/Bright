@@ -26,7 +26,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 443690}
   - 114: {fileID: 11457724}
-  - 50: {fileID: 5037654}
   m_Layer: 0
   m_Name: AttackTest
   m_TagString: Untagged
@@ -90,22 +89,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 126500}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!50 &5037654
-Rigidbody2D:
-  serializedVersion: 2
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 141230}
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: .0500000007
-  m_GravityScale: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!114 &11457724
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -26,7 +26,7 @@ namespace Bright
 
 		private Rigidbody2D rigidBody2D;
 
-		private GameObject attackEvent;
+		private ExecuteOnStartAttack executeOnStartAttack;
 
 		void Awake()
 		{
@@ -34,7 +34,7 @@ namespace Bright
 			this.stateSwitcher = GetComponent<PlayerStateSwitcher>();
 			this.syncPlayerData = GetComponent<SyncPlayerData>();
 			this.rigidBody2D = GetComponent<Rigidbody2D>();
-			this.attackEvent = GetComponentInChildren(typeof(IReceiveStartAttack)).gameObject;
+			this.executeOnStartAttack = GetComponent<ExecuteOnStartAttack>();
 		}
 
         void Update()
@@ -46,11 +46,7 @@ namespace Bright
 			if(!this.attack && Bright.Input.AttackButton)
 			{
 				this.attack = true;
-				ExecuteEvents.Execute<IReceiveStartAttack>(
-					this.attackEvent,
-					null,
-					(handler, eventData) => handler.OnStartAttack()
-					);
+				this.executeOnStartAttack.Execute();
 			}
 			if(!this.lockDirection)
 			{
