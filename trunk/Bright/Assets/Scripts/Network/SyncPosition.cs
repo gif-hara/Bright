@@ -11,6 +11,9 @@ namespace Bright
 	public class SyncPosition : NetworkBehaviour
 	{
 		[SerializeField]
+		private bool autoProvideToServer;
+
+		[SerializeField]
 		private float lerpRate = 1.0f;
 
 		[SyncVar]
@@ -30,7 +33,7 @@ namespace Bright
 		}
 
 		[Command]
-		void CmdProvidePositionToServer(Vector3 position)
+		public void CmdProvidePositionToServer(Vector3 position)
 		{
 			this.syncPos = position;
 		}
@@ -38,10 +41,12 @@ namespace Bright
 		[Client]
 		void TransmitPosition()
 		{
-			if(this.isLocalPlayer)
+			if(!this.autoProvideToServer)
 			{
-				CmdProvidePositionToServer(this.transform.position);
+				return;
 			}
+
+			CmdProvidePositionToServer(this.transform.position);
 		}
 	}
 }

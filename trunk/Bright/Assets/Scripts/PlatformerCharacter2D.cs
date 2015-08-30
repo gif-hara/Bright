@@ -23,10 +23,13 @@ namespace Bright
 
         private bool m_FacingRight = true;  // For determining which way the player is currently facing.
 
+		private SyncPosition syncPosition;
+
 		private SyncScale syncScale;
 
 		void Start()
 		{
+			this.syncPosition = GetComponent<SyncPosition>();
 			this.syncScale = GetComponent<SyncScale>();
 		}
 
@@ -82,6 +85,11 @@ namespace Bright
                 	refRigidBody2D.AddForce(new Vector2(0f, m_JumpForce));
 				}
             }
+
+			if(this.isLocalPlayer && refRigidBody2D.velocity.sqrMagnitude > 0.0f)
+			{
+				TransmitPosition();
+			}
         }
 
         private void Flip()
@@ -99,6 +107,12 @@ namespace Bright
 				TransmitScale();
 			}
         }
+
+		[Client]
+		void TransmitPosition()
+		{
+			this.syncPosition.CmdProvidePositionToServer(this.transform.position);
+		}
 
 		[Client]
 		void TransmitScale()
