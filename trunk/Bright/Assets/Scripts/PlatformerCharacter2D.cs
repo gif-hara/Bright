@@ -27,6 +27,8 @@ namespace Bright
 
 		private SyncScale syncScale;
 
+		private bool lastMove;
+
 		void Start()
 		{
 			this.syncPosition = GetComponent<SyncPosition>();
@@ -88,6 +90,12 @@ namespace Bright
 
 			if(this.isLocalPlayer && refRigidBody2D.velocity.sqrMagnitude > 0.0f)
 			{
+				this.lastMove = true;
+				TransmitPosition();
+			}
+			else if(this.isLocalPlayer && this.lastMove)
+			{
+				this.lastMove = false;
 				TransmitPosition();
 			}
         }

@@ -78,7 +78,7 @@ GameObject:
   - 4: {fileID: 442270}
   - 61: {fileID: 6133594}
   - 58: {fileID: 5864898}
-  - 58: {fileID: 5833554}
+  - 58: {fileID: 5825116}
   m_Layer: 8
   m_Name: Collider
   m_TagString: Untagged
@@ -383,6 +383,7 @@ GameObject:
   - 4: {fileID: 425058}
   - 50: {fileID: 5036072}
   - 114: {fileID: 11468564}
+  - 114: {fileID: 11471368}
   - 114: {fileID: 11477194}
   - 114: {fileID: 11499558}
   - 114: {fileID: 11452358}
@@ -392,6 +393,22 @@ GameObject:
   - 114: {fileID: 11434680}
   m_Layer: 8
   m_Name: Player0
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &160528
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 435340}
+  - 61: {fileID: 6167478}
+  m_Layer: 10
+  m_Name: CreateNextChunkCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -634,6 +651,7 @@ Transform:
   - {fileID: 476452}
   - {fileID: 442270}
   - {fileID: 410988}
+  - {fileID: 435340}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &433642
@@ -648,6 +666,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 437500}
   m_RootOrder: 3
+--- !u!4 &435340
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 160528}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 425058}
+  m_RootOrder: 7
 --- !u!4 &435492
 Transform:
   m_ObjectHideFlags: 1
@@ -731,8 +761,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 178384}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalRotation: {x: .130526215, y: 0, z: 0, w: .991444886}
+  m_LocalPosition: {x: 0, y: 3.5, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 466872}
@@ -942,7 +972,7 @@ Camera:
   m_GameObject: {fileID: 178384}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
+  m_ClearFlags: 3
   m_BackGroundColor: {r: .192156866, g: .301960796, b: .474509805, a: .0196078438}
   m_NormalizedViewPortRect:
     serializedVersion: 2
@@ -954,7 +984,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 8
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1225,14 +1255,14 @@ Rigidbody2D:
   m_GameObject: {fileID: 158202}
   m_Mass: 1
   m_LinearDrag: 1
-  m_AngularDrag: .0500000007
+  m_AngularDrag: .5
   m_GravityScale: 5
   m_IsKinematic: 0
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!58 &5833554
+--- !u!58 &5825116
 CircleCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -1242,7 +1272,7 @@ CircleCollider2D:
   m_Material: {fileID: 6200000, guid: 90248314334643d45b129c2e14be1b63, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: .150000006, y: .150000006}
+  m_Offset: {x: .100000001, y: .150000006}
   serializedVersion: 2
   m_Radius: .150000006
 --- !u!58 &5864898
@@ -1255,7 +1285,7 @@ CircleCollider2D:
   m_Material: {fileID: 6200000, guid: 90248314334643d45b129c2e14be1b63, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: -.150000006, y: .150000006}
+  m_Offset: {x: -.100000001, y: .150000006}
   serializedVersion: 2
   m_Radius: .150000006
 --- !u!61 &6133594
@@ -1270,7 +1300,20 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: .699999988}
   serializedVersion: 2
-  m_Size: {x: .5, y: 1}
+  m_Size: {x: .5, y: 1.125}
+--- !u!61 &6167478
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 160528}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Size: {x: 40, y: 40}
 --- !u!81 &8103964
 AudioListener:
   m_ObjectHideFlags: 1
@@ -1493,12 +1536,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 425058}
-  lerpSpeedX: .100000001
-  lerpSpeedY: .899999976
+  lerpSpeedX: .0299999993
+  lerpSpeedY: .699999988
   lerpSpeedZ: 1
-  lookAheadFactor: 3
+  lookAheadFactor: 5
   lookAheadReturnSpeed: 0
-  lookAheadMoveThreshold: .100000001
+  lookAheadMoveThreshold: .170000002
 --- !u!114 &11447282
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1644,6 +1687,17 @@ MonoBehaviour:
     i15: 156
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 1
+--- !u!114 &11471368
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 158202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2af4c1d8e441a4d40982f47e5ad4799c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11473868
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1743,12 +1797,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 980d51e93d1a54058ab30c109570c46e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_MaxSpeed: .800000012
+  m_MaxSpeed: 10
   m_JumpForce: 1200
   m_AirControl: 1
   m_WhatIsGround:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 512
   refGroundCheck: {fileID: 442162}
   refRigidBody2D: {fileID: 5036072}
 --- !u!114 &11480984
@@ -1901,7 +1955,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_MaxSpeed
-      value: .800000012
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: refBehaviours.Array.data[4]
@@ -1909,7 +1963,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_WhatIsGround.m_Bits
-      value: 1
+      value: 512
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Material
@@ -1929,7 +1983,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: lookAheadFactor
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: damping
@@ -1937,7 +1991,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: lookAheadMoveThreshold
-      value: .100000001
+      value: .170000002
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: lookAheadReturnSpeed
@@ -1985,11 +2039,19 @@ Prefab:
       objectReference: {fileID: 11468564}
     - target: {fileID: 0}
       propertyPath: lerpSpeedX
-      value: .100000001
+      value: .0299999993
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: lerpSpeedY
-      value: .899999976
+      value: .699999988
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_IsKinematic
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_AngularDrag
+      value: .5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

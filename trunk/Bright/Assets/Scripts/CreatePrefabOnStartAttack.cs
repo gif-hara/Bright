@@ -19,6 +19,7 @@ namespace Bright
 			var instance = Instantiate(prefab);
 			instance.transform.parent = this.refParent;
 			instance.transform.localPosition = Vector3.zero;
+			instance.transform.localScale = this.prefab.transform.localScale;
 		}
 	}
 }

@@ -48,10 +48,8 @@ namespace Bright
 				this.attack = true;
 				this.executeOnStartAttack.Execute();
 			}
-			if(!this.lockDirection)
-			{
-				this.lockDirection = Bright.Input.AttackButton;
-			}
+
+			this.lockDirection = Bright.Input.AttackButton;
 
 			this.velocity = HorizontalMoveVelocity;
 			ChangeState(GetStateType(this.velocity));
@@ -59,14 +57,13 @@ namespace Bright
 
         void FixedUpdate()
         {
-			this.Move(this.FinalVelocity, this.jump, this.lockDirection);
+			this.Move(this.FinalVelocity, this.jump, this.lockDirection || this.attack);
             jump = false;
         }
 
 		public void OnEndAttack()
 		{
 			this.attack = false;
-			this.lockDirection = Bright.Input.AttackButton;
 			ChangeState(GetStateType(this.velocity));
 		}
 
@@ -101,8 +98,6 @@ namespace Bright
 				{
 					result += 1.0f;
 				}
-
-				result *= 10;
 
 				return result;
 			}

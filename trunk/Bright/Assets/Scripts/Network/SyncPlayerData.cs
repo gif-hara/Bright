@@ -12,29 +12,24 @@ namespace Bright
 	[NetworkSettings(channel = 2, sendInterval=0.0f)]
 	public class SyncPlayerData : NetworkBehaviour
 	{
-		[SyncVar]
+		[SyncVar(hook = "SyncStateType")]
 		private int syncStateType;
-
-		private GameDefine.StateType currentStateType;
-
-		[ClientCallback]
-		void Update()
-		{
-			if(this.currentStateType != (GameDefine.StateType)this.syncStateType)
-			{
-				this.currentStateType = (GameDefine.StateType)this.syncStateType;
-				ExecuteEvents.Execute<IReceiveChangeStateRemotePlayer>(
-					this.gameObject,
-					null,
-					(handler, eventData) => handler.OnChangeStateRemotePlayer(this.currentStateType)
-					);
-			}
-		}
 
 		[Command]
 		public void CmdProvideStateTypeToServer(int stateId)
 		{
 			this.syncStateType = stateId;
+		}
+
+		[Client]
+		void SyncStateType(int stateType)
+		{
+			this.syncStateType = stateType;
+			ExecuteEvents.Execute<IReceiveChangeStateRemotePlayer>(
+				this.gameObject,
+				null,
+				(handler, eventData) => handler.OnChangeStateRemotePlayer((GameDefine.StateType)this.syncStateType)
+				);
 		}
 	}
 }
