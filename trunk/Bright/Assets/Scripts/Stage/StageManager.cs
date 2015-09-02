@@ -10,11 +10,19 @@ namespace Bright
 	/// </summary>
 	public class StageManager : NetworkBehaviour
 	{
+		public GameObject BlockPrefab{ get{ return this.blockPrefab; } }
 		[SerializeField]
 		private GameObject blockPrefab;
 
 		[SerializeField]
+		private FloorHolder floorHolder;
+
+		[SerializeField]
 		private GameObject nextChunkColliderPrefab;
+
+		private int currentChunkIndex = 0;
+
+		private List<FloorCreator> floorCreators = new List <FloorCreator>();
 
 		private Dictionary<int, Dictionary<int, ChunkData>> chunkMap = new Dictionary<int, Dictionary<int, ChunkData>>();
 
@@ -22,6 +30,8 @@ namespace Bright
 		private static StageManager instance;
 
 		private const int ChunkSize = 30;
+
+		private const int FloorCreatorIntervalY = 5;
 
 		void Awake()
 		{
@@ -34,92 +44,67 @@ namespace Bright
 		[ServerCallback]
 		void Start ()
 		{
-			this.CreateInitialChunk(0, 0);
+			this.CreateInitialChunk();
 		}
 
-		void OnDrawGizmosSelected()
-		{
-			var halfChunkSize = ChunkSize / 2;
-			for(int y=0; y<ChunkSize; y++)
-			{
-				for(int x=0; x<ChunkSize; x++)
-				{
-					Gizmos.DrawWireCube(GetPosition(x, y, halfChunkSize, halfChunkSize), new Vector3(ChunkSize, ChunkSize, 0.0f));
-				}
-			}
-		}
+//		void OnDrawGizmosSelected()
+//		{
+//			var halfChunkSize = ChunkSize / 2;
+//			for(int y=0; y<ChunkSize; y++)
+//			{
+//				for(int x=0; x<ChunkSize; x++)
+//				{
+//					Gizmos.DrawWireCube(GetPosition(x, y, halfChunkSize, halfChunkSize), new Vector3(ChunkSize, ChunkSize, 0.0f));
+//				}
+//			}
+//		}
 
 		[Command]
-		void CmdCreateBlock(GameObject prefab, int xChunk, int yChunk, int xIndex, int yIndex)
+		public void CmdCreateBlock(GameObject prefab, int xIndex, int yIndex)
 		{
 			var block = Instantiate(prefab);
-			block.transform.position = GetPosition(xChunk, yChunk, xIndex, yIndex);
+			block.transform.position = GetPosition(this.currentChunkIndex, xIndex, yIndex);
 
 			NetworkServer.Spawn(block);
 		}
 
 		[Command]
-		void CmdNextChunkCollider(int xChunk, int yChunk)
+		private void CmdNextChunkCollider(int chunkIndex)
 		{
 			var nextChunkCollider = Instantiate(this.nextChunkColliderPrefab);
-			nextChunkCollider.transform.position = GetPosition(xChunk, yChunk, 0, 0);
+			nextChunkCollider.transform.position = GetPosition(chunkIndex, 0, 0);
 
 			NetworkServer.Spawn(nextChunkCollider);
+		}
+
+		[Command]
+		private void CmdCreateFloorCreator()
+		{
+			var floorCreator = new FloorCreator(this, (this.floorCreators.Count * FloorCreatorIntervalY) + 1);
+			this.floorCreators.Add(floorCreator);
 		}
 
 		/// <summary>
 		/// 初期チャンクを生成する.
 		/// </summary>
-		public void CreateInitialChunk(int xChunk, int yChunk)
+		[Server]
+		public void CreateInitialChunk()
 		{
-			for(int x=0; x<ChunkSize; x++)
-			{
-				this.CmdCreateBlock(this.blockPrefab, xChunk, yChunk, x, ChunkSize / 2);
-			}
+			this.CreateGround();
+			this.CreateWall(0);
+			this.CmdCreateFloorCreator();
 
-			for(int y=0; y<ChunkSize / 2; y++)
-			{
-				this.CmdCreateBlock(this.blockPrefab, xChunk, yChunk, 0, y);
-			}
-			for(int y=ChunkSize / 2; y<ChunkSize; y++)
-			{
-				this.CmdCreateBlock(this.blockPrefab, xChunk, yChunk, ChunkSize - 1, y);
-			}
-
-			RegistChunkData(xChunk, yChunk);
-			CreateNextChunkCollider(xChunk + 1, 0);
+			this.currentChunkIndex++;
+			CmdNextChunkCollider(this.currentChunkIndex);
 		}
 
-		public void CreateRandomChunk(int xChunk, int yChunk)
+		public void CreateNextChunk()
 		{
-			for(int x=0; x<ChunkSize; x++)
-			{
-				this.CmdCreateBlock(this.blockPrefab, xChunk, yChunk, x, ChunkSize - 1);
-			}
-			
-			for(int y=0; y<ChunkSize - 1; y++)
-			{
-				for(int x=0; x<ChunkSize; x++)
-				{
-					if(Random.Range(0, 100) < 10)
-					{
-						this.CmdCreateBlock(this.blockPrefab, xChunk, yChunk, x, y);
-					}
-				}
-			}
-			
-			RegistChunkData(xChunk, yChunk);
-			CreateNextChunkCollider(xChunk + 1, 0);
-		}
-
-		public void CreateNextChunkCollider(int xChunk, int yChunk)
-		{
-			if(this.IsExistChunk(xChunk, yChunk))
-			{
-				return;
-			}
-
-			this.CmdNextChunkCollider(xChunk, yChunk);
+			this.CreateGround();
+			this.CreateFloorCreator();
+			this.UpdateFloorCreators();
+			this.currentChunkIndex++;
+			CmdNextChunkCollider(this.currentChunkIndex);
 		}
 
 		private bool IsExistChunk(int xChunk, int yChunk)
@@ -144,9 +129,39 @@ namespace Bright
 			chunkMap[yChunk].Add(xChunk, new ChunkData(xChunk, yChunk));
 		}
 
-		Vector2 GetPosition(int xChunk, int yChunk, int xIndex, int yIndex)
+		private void CreateGround()
 		{
-			return new Vector2(xIndex + (xChunk * ChunkSize), -yIndex + (-yChunk * ChunkSize));
+			this.CmdCreateBlock(this.floorHolder.GetGround().gameObject, 0, 0);
+		}
+
+		private void CreateWall(int x)
+		{
+			for(int y=0; y<ChunkSize; y++)
+			{
+				this.CmdCreateBlock(this.blockPrefab, x, y);
+			}
+		}
+
+		private void CreateFloorCreator()
+		{
+			if((this.currentChunkIndex / 3) < this.floorCreators.Count)
+			{
+				return;
+			}
+
+			this.CmdCreateFloorCreator();
+		}
+		private void UpdateFloorCreators()
+		{
+			this.floorCreators.ForEach(creator =>
+			{
+				creator.Calculate(ChunkSize);
+			});
+		}
+
+		private Vector2 GetPosition(int chunkIndex, int xIndex, int yIndex)
+		{
+			return new Vector2(xIndex + (chunkIndex * ChunkSize), yIndex);
 		}
 
 		public static Vector2 GetIndexFromPosition(Vector3 position)

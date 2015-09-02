@@ -11,8 +11,7 @@ namespace Bright
 	{
 		void OnTriggerEnter2D(Collider2D other)
 		{
-			var index = StageManager.GetIndexFromPosition(this.transform.position);
-			StageManager.Instance.CreateRandomChunk((int)index.x, (int)index.y);
+			StageManager.Instance.CreateNextChunk();
 			Destroy(gameObject);
 			NetworkServer.Destroy(gameObject);
 		}

@@ -294,8 +294,9 @@ MonoBehaviour:
   m_OnlineScene: 
   m_SpawnPrefabs:
   - {fileID: 141230, guid: 6eca6088b7991468eb7d13ea793bfc12, type: 2}
-  - {fileID: 124242, guid: c72c01f2b76de45ffb4d2d48e7a18cc6, type: 2}
   - {fileID: 136798, guid: f931dbd1cd5d149eb978a23fdf4e5264, type: 2}
+  - {fileID: 124242, guid: c72c01f2b76de45ffb4d2d48e7a18cc6, type: 2}
+  - {fileID: 136018, guid: 74e2a18f09db149b6afd2250ae2be425, type: 2}
   m_CustomConfig: 1
   m_MaxConnections: 4
   m_ConnectionConfig:
@@ -349,6 +350,7 @@ GameObject:
   - 4: {fileID: 663449171}
   - 114: {fileID: 663449173}
   - 114: {fileID: 663449172}
+  - 114: {fileID: 663449174}
   m_Layer: 0
   m_Name: Stage
   m_TagString: Untagged
@@ -381,6 +383,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blockPrefab: {fileID: 124242, guid: c72c01f2b76de45ffb4d2d48e7a18cc6, type: 2}
+  floorHolder: {fileID: 663449174}
   nextChunkColliderPrefab: {fileID: 136798, guid: f931dbd1cd5d149eb978a23fdf4e5264,
     type: 2}
 --- !u!114 &663449173
@@ -415,6 +418,19 @@ MonoBehaviour:
     i15: 0
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 0
+--- !u!114 &663449174
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 663449170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf18c5292c6a94f4fab3b5c9b796791c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  groundPrefabs:
+  - {fileID: 11493584, guid: 74e2a18f09db149b6afd2250ae2be425, type: 2}
 --- !u!1 &929916771
 GameObject:
   m_ObjectHideFlags: 0
@@ -476,7 +492,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 965829770}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 15, y: -12, z: 0}
+  m_LocalPosition: {x: 15, y: 2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 463298268}
