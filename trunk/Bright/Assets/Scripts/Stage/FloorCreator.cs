@@ -49,7 +49,7 @@ namespace Bright
 			{
 				if(this.continuity > 0)
 				{
-					this.stageManager.CmdCreateBlock(this.stageManager.BlockPrefab, x, y);
+					this.stageManager.CmdCreateFloor(this.stageManager.FloorHolder.GetFloor().gameObject, x, y);
 					this.continuity--;
 					this.UpdateY(0.2f);
 				}

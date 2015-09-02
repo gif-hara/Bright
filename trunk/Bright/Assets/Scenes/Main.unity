@@ -297,6 +297,7 @@ MonoBehaviour:
   - {fileID: 136798, guid: f931dbd1cd5d149eb978a23fdf4e5264, type: 2}
   - {fileID: 124242, guid: c72c01f2b76de45ffb4d2d48e7a18cc6, type: 2}
   - {fileID: 136018, guid: 74e2a18f09db149b6afd2250ae2be425, type: 2}
+  - {fileID: 136018, guid: 9b32ba861f71c47f79c4436fd4cf58af, type: 2}
   m_CustomConfig: 1
   m_MaxConnections: 4
   m_ConnectionConfig:
@@ -429,8 +430,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf18c5292c6a94f4fab3b5c9b796791c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  floorPrefabs:
+  - {fileID: 11428958, guid: c72c01f2b76de45ffb4d2d48e7a18cc6, type: 2}
   groundPrefabs:
   - {fileID: 11493584, guid: 74e2a18f09db149b6afd2250ae2be425, type: 2}
+  wallPrefabs:
+  - {fileID: 11493584, guid: 9b32ba861f71c47f79c4436fd4cf58af, type: 2}
 --- !u!1 &929916771
 GameObject:
   m_ObjectHideFlags: 0

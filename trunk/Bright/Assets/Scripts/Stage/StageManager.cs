@@ -14,6 +14,7 @@ namespace Bright
 		[SerializeField]
 		private GameObject blockPrefab;
 
+		public FloorHolder FloorHolder{ get{ return this.floorHolder; } }
 		[SerializeField]
 		private FloorHolder floorHolder;
 
@@ -60,12 +61,12 @@ namespace Bright
 //		}
 
 		[Command]
-		public void CmdCreateBlock(GameObject prefab, int xIndex, int yIndex)
+		public void CmdCreateFloor(GameObject prefab, int xIndex, int yIndex)
 		{
-			var block = Instantiate(prefab);
-			block.transform.position = GetPosition(this.currentChunkIndex, xIndex, yIndex);
+			var floor = Instantiate(prefab);
+			floor.transform.position = GetPosition(this.currentChunkIndex, xIndex, yIndex);
 
-			NetworkServer.Spawn(block);
+			NetworkServer.Spawn(floor);
 		}
 
 		[Command]
@@ -131,15 +132,12 @@ namespace Bright
 
 		private void CreateGround()
 		{
-			this.CmdCreateBlock(this.floorHolder.GetGround().gameObject, 0, 0);
+			this.CmdCreateFloor(this.floorHolder.GetGround().gameObject, 0, 0);
 		}
 
 		private void CreateWall(int x)
 		{
-			for(int y=0; y<ChunkSize; y++)
-			{
-				this.CmdCreateBlock(this.blockPrefab, x, y);
-			}
+			this.CmdCreateFloor(this.floorHolder.GetWall().gameObject, x, ChunkSize - 1);
 		}
 
 		private void CreateFloorCreator()
