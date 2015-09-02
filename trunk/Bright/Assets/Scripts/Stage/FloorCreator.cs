@@ -35,7 +35,6 @@ namespace Bright
 			this.y = this.y < 1 ? 1 : this.y;
 			this.initialY = y;
 
-			this.continuity = Random.Range(6, 10);
 			this.blank = Random.Range(0, 4);
 		}
 
@@ -47,21 +46,17 @@ namespace Bright
 		{
 			for(int x=0; x<chunkSize; x++)
 			{
-				if(this.continuity > 0)
-				{
-					this.stageManager.CmdCreateFloor(this.stageManager.FloorHolder.GetFloor().gameObject, x, y);
-					this.continuity--;
-					this.UpdateY(0.2f);
-				}
-				else if(this.blank > 0)
+				if(this.blank > 0)
 				{
 					this.blank--;
 				}
 				else
 				{
+					var floor = this.stageManager.FloorHolder.GetFloor();
+					this.stageManager.CmdCreateFloor(floor.gameObject, x, y);
 					this.UpdateY(1.0f);
-					this.continuity = Random.Range(3, 7);
-					this.blank = Random.Range(0, 4);
+					this.blank = Random.Range(floor.Width, floor.Width + 3);
+					Debug.Log("blank = " + this.blank);
 				}
 			}
 		}
