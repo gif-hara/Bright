@@ -19,7 +19,7 @@ namespace Bright
 
 		public Floor GetFloor()
 		{
-			return this.floorPrefabs[0];
+			return this.floorPrefabs[Random.Range(0, this.floorPrefabs.Count)];
 		}
 
 		public Floor GetGround()

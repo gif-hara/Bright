@@ -56,7 +56,6 @@ namespace Bright
 					this.stageManager.CmdCreateFloor(floor.gameObject, x, y);
 					this.UpdateY(1.0f);
 					this.blank = Random.Range(floor.Width, floor.Width + 3);
-					Debug.Log("blank = " + this.blank);
 				}
 			}
 		}
