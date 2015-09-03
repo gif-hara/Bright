@@ -26,13 +26,14 @@ namespace Bright
 		/// <summary>
 		/// Y座標の変更可能範囲.
 		/// </summary>
-		private int RangeY = 3;
+		private int RangeY = 2;
 
 		public FloorCreator(StageManager stageManager, int y)
 		{
 			this.stageManager = stageManager;
+            //this.y = y;
 			this.y = Random.Range(y - RangeY, y + RangeY + 1);
-			this.y = this.y < 1 ? 1 : this.y;
+		    this.y = this.y < 1 ? 1 : this.y;
 			this.initialY = y;
 
 			this.blank = Random.Range(0, 4);
@@ -67,7 +68,7 @@ namespace Bright
 				return;
 			}
 
-			this.y += Random.Range(-3, 4);
+			this.y += Random.Range(-1, 2);
 			this.y = this.y < 1 ? 1 : this.y;
 
 			var max = (this.initialY + RangeY);

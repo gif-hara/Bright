@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
@@ -16,6 +17,9 @@ namespace Bright
 
 		[SerializeField]
 		private Rigidbody2D refRigidBody2D;
+
+        [SerializeField]
+        private List<Collider2D> colliderList;
 
 		const float GroundedRadius = .2f; // Radius of the overlap circle to determine if grounded
 
@@ -47,8 +51,6 @@ namespace Bright
                 if (colliders[i].gameObject != gameObject)
                     Grounded = true;
             }
-
-
         }
 
 
