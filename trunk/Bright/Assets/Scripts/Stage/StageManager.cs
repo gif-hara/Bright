@@ -32,7 +32,7 @@ namespace Bright
 
 		private const int ChunkSize = 30;
 
-		private const int FloorCreatorIntervalY = 5;
+		private const int FloorCreatorIntervalY = 6;
 
 		void Awake()
 		{

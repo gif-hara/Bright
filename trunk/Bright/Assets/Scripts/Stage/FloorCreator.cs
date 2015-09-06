@@ -68,7 +68,7 @@ namespace Bright
 				return;
 			}
 
-			this.y += Random.Range(-1, 2);
+			this.y += Random.Range(-1, 2) * 2;
 			this.y = this.y < 1 ? 1 : this.y;
 
 			var max = (this.initialY + RangeY);

@@ -296,6 +296,7 @@ MonoBehaviour:
   - {fileID: 141230, guid: 6eca6088b7991468eb7d13ea793bfc12, type: 2}
   - {fileID: 136798, guid: f931dbd1cd5d149eb978a23fdf4e5264, type: 2}
   - {fileID: 124242, guid: c72c01f2b76de45ffb4d2d48e7a18cc6, type: 2}
+  - {fileID: 124242, guid: 572bf1c6829b415458737230b4334b99, type: 2}
   - {fileID: 182374, guid: 592abde4e71591d4b8afa2309fc3971d, type: 2}
   - {fileID: 136018, guid: 74e2a18f09db149b6afd2250ae2be425, type: 2}
   - {fileID: 136018, guid: 9b32ba861f71c47f79c4436fd4cf58af, type: 2}
@@ -434,6 +435,7 @@ MonoBehaviour:
   floorPrefabs:
   - {fileID: 11428958, guid: c72c01f2b76de45ffb4d2d48e7a18cc6, type: 2}
   - {fileID: 11401962, guid: 592abde4e71591d4b8afa2309fc3971d, type: 2}
+  - {fileID: 11428958, guid: 572bf1c6829b415458737230b4334b99, type: 2}
   groundPrefabs:
   - {fileID: 11493584, guid: 74e2a18f09db149b6afd2250ae2be425, type: 2}
   wallPrefabs:
