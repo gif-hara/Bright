@@ -10,10 +10,6 @@ namespace Bright
 	/// </summary>
 	public class StageManager : NetworkBehaviour
 	{
-		public GameObject BlockPrefab{ get{ return this.blockPrefab; } }
-		[SerializeField]
-		private GameObject blockPrefab;
-
 		public FloorHolder FloorHolder{ get{ return this.floorHolder; } }
 		[SerializeField]
 		private FloorHolder floorHolder;
