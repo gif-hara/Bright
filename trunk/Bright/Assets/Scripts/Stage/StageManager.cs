@@ -10,6 +10,9 @@ namespace Bright
 	/// </summary>
 	public class StageManager : NetworkBehaviour
 	{
+        [SerializeField]
+        private Chunk chunkPrefab;
+
 		public FloorHolder FloorHolder{ get{ return this.floorHolder; } }
 		[SerializeField]
 		private FloorHolder floorHolder;
@@ -44,42 +47,42 @@ namespace Bright
 			this.CreateInitialChunk();
 		}
 
-//		void OnDrawGizmosSelected()
-//		{
-//			var halfChunkSize = ChunkSize / 2;
-//			for(int y=0; y<ChunkSize; y++)
-//			{
-//				for(int x=0; x<ChunkSize; x++)
-//				{
-//					Gizmos.DrawWireCube(GetPosition(x, y, halfChunkSize, halfChunkSize), new Vector3(ChunkSize, ChunkSize, 0.0f));
-//				}
-//			}
-//		}
+        //		void OnDrawGizmosSelected()
+        //		{
+        //			var halfChunkSize = ChunkSize / 2;
+        //			for(int y=0; y<ChunkSize; y++)
+        //			{
+        //				for(int x=0; x<ChunkSize; x++)
+        //				{
+        //					Gizmos.DrawWireCube(GetPosition(x, y, halfChunkSize, halfChunkSize), new Vector3(ChunkSize, ChunkSize, 0.0f));
+        //				}
+        //			}
+        //		}
 
-		[Command]
-		public void CmdCreateFloor(GameObject prefab, int xIndex, int yIndex)
-		{
-			var floor = Instantiate(prefab);
-			floor.transform.position = GetPosition(this.currentChunkIndex, xIndex, yIndex);
+        [Command]
+        public void CmdCreateFloor(GameObject prefab, int chunkXIndex, int chunkYIndex, int xIndex, int yIndex)
+        {
+            var floor = Instantiate(prefab);
+            floor.transform.position = GetPosition(chunkXIndex, chunkYIndex, xIndex, yIndex);
 
-			NetworkServer.Spawn(floor);
-		}
+            NetworkServer.Spawn(floor);
+        }
 
-		[Command]
-		private void CmdNextChunkCollider(int chunkIndex)
+        [Command]
+		private void CmdNextChunkCollider(int chunkXIndex, int chunkYIndex)
 		{
 			var nextChunkCollider = Instantiate(this.nextChunkColliderPrefab);
-			nextChunkCollider.transform.position = GetPosition(chunkIndex, 0, 0);
+			nextChunkCollider.transform.position = GetPosition(chunkXIndex, chunkYIndex, 0, 0);
 
 			NetworkServer.Spawn(nextChunkCollider);
 		}
 
-		[Command]
-		private void CmdCreateFloorCreator()
-		{
-			var floorCreator = new FloorCreator(this, (this.floorCreators.Count * FloorCreatorIntervalY) + 1);
-			this.floorCreators.Add(floorCreator);
-		}
+		//[Command]
+		//private void CmdCreateFloorCreator()
+		//{
+		//	var floorCreator = new FloorCreator(this, (this.floorCreators.Count * FloorCreatorIntervalY) + 1);
+		//	this.floorCreators.Add(floorCreator);
+		//}
 
 		/// <summary>
 		/// 初期チャンクを生成する.
@@ -87,21 +90,17 @@ namespace Bright
 		[Server]
 		public void CreateInitialChunk()
 		{
-			this.CreateGround();
-			this.CreateWall(0);
-			this.CmdCreateFloorCreator();
+            //this.CmdCreateFloorCreator();
 
+            CmdCreateFloor(this.chunkPrefab.gameObject, 0, 0, 0, 0);
 			this.currentChunkIndex++;
-			CmdNextChunkCollider(this.currentChunkIndex);
+			CmdNextChunkCollider(this.currentChunkIndex, 0);
 		}
 
 		public void CreateNextChunk()
 		{
-			this.CreateGround();
-			this.CreateFloorCreator();
-			this.UpdateFloorCreators();
 			this.currentChunkIndex++;
-			CmdNextChunkCollider(this.currentChunkIndex);
+			CmdNextChunkCollider(this.currentChunkIndex, 0);
 		}
 
 		private bool IsExistChunk(int xChunk, int yChunk)
@@ -126,36 +125,9 @@ namespace Bright
 			chunkMap[yChunk].Add(xChunk, new ChunkData(xChunk, yChunk));
 		}
 
-		private void CreateGround()
+		public Vector2 GetPosition(int chunkXIndex, int chunkYIndex, int xIndex, int yIndex)
 		{
-			this.CmdCreateFloor(this.floorHolder.GetGround().gameObject, 0, 0);
-		}
-
-		private void CreateWall(int x)
-		{
-			this.CmdCreateFloor(this.floorHolder.GetWall().gameObject, x, ChunkSize - 1);
-		}
-
-		private void CreateFloorCreator()
-		{
-			if((this.currentChunkIndex / 3) < this.floorCreators.Count)
-			{
-				return;
-			}
-
-			this.CmdCreateFloorCreator();
-		}
-		private void UpdateFloorCreators()
-		{
-			this.floorCreators.ForEach(creator =>
-			{
-				creator.Calculate(ChunkSize);
-			});
-		}
-
-		private Vector2 GetPosition(int chunkIndex, int xIndex, int yIndex)
-		{
-			return new Vector2(xIndex + (chunkIndex * ChunkSize), yIndex);
+			return new Vector2(xIndex + (chunkXIndex * ChunkSize), yIndex + (chunkYIndex * ChunkSize));
 		}
 
 		public static Vector2 GetIndexFromPosition(Vector3 position)

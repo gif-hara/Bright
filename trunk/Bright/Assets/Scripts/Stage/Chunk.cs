@@ -30,6 +30,13 @@ namespace Bright
 
         private void CreateGround(StageManager stageManager, bool doorway, GameObject prefab, int xIndex, int yIndex)
         {
+            if(!doorway)
+            {
+                return;
+            }
+
+            stageManager.CmdCreateFloor(groundPrefab, 0, 0, xIndex, yIndex);
         }
+
     }
 }
