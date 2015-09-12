@@ -11,7 +11,7 @@ namespace Bright
 	public class StageManager : NetworkBehaviour
 	{
         [SerializeField]
-        private Chunk chunkPrefab;
+        private ChunkCreator chunkPrefab;
 
 		public FloorHolder FloorHolder{ get{ return this.floorHolder; } }
 		[SerializeField]
@@ -134,7 +134,7 @@ namespace Bright
 			return new Vector2(xIndex + (chunkXIndex * ChunkSize), yIndex + (chunkYIndex * ChunkSize));
 		}
 
-		public static Vector2 GetIndexFromPosition(Vector3 position)
+		public static Vector2 GetChunkIndexFromPosition(Vector3 position)
 		{
 			return new Vector2(position.x / ChunkSize, position.y / ChunkSize);
 		}
