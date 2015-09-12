@@ -29,7 +29,7 @@ namespace Bright
 		public static StageManager Instance{ get{ return instance; } }
 		private static StageManager instance;
 
-		private const int ChunkSize = 30;
+		public const int ChunkSize = 30;
 
 		private const int FloorCreatorIntervalY = 6;
 
@@ -62,6 +62,10 @@ namespace Bright
         [Command]
         public void CmdCreateFloor(GameObject prefab, int chunkXIndex, int chunkYIndex, int xIndex, int yIndex)
         {
+			Assert.IsTrue(
+				(xIndex >= 0 && xIndex < ChunkSize) && (yIndex >= 0 && yIndex < ChunkSize),
+				string.Format("チャンクサイズを超えています. xIndex = {0} yIndex = {1}", xIndex, yIndex)
+				);
             var floor = Instantiate(prefab);
             floor.transform.position = GetPosition(chunkXIndex, chunkYIndex, xIndex, yIndex);
 
@@ -91,8 +95,8 @@ namespace Bright
 		public void CreateInitialChunk()
 		{
             //this.CmdCreateFloorCreator();
-
-            CmdCreateFloor(this.chunkPrefab.gameObject, 0, 0, 0, 0);
+			var chunk = Instantiate(this.chunkPrefab);
+			chunk.Initialize(this, 0, 0);
 			this.currentChunkIndex++;
 			CmdNextChunkCollider(this.currentChunkIndex, 0);
 		}
