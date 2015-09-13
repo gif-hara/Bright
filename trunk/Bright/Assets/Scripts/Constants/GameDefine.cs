@@ -16,5 +16,13 @@ namespace Bright
 			Fall,
 			Attack,
 		}
+
+		public enum ChunkDoorwayType : int
+		{
+			Left =   (1 << 0),
+			Right =  (1 << 1),
+			Top =    (1 << 2),
+			Bottom = (1 << 3),
+		}
 	}
 }

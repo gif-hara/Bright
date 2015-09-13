@@ -14,7 +14,7 @@ namespace Bright
 		public void OnInitializeChunk(StageManager stageManager, int chunkXIndex, int chunkYIndex)
 		{
 			var index = this.transform.localPosition;
-			stageManager.CmdCreateFloor(this.prefab, chunkXIndex, chunkYIndex, (int)index.x, (int)index.y);
+			stageManager.CmdCreateStageObject(this.prefab, chunkXIndex, chunkYIndex, (int)index.x, (int)index.y);
 		}
 	}
 }

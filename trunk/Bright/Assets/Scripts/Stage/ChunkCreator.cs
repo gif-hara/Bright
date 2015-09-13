@@ -9,17 +9,8 @@ namespace Bright
 	/// </summary>
 	public class ChunkCreator : NetworkBehaviour
     {
-        [SerializeField]
-        private bool doorwayLeft;
-
-        [SerializeField]
-        private bool doorwayRight;
-
-        [SerializeField]
-        private bool doorwayTop;
-
-        [SerializeField]
-        private bool doorwayBottom;
+		[SerializeField]
+		private ChunkDoorway doorway;
 
         [SerializeField]
         private GameObject groundPrefab;
@@ -41,15 +32,15 @@ namespace Bright
         public void Initialize(StageManager stageManager, int chunkXIndex, int chunkYIndex)
         {
 			var max = StageManager.ChunkSize - 1;
-            this.Create(stageManager, this.doorwayLeft, wallPrefab, chunkXIndex, chunkYIndex, 0, max);
-            this.Create(stageManager, this.doorwayRight, wallPrefab, chunkXIndex, chunkYIndex, max, max);
-            this.Create(stageManager, this.doorwayTop, groundPrefab, chunkXIndex, chunkYIndex, 0, max);
-            this.Create(stageManager, this.doorwayBottom, groundPrefab, chunkXIndex, chunkYIndex, 0, 0);
+			this.Create(stageManager, this.doorway.CanCreate(GameDefine.ChunkDoorwayType.Left), wallPrefab, chunkXIndex, chunkYIndex, 0, 0);
+			this.Create(stageManager, this.doorway.CanCreate(GameDefine.ChunkDoorwayType.Right), wallPrefab, chunkXIndex, chunkYIndex, max, 0);
+			this.Create(stageManager, this.doorway.CanCreate(GameDefine.ChunkDoorwayType.Top), groundPrefab, chunkXIndex, chunkYIndex, 0, max);
+			this.Create(stageManager, this.doorway.CanCreate(GameDefine.ChunkDoorwayType.Bottom), groundPrefab, chunkXIndex, chunkYIndex, 0, 0);
 
 			var components = GetComponentsInChildren(typeof(IReceiveOnInitializeChunk));
-			for(int i=0, imax=components.Length; i<imax; i++)
+			foreach(var component in components)
 			{
-				(components[i] as IReceiveOnInitializeChunk).OnInitializeChunk(stageManager, chunkXIndex, chunkYIndex);
+				(component as IReceiveOnInitializeChunk).OnInitializeChunk(stageManager, chunkXIndex, chunkYIndex);
 			}
         }
 
@@ -61,7 +52,7 @@ namespace Bright
                 return;
             }
 
-            stageManager.CmdCreateFloor(prefab, chunkXIndex, chunkYIndex, xIndex, yIndex);
+            stageManager.CmdCreateStageObject(prefab, chunkXIndex, chunkYIndex, xIndex, yIndex);
         }
     }
 }

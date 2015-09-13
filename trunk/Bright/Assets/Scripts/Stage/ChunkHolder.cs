@@ -7,6 +7,11 @@ namespace Bright
     public class ChunkHolder : MonoBehaviour
     {
         [SerializeField]
-        private List<GameObject> leftTopChunkPrefabs;
+        private List<ChunkCreator> chunkPrefabs;
+
+		public ChunkCreator GetChunkCreator(ChunkDoorway data)
+		{
+			return null;
+		}
     }
 }

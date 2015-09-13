@@ -27,7 +27,7 @@ GameObject:
   - 114: {fileID: 11472628}
   - 114: {fileID: 11464608}
   m_Layer: 0
-  m_Name: Chunk_LeftTop0
+  m_Name: Chunk_LeftBottom0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -81,10 +81,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 565c10f26ed44e244abf6ca55950dc7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  doorwayLeft: 0
-  doorwayRight: 1
-  doorwayTop: 0
-  doorwayBottom: 1
+  doorway: {fileID: 11400000, guid: 03ed3266a215f4fc29ee24e7c33a59c1, type: 2}
   groundPrefab: {fileID: 136018, guid: 74e2a18f09db149b6afd2250ae2be425, type: 2}
   wallPrefab: {fileID: 136018, guid: 9b32ba861f71c47f79c4436fd4cf58af, type: 2}
 --- !u!114 &11472628
@@ -144,8 +141,29 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: doorwayRight
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_ServerOnly
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: data.doorwayBottom
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: data.doorwayLeft
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: data.doorwayRight
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: doorway
+      value: 
+      objectReference: {fileID: 11400000, guid: 03ed3266a215f4fc29ee24e7c33a59c1,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 182948}

@@ -24,7 +24,7 @@ namespace Bright
 
 		private List<FloorCreator> floorCreators = new List <FloorCreator>();
 
-		private Dictionary<int, Dictionary<int, ChunkData>> chunkMap = new Dictionary<int, Dictionary<int, ChunkData>>();
+		private Dictionary<int, Dictionary<int, bool>> chunkMap = new Dictionary<int, Dictionary<int, bool>>();
 
 		public static StageManager Instance{ get{ return instance; } }
 		private static StageManager instance;
@@ -60,7 +60,7 @@ namespace Bright
         //		}
 
         [Command]
-        public void CmdCreateFloor(GameObject prefab, int chunkXIndex, int chunkYIndex, int xIndex, int yIndex)
+        public void CmdCreateStageObject(GameObject prefab, int chunkXIndex, int chunkYIndex, int xIndex, int yIndex)
         {
 			Assert.IsTrue(
 				(xIndex >= 0 && xIndex < ChunkSize) && (yIndex >= 0 && yIndex < ChunkSize),
@@ -94,39 +94,45 @@ namespace Bright
 		[Server]
 		public void CreateInitialChunk()
 		{
-            //this.CmdCreateFloorCreator();
+			CreateChunk(this.chunkPrefab, 0, 0);
+			//CmdNextChunkCollider(0, 0);
+		}
+
+		public void CreateNextChunk(int chunkXIndex, int chunkYIndex)
+		{
+			CmdNextChunkCollider(this.currentChunkIndex, 0);
+		}
+
+		private void CreateChunk(ChunkCreator chunkPrefab, int chunkXIndex, int chunkYIndex)
+		{
 			var chunk = Instantiate(this.chunkPrefab);
-			chunk.Initialize(this, 0, 0);
-			this.currentChunkIndex++;
-			CmdNextChunkCollider(this.currentChunkIndex, 0);
+			chunk.Initialize(this, chunkXIndex, chunkYIndex);
+			RegistChunkData(chunkXIndex, chunkYIndex);
 		}
 
-		public void CreateNextChunk()
+		private bool IsExistChunk(int chunkXIndex, int chunkYIndex)
 		{
-			this.currentChunkIndex++;
-			CmdNextChunkCollider(this.currentChunkIndex, 0);
-		}
-
-		private bool IsExistChunk(int xChunk, int yChunk)
-		{
-			if(!this.chunkMap.ContainsKey(yChunk))
+			if(!this.chunkMap.ContainsKey(chunkYIndex))
 			{
 				return false;
 			}
 
-			return this.chunkMap[yChunk].ContainsKey(xChunk);
+			return this.chunkMap[chunkYIndex].ContainsKey(chunkXIndex);
 		}
 
-		private void RegistChunkData(int xChunk, int yChunk)
+		private void RegistChunkData(int chunkXIndex, int chunkYIndex)
 		{
-			Assert.IsFalse(this.IsExistChunk(xChunk, yChunk), "It is a chunk that already exist. xChunk = " + xChunk + " yChunk = " + yChunk);
+			Assert.IsFalse(
+				this.IsExistChunk(chunkXIndex, chunkYIndex),
+				string.Format("既にチャンクが存在しています. chunkXIndex = {0} chunkYIndex = {1}", chunkXIndex, chunkXIndex)
+				);
 
-			if(!this.chunkMap.ContainsKey(yChunk))
+			if(!this.chunkMap.ContainsKey(chunkYIndex))
 			{
-				this.chunkMap.Add(yChunk, new Dictionary<int, ChunkData>());
+				this.chunkMap.Add(chunkYIndex, new Dictionary<int, bool>());
 			}
 
-			chunkMap[yChunk].Add(xChunk, new ChunkData(xChunk, yChunk));
+			chunkMap[chunkYIndex].Add(chunkXIndex, true);
 		}
 
 		public Vector2 GetPosition(int chunkXIndex, int chunkYIndex, int xIndex, int yIndex)
