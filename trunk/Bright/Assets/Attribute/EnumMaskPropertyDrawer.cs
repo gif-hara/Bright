@@ -16,4 +16,9 @@ public class EnumFlagsAttributeDrawer : PropertyDrawer
 		_property.intValue = EditorGUI.MaskField( _position, _label, _property.intValue, _property.enumNames );
 	}
 }
+#else
+public class EnumFlagsAttribute : PropertyAttribute
+{
+	public EnumFlagsAttribute() { }
+}
 #endif

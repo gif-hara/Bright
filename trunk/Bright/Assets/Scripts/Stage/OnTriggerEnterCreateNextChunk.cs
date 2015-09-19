@@ -11,7 +11,7 @@ namespace Bright
 	{
 		void OnTriggerEnter2D(Collider2D other)
 		{
-			StageManager.Instance.CreateNextChunk(0, 0);
+//			StageManager.Instance.CreateNextChunk(0, 0);
 			Destroy(gameObject);
 			NetworkServer.Destroy(gameObject);
 		}

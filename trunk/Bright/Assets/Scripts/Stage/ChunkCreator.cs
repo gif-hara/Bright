@@ -10,7 +10,7 @@ namespace Bright
 	public class ChunkCreator : NetworkBehaviour
     {
 		[SerializeField]
-		private ChunkDoorway doorway;
+		private Chunk chunk;
 
         [SerializeField]
         private GameObject groundPrefab;
@@ -32,10 +32,16 @@ namespace Bright
         public void Initialize(StageManager stageManager, int chunkXIndex, int chunkYIndex)
         {
 			var max = StageManager.ChunkSize - 1;
-			this.Create(stageManager, this.doorway.CanCreate(GameDefine.ChunkDoorwayType.Left), wallPrefab, chunkXIndex, chunkYIndex, 0, 0);
-			this.Create(stageManager, this.doorway.CanCreate(GameDefine.ChunkDoorwayType.Right), wallPrefab, chunkXIndex, chunkYIndex, max, 0);
-			this.Create(stageManager, this.doorway.CanCreate(GameDefine.ChunkDoorwayType.Top), groundPrefab, chunkXIndex, chunkYIndex, 0, max);
-			this.Create(stageManager, this.doorway.CanCreate(GameDefine.ChunkDoorwayType.Bottom), groundPrefab, chunkXIndex, chunkYIndex, 0, 0);
+
+			this.Create(stageManager, GameDefine.ChunkDoorwayType.Left, wallPrefab, chunkXIndex, chunkYIndex, 0, 0);
+			this.Create(stageManager, GameDefine.ChunkDoorwayType.Right, wallPrefab, chunkXIndex, chunkYIndex, max, 0);
+			this.Create(stageManager, GameDefine.ChunkDoorwayType.Top, groundPrefab, chunkXIndex, chunkYIndex, 0, max);
+			this.Create(stageManager, GameDefine.ChunkDoorwayType.Bottom, groundPrefab, chunkXIndex, chunkYIndex, 0, 0);
+
+			this.CreateNextChunkCollider(stageManager, GameDefine.NextChunkType.Left, chunkXIndex - 1, chunkYIndex);
+			this.CreateNextChunkCollider(stageManager, GameDefine.NextChunkType.Right, chunkXIndex + 1, chunkYIndex);
+			this.CreateNextChunkCollider(stageManager, GameDefine.NextChunkType.Top, chunkXIndex, chunkYIndex + 1);
+			this.CreateNextChunkCollider(stageManager, GameDefine.NextChunkType.Bottom, chunkXIndex, chunkYIndex - 1);
 
 			var components = GetComponentsInChildren(typeof(IReceiveOnInitializeChunk));
 			foreach(var component in components)
@@ -45,14 +51,25 @@ namespace Bright
         }
 
 		[Server]
-        private void Create(StageManager stageManager, bool doorway, GameObject prefab, int chunkXIndex, int chunkYIndex, int xIndex, int yIndex)
+        private void Create(StageManager stageManager, GameDefine.ChunkDoorwayType doorway, GameObject prefab, int chunkXIndex, int chunkYIndex, int xIndex, int yIndex)
         {
-            if(!doorway)
+			if(!this.chunk.Doorway.CanCreate(doorway))
             {
                 return;
             }
 
             stageManager.CmdCreateStageObject(prefab, chunkXIndex, chunkYIndex, xIndex, yIndex);
         }
+
+		[Server]
+		private void CreateNextChunkCollider(StageManager stageManager, GameDefine.NextChunkType nextChunkType, int chunkXIndex, int chunkYIndex)
+		{
+			if(!this.chunk.NextCreateChunk.CanCreate(nextChunkType))
+			{
+				return;
+			}
+
+			stageManager.CmdNextChunkCollider(chunkXIndex, chunkYIndex);
+		}
     }
 }

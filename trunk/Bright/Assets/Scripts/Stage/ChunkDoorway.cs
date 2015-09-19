@@ -6,8 +6,8 @@ namespace Bright
 	/// <summary>
 	/// チャンクの入り口データ.
 	/// </summary>
-	[CreateAssetMenu]
-	public class ChunkDoorway : ScriptableObject
+	[System.Serializable]
+	public class ChunkDoorway
 	{
 		[SerializeField][EnumFlags]
 		private GameDefine.ChunkDoorwayType flag;

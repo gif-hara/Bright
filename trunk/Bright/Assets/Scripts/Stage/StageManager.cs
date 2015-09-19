@@ -73,7 +73,7 @@ namespace Bright
         }
 
         [Command]
-		private void CmdNextChunkCollider(int chunkXIndex, int chunkYIndex)
+		public void CmdNextChunkCollider(int chunkXIndex, int chunkYIndex)
 		{
 			var nextChunkCollider = Instantiate(this.nextChunkColliderPrefab);
 			nextChunkCollider.transform.position = GetPosition(chunkXIndex, chunkYIndex, 0, 0);

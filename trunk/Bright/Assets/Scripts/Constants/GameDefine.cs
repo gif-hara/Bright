@@ -19,9 +19,17 @@ namespace Bright
 
 		public enum ChunkDoorwayType : int
 		{
-			Left =   (1 << 0),
-			Right =  (1 << 1),
-			Top =    (1 << 2),
+			Left   = (1 << 0),
+			Right  = (1 << 1),
+			Top    = (1 << 2),
+			Bottom = (1 << 3),
+		}
+
+		public enum NextChunkType : int
+		{
+			Left   = (1 << 0),
+			Right  = (1 << 1),
+			Top    = (1 << 2),
 			Bottom = (1 << 3),
 		}
 	}
