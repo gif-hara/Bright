@@ -46,20 +46,20 @@ namespace Bright
         //			}
         //		}
 
-        public void CmdCreateStageObject(GameObject prefab, int chunkXIndex, int chunkYIndex, int xIndex, int yIndex)
+        public void CreateStageObject(GameObject prefab, Point chunkIndex, Point position)
         {
 			Assert.IsTrue(
-				(xIndex >= 0 && xIndex < ChunkSize) && (yIndex >= 0 && yIndex < ChunkSize),
-				string.Format("チャンクサイズを超えています. xIndex = {0} yIndex = {1}", xIndex, yIndex)
+				(position.X >= 0 && position.X < ChunkSize) && (position.Y >= 0 && position.Y < ChunkSize),
+				string.Format("チャンクサイズを超えています. xIndex = {0} yIndex = {1}", position.X, position.Y)
 				);
             var floor = Instantiate(prefab);
-            floor.transform.position = GetPosition(chunkXIndex, chunkYIndex, xIndex, yIndex);
+            floor.transform.position = GetPosition(chunkIndex.X, chunkIndex.Y, position.X, position.Y);
         }
 
-		public void CmdNextChunkCollider(int chunkXIndex, int chunkYIndex)
+		public void CmdNextChunkCollider(Point chunkIndex)
 		{
 			var nextChunkCollider = Instantiate(this.nextChunkColliderPrefab);
-			nextChunkCollider.transform.position = GetPosition(chunkXIndex, chunkYIndex, 0, 0);
+			nextChunkCollider.transform.position = GetPosition(chunkIndex.X, chunkIndex.Y, 0, 0);
 		}
 
 		//[Command]
@@ -74,19 +74,17 @@ namespace Bright
 		/// </summary>
 		public void CreateInitialChunk()
 		{
-			CreateChunk(this.chunkPrefab, 0, 0);
+			CreateChunk(this.chunkPrefab, Point.Zero);
 		}
 
 		public void CreateNextChunk(int chunkXIndex, int chunkYIndex)
 		{
-			CmdNextChunkCollider(this.currentChunkIndex, 0);
 		}
 
-		private void CreateChunk(ChunkCreator chunkPrefab, int chunkXIndex, int chunkYIndex)
+		private void CreateChunk(ChunkCreator chunkPrefab, Point chunkIndex)
 		{
 			var chunk = Instantiate(this.chunkPrefab);
-			chunk.Initialize(this, chunkXIndex, chunkYIndex);
-			RegistChunkData(chunkXIndex, chunkYIndex);
+			chunk.Initialize(this, chunkIndex);
 		}
 
 		private bool IsExistChunk(int chunkXIndex, int chunkYIndex)

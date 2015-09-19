@@ -9,6 +9,6 @@ namespace Bright
 	/// </summary>
 	public interface IReceiveOnInitializeChunk : IEventSystemHandler
 	{
-		void OnInitializeChunk(StageManager stageManager, int chunkXIndex, int chunkYIndex);
+		void OnInitializeChunk(StageManager stageManager, Point chunkIndex);
 	}
 }

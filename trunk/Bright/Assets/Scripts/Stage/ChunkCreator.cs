@@ -27,45 +27,45 @@ namespace Bright
 			}
 		}
 
-        public void Initialize(StageManager stageManager, int chunkXIndex, int chunkYIndex)
+        public void Initialize(StageManager stageManager, Point chunkIndex)
         {
 			var max = StageManager.ChunkSize - 1;
 
-			this.Create(stageManager, GameDefine.ChunkDoorwayType.Left, wallPrefab, chunkXIndex, chunkYIndex, 0, 0);
-			this.Create(stageManager, GameDefine.ChunkDoorwayType.Right, wallPrefab, chunkXIndex, chunkYIndex, max, 0);
-			this.Create(stageManager, GameDefine.ChunkDoorwayType.Top, groundPrefab, chunkXIndex, chunkYIndex, 0, max);
-			this.Create(stageManager, GameDefine.ChunkDoorwayType.Bottom, groundPrefab, chunkXIndex, chunkYIndex, 0, 0);
+			this.Create(stageManager, GameDefine.ChunkDoorwayType.Left, wallPrefab, chunkIndex, Point.Zero);
+			this.Create(stageManager, GameDefine.ChunkDoorwayType.Right, wallPrefab, chunkIndex, Point.Right * max);
+			this.Create(stageManager, GameDefine.ChunkDoorwayType.Top, groundPrefab, chunkIndex, Point.Top * max);
+			this.Create(stageManager, GameDefine.ChunkDoorwayType.Bottom, groundPrefab, chunkIndex, Point.Zero);
 
-			this.CreateNextChunkCollider(stageManager, GameDefine.NextChunkType.Left, chunkXIndex - 1, chunkYIndex);
-			this.CreateNextChunkCollider(stageManager, GameDefine.NextChunkType.Right, chunkXIndex + 1, chunkYIndex);
-			this.CreateNextChunkCollider(stageManager, GameDefine.NextChunkType.Top, chunkXIndex, chunkYIndex + 1);
-			this.CreateNextChunkCollider(stageManager, GameDefine.NextChunkType.Bottom, chunkXIndex, chunkYIndex - 1);
+			this.CreateNextChunkCollider(stageManager, GameDefine.NextChunkType.Left, chunkIndex + Point.Left);
+			this.CreateNextChunkCollider(stageManager, GameDefine.NextChunkType.Right, chunkIndex + Point.Right);
+			this.CreateNextChunkCollider(stageManager, GameDefine.NextChunkType.Top, chunkIndex + Point.Top);
+			this.CreateNextChunkCollider(stageManager, GameDefine.NextChunkType.Bottom, chunkIndex + Point.Bottom);
 
 			var components = GetComponentsInChildren(typeof(IReceiveOnInitializeChunk));
 			foreach(var component in components)
 			{
-				(component as IReceiveOnInitializeChunk).OnInitializeChunk(stageManager, chunkXIndex, chunkYIndex);
+				(component as IReceiveOnInitializeChunk).OnInitializeChunk(stageManager, chunkIndex);
 			}
         }
 
-        private void Create(StageManager stageManager, GameDefine.ChunkDoorwayType doorway, GameObject prefab, int chunkXIndex, int chunkYIndex, int xIndex, int yIndex)
+        private void Create(StageManager stageManager, GameDefine.ChunkDoorwayType doorway, GameObject prefab, Point chunkIndex, Point position)
         {
 			if(!this.chunk.Doorway.CanCreate(doorway))
             {
                 return;
             }
 
-            stageManager.CmdCreateStageObject(prefab, chunkXIndex, chunkYIndex, xIndex, yIndex);
+            stageManager.CreateStageObject(prefab, chunkIndex, position);
         }
 
-		private void CreateNextChunkCollider(StageManager stageManager, GameDefine.NextChunkType nextChunkType, int chunkXIndex, int chunkYIndex)
+		private void CreateNextChunkCollider(StageManager stageManager, GameDefine.NextChunkType nextChunkType, Point chunkIndex)
 		{
 			if(!this.chunk.NextCreateChunk.CanCreate(nextChunkType))
 			{
 				return;
 			}
 
-			stageManager.CmdNextChunkCollider(chunkXIndex, chunkYIndex);
+			stageManager.CmdNextChunkCollider(chunkIndex);
 		}
     }
 }
