@@ -25,20 +25,9 @@ namespace Bright
 
 		private Dictionary<int, Dictionary<int, bool>> chunkMap = new Dictionary<int, Dictionary<int, bool>>();
 
-		public static StageManager Instance{ get{ return instance; } }
-		private static StageManager instance;
-
 		public const int ChunkSize = 30;
 
 		private const int FloorCreatorIntervalY = 6;
-
-		void Awake()
-		{
-			if(instance == null)
-			{
-				instance = this;
-			}
-		}
 
 		void Start ()
 		{
@@ -86,7 +75,6 @@ namespace Bright
 		public void CreateInitialChunk()
 		{
 			CreateChunk(this.chunkPrefab, 0, 0);
-			//CmdNextChunkCollider(0, 0);
 		}
 
 		public void CreateNextChunk(int chunkXIndex, int chunkYIndex)

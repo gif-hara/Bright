@@ -22,8 +22,6 @@ namespace Bright
 		
 		private PlayerStateSwitcher stateSwitcher;
 
-		private SyncPlayerData syncPlayerData;
-
 		private Rigidbody2D rigidBody2D;
 
 		private ExecuteOnStartAttack executeOnStartAttack;
@@ -32,7 +30,6 @@ namespace Bright
 		{
 			this.character = GetComponent<PlatformerCharacter2D>();
 			this.stateSwitcher = GetComponent<PlayerStateSwitcher>();
-			this.syncPlayerData = GetComponent<SyncPlayerData>();
 			this.rigidBody2D = GetComponent<Rigidbody2D>();
 			this.executeOnStartAttack = GetComponent<ExecuteOnStartAttack>();
 		}
