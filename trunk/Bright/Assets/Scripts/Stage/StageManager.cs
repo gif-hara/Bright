@@ -10,7 +10,7 @@ namespace Bright
 	public class StageManager : MonoBehaviour
 	{
         [SerializeField]
-        private ChunkCreator chunkPrefab;
+        private Chunk chunkPrefab;
 
 		public FloorHolder FloorHolder{ get{ return this.floorHolder; } }
 		[SerializeField]
@@ -46,14 +46,15 @@ namespace Bright
         //			}
         //		}
 
-        public void CreateStageObject(GameObject prefab, Point chunkIndex, Point position)
+        public void CreateStageObject(Transform parent, GameObject prefab, Point chunkIndex, Point position)
         {
 			Assert.IsTrue(
 				(position.X >= 0 && position.X < ChunkSize) && (position.Y >= 0 && position.Y < ChunkSize),
 				string.Format("チャンクサイズを超えています. xIndex = {0} yIndex = {1}", position.X, position.Y)
 				);
-            var floor = Instantiate(prefab);
-            floor.transform.position = GetPosition(chunkIndex.X, chunkIndex.Y, position.X, position.Y);
+            var obj = Instantiate(prefab);
+			obj.transform.parent = parent;
+			obj.transform.position = GetPosition(chunkIndex.X, chunkIndex.Y, position.X, position.Y);
         }
 
 		public void CmdNextChunkCollider(Point chunkIndex)
@@ -81,9 +82,9 @@ namespace Bright
 		{
 		}
 
-		private void CreateChunk(ChunkCreator chunkPrefab, Point chunkIndex)
+		private void CreateChunk(Chunk prefab, Point chunkIndex)
 		{
-			var chunk = Instantiate(this.chunkPrefab);
+			var chunk = Instantiate(prefab);
 			chunk.Initialize(this, chunkIndex);
 		}
 

@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections.Generic;
 
 namespace Bright
@@ -10,9 +10,9 @@ namespace Bright
 	public class ChunkDoorway
 	{
 		[SerializeField][EnumFlags]
-		private GameDefine.ChunkDoorwayType flag;
+		private GameDefine.DirectionType flag;
 
-		public bool CanCreate(GameDefine.ChunkDoorwayType type)
+		public bool CanCreate(GameDefine.DirectionType type)
 		{
 			return (flag & type) > 0;
 		}

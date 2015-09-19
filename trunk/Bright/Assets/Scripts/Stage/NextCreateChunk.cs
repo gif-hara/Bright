@@ -10,11 +10,11 @@ namespace Bright
 	public class NextCreateChunk
 	{
 		[SerializeField][EnumFlags]
-		private GameDefine.NextChunkType nextChunk;
+		private GameDefine.DirectionType flag;
 
-		public bool CanCreate(GameDefine.NextChunkType nextChunk)
+		public bool CanCreate(GameDefine.DirectionType direction)
 		{
-			return (this.nextChunk & nextChunk) > 0;
+			return (this.flag & direction) > 0;
 		}
 	}
 }

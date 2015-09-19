@@ -13,7 +13,7 @@ namespace Bright
 
 		public void OnInitializeChunk(StageManager stageManager, Point chunkIndex)
 		{
-			stageManager.CreateStageObject(this.prefab, chunkIndex, new Point(this.transform.localPosition));
+			stageManager.CreateStageObject(this.transform, this.prefab, chunkIndex, new Point(this.transform.localPosition));
 		}
 	}
 }
