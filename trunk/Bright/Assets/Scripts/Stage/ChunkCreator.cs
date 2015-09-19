@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine.Networking;
 using System.Collections;
 
 namespace Bright
@@ -7,7 +6,7 @@ namespace Bright
 	/// <summary>
 	/// チャンクを生成するコンポーネント.
 	/// </summary>
-	public class ChunkCreator : NetworkBehaviour
+	public class ChunkCreator : MonoBehaviour
     {
 		[SerializeField]
 		private Chunk chunk;
@@ -28,7 +27,6 @@ namespace Bright
 			}
 		}
 
-		[Server]
         public void Initialize(StageManager stageManager, int chunkXIndex, int chunkYIndex)
         {
 			var max = StageManager.ChunkSize - 1;
@@ -50,7 +48,6 @@ namespace Bright
 			}
         }
 
-		[Server]
         private void Create(StageManager stageManager, GameDefine.ChunkDoorwayType doorway, GameObject prefab, int chunkXIndex, int chunkYIndex, int xIndex, int yIndex)
         {
 			if(!this.chunk.Doorway.CanCreate(doorway))
@@ -61,7 +58,6 @@ namespace Bright
             stageManager.CmdCreateStageObject(prefab, chunkXIndex, chunkYIndex, xIndex, yIndex);
         }
 
-		[Server]
 		private void CreateNextChunkCollider(StageManager stageManager, GameDefine.NextChunkType nextChunkType, int chunkXIndex, int chunkYIndex)
 		{
 			if(!this.chunk.NextCreateChunk.CanCreate(nextChunkType))

@@ -80,7 +80,6 @@ namespace Bright
 			}
 
 			this.stateSwitcher.Change(newStateType);
-			this.syncPlayerData.CmdProvideStateTypeToServer((int)newStateType);
 			this.currentStateType = newStateType;
 		}
 

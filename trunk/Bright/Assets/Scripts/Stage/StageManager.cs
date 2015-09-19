@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine.Networking;
 using UnityEngine.Assertions;
 using System.Collections.Generic;
 
@@ -8,7 +7,7 @@ namespace Bright
 	/// <summary>
 	/// ステージ管理クラス.
 	/// </summary>
-	public class StageManager : NetworkBehaviour
+	public class StageManager : MonoBehaviour
 	{
         [SerializeField]
         private ChunkCreator chunkPrefab;
@@ -41,7 +40,6 @@ namespace Bright
 			}
 		}
 
-		[ServerCallback]
 		void Start ()
 		{
 			this.CreateInitialChunk();
@@ -59,7 +57,6 @@ namespace Bright
         //			}
         //		}
 
-        [Command]
         public void CmdCreateStageObject(GameObject prefab, int chunkXIndex, int chunkYIndex, int xIndex, int yIndex)
         {
 			Assert.IsTrue(
@@ -68,17 +65,12 @@ namespace Bright
 				);
             var floor = Instantiate(prefab);
             floor.transform.position = GetPosition(chunkXIndex, chunkYIndex, xIndex, yIndex);
-
-            NetworkServer.Spawn(floor);
         }
 
-        [Command]
 		public void CmdNextChunkCollider(int chunkXIndex, int chunkYIndex)
 		{
 			var nextChunkCollider = Instantiate(this.nextChunkColliderPrefab);
 			nextChunkCollider.transform.position = GetPosition(chunkXIndex, chunkYIndex, 0, 0);
-
-			NetworkServer.Spawn(nextChunkCollider);
 		}
 
 		//[Command]
@@ -91,7 +83,6 @@ namespace Bright
 		/// <summary>
 		/// 初期チャンクを生成する.
 		/// </summary>
-		[Server]
 		public void CreateInitialChunk()
 		{
 			CreateChunk(this.chunkPrefab, 0, 0);

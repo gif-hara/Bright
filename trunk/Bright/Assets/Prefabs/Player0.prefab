@@ -382,12 +382,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 425058}
   - 50: {fileID: 5036072}
-  - 114: {fileID: 11468564}
-  - 114: {fileID: 11471368}
-  - 114: {fileID: 11477194}
-  - 114: {fileID: 11499558}
-  - 114: {fileID: 11452358}
-  - 114: {fileID: 11487706}
   - 114: {fileID: 11478210}
   - 114: {fileID: 11490508}
   - 114: {fileID: 11434680}
@@ -1365,7 +1359,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0671613f5db24204e8160d96fd00c0e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  refNetworkIdentity: {fileID: 11468564}
+  refNetworkIdentity: {fileID: 0}
   isActive: 0
   refBehaviours:
   - {fileID: 2076162}
@@ -1593,19 +1587,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   refParent: {fileID: 410988}
   prefab: {fileID: 141230, guid: 6eca6088b7991468eb7d13ea793bfc12, type: 2}
---- !u!114 &11452358
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 158202}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6396faa981022234784cb9da353130fc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  autoProvideToServer: 0
-  lerpRate: .800000012
 --- !u!114 &11455024
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1655,49 +1636,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   refNextState: {fileID: 125312}
   delay: .119999997
---- !u!114 &11468564
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 158202}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 372142912, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SceneId:
-    m_Value: 0
-  m_AssetId:
-    i0: 122
-    i1: 166
-    i2: 108
-    i3: 82
-    i4: 96
-    i5: 115
-    i6: 186
-    i7: 228
-    i8: 11
-    i9: 158
-    i10: 117
-    i11: 37
-    i12: 96
-    i13: 111
-    i14: 225
-    i15: 156
-  m_ServerOnly: 0
-  m_LocalPlayerAuthority: 1
---- !u!114 &11471368
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 158202}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2af4c1d8e441a4d40982f47e5ad4799c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &11473868
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1763,18 +1701,6 @@ MonoBehaviour:
   refRenderer: {fileID: 2346346}
   refRendererSwitcher: {fileID: 11459428}
   isActive: 1
---- !u!114 &11477194
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 158202}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 32b84ce177513904594353b122453f5a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  networkIdentity: {fileID: 11468564}
 --- !u!114 &11477508
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1794,21 +1720,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 158202}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 980d51e93d1a54058ab30c109570c46e, type: 3}
+  m_Script: {fileID: 11500000, guid: 00ea300ce2e094c8390e4643a22cbc13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_MaxSpeed: 10
   m_JumpForce: 1200
+  m_CrouchSpeed: .360000014
   m_AirControl: 1
   m_WhatIsGround:
     serializedVersion: 2
     m_Bits: 512
-  refGroundCheck: {fileID: 442162}
-  refRigidBody2D: {fileID: 5036072}
-  colliderList:
-  - {fileID: 6133594}
-  - {fileID: 5864898}
-  - {fileID: 5825116}
 --- !u!114 &11480984
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1833,18 +1754,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   refNextState: {fileID: 141432}
   delay: .0700000003
---- !u!114 &11487706
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 158202}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b3c491dbda9b14143aedda4dfbb81de3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  autoProvideToServer: 0
 --- !u!114 &11488158
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1912,17 +1821,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   refReceiver: {fileID: 128604}
---- !u!114 &11499558
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 158202}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a0d5a0fc504b81148bffe5e5ae592394, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!124 &12440720
 Behaviour:
   m_ObjectHideFlags: 1
@@ -2044,7 +1942,7 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: networkIdentity
       value: 
-      objectReference: {fileID: 11468564}
+      objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: lerpSpeedX
       value: .0299999993

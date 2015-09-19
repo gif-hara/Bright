@@ -24,7 +24,6 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 455792}
-  - 114: {fileID: 11472628}
   - 114: {fileID: 11408098}
   - 114: {fileID: 11464608}
   m_Layer: 0
@@ -100,38 +99,6 @@ MonoBehaviour:
   chunk: {fileID: 11408098}
   groundPrefab: {fileID: 136018, guid: 74e2a18f09db149b6afd2250ae2be425, type: 2}
   wallPrefab: {fileID: 136018, guid: 9b32ba861f71c47f79c4436fd4cf58af, type: 2}
---- !u!114 &11472628
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 182948}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 372142912, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SceneId:
-    m_Value: 0
-  m_AssetId:
-    i0: 143
-    i1: 129
-    i2: 225
-    i3: 41
-    i4: 46
-    i5: 160
-    i6: 152
-    i7: 244
-    i8: 138
-    i9: 72
-    i10: 162
-    i11: 117
-    i12: 63
-    i13: 228
-    i14: 139
-    i15: 254
-  m_ServerOnly: 0
-  m_LocalPlayerAuthority: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
