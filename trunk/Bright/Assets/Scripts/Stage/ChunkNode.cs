@@ -73,5 +73,67 @@ namespace Bright
 				return false;
 			}
 		}
+
+		public void Visible(Chunk ignoreChunk)
+		{
+			SetActive(this.Left, ignoreChunk, true);
+			SetActive(this.Right, ignoreChunk, true);
+			SetActive(this.Top, ignoreChunk, true);
+			SetActive(this.Bottom, ignoreChunk, true);
+		}
+
+		public void Hidden(Chunk ignoreChunk)
+		{
+			SetActive(this.Left, ignoreChunk, false);
+			SetActive(this.Right, ignoreChunk, false);
+			SetActive(this.Top, ignoreChunk, false);
+			SetActive(this.Bottom, ignoreChunk, false);
+		}
+
+		public void VisibleRelatedChunk(Chunk parent)
+		{
+			VisibleRelatedChunk(this.Left, parent);
+			VisibleRelatedChunk(this.Right, parent);
+			VisibleRelatedChunk(this.Top, parent);
+			VisibleRelatedChunk(this.Bottom, parent);
+		}
+		
+		public void HiddenRelatedChunk(Chunk parent)
+		{
+			HiddenRelatedChunk(this.Left, parent);
+			HiddenRelatedChunk(this.Right, parent);
+			HiddenRelatedChunk(this.Top, parent);
+			HiddenRelatedChunk(this.Bottom, parent);
+		}
+		
+		private void SetActive(Chunk target, Chunk ignoreChunk, bool isActive)
+		{
+			if(target == null || target == ignoreChunk)
+			{
+				return;
+			}
+
+			target.gameObject.SetActive(isActive);
+		}
+
+		private void VisibleRelatedChunk(Chunk target, Chunk parent)
+		{
+			if(target == null)
+			{
+				return;
+			}
+			
+			target.Visible(parent);
+		}
+
+		private void HiddenRelatedChunk(Chunk target, Chunk parent)
+		{
+			if(target == null)
+			{
+				return;
+			}
+			
+			target.Hidden(parent);
+		}
 	}
 }

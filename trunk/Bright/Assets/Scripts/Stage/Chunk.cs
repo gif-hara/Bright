@@ -7,12 +7,44 @@ namespace Bright
 	/// <summary>
 	/// チャンクコンポーネント.
 	/// </summary>
-	[RequireComponent(typeof(ChunkCreator))]
+	[RequireComponent(typeof(ChunkCreator), typeof(OnTriggerEnter2DHiddenRelatedChunk))]
 	public class Chunk : ChunkBase
 	{
 		public ChunkDoorway Doorway{ get{ return this.doorway; } }
 		[SerializeField]
 		private ChunkDoorway doorway;
+
+#if UNITY_EDITOR
+		[ContextMenu("Setup")]
+		void Setup()
+		{
+			this.gameObject.layer = LayerMask.NameToLayer("Chunk");
+
+			var rigidBody2D = Attach<Rigidbody2D>();
+			rigidBody2D.isKinematic = true;
+
+			var collider = Attach<BoxCollider2D>();
+			collider.size = Vector2.one * StageManager.ChunkSize;
+			collider.offset = Vector2.one * (StageManager.ChunkSize / 2);
+			collider.isTrigger = true;
+
+			Attach<ChunkCreator>();
+			Attach<OnTriggerEnter2DVisibleRelatedChunk>();
+			Attach<OnTriggerEnter2DHiddenRelatedChunk>();
+		}
+
+		T Attach<T>() where T : Component
+		{
+			var t = GetComponent<T>();
+			if(t == null)
+			{
+				t = gameObject.AddComponent<T>();
+			}
+
+			return t;
+		}
+
+#endif
 
 		public void Initialize(StageManager stageManager, Point index, BlankChunk blankChunk)
 		{
@@ -21,10 +53,14 @@ namespace Bright
 				this.node = blankChunk.Node;
 			}
 
-			base.Initialize(stageManager, index);
+			this.stageManager = stageManager;
+			this.index = index;
+
 			var creator = GetComponent<ChunkCreator>();
 			var max = StageManager.ChunkSize - 1;
-			
+
+			this.transform.position = stageManager.GetPosition(index, Point.Zero);
+
 			this.CreateWall(creator, stageManager, GameDefine.DirectionType.Left, index, Point.Zero);
 			this.CreateWall(creator, stageManager, GameDefine.DirectionType.Right, index, Point.Right * max);
 			this.CreateGround(creator, stageManager, GameDefine.DirectionType.Top, index, Point.Top * max);
@@ -39,6 +75,26 @@ namespace Bright
 			{
 				(component as IReceiveOnInitializeChunk).OnInitializeChunk(stageManager, index);
 			}
+		}
+
+		public void Visible(Chunk ignoreChunk)
+		{
+			this.node.Visible(ignoreChunk);
+		}
+
+		public void Hidden(Chunk ignoreChunk)
+		{
+			this.node.Hidden(ignoreChunk);
+		}
+
+		public void VisibleRelatedChunk()
+		{
+			this.node.VisibleRelatedChunk(this);
+		}
+
+		public void HiddenRelatedChunk()
+		{
+			this.node.HiddenRelatedChunk(this);
 		}
 
 		private void CreateGround(ChunkCreator creator, StageManager stageManager, GameDefine.DirectionType direction, Point chunkIndex, Point position)
@@ -73,25 +129,7 @@ namespace Bright
 				return;
 			}
 
-			stageManager.CreateBlankChunk(this, InverseDirection(direction), chunkIndex);
-		}
-
-		private GameDefine.DirectionType InverseDirection(GameDefine.DirectionType direction)
-		{
-			switch(direction)
-			{
-			case GameDefine.DirectionType.Left:
-				return GameDefine.DirectionType.Right;
-			case GameDefine.DirectionType.Right:
-				return GameDefine.DirectionType.Left;
-			case GameDefine.DirectionType.Top:
-				return GameDefine.DirectionType.Bottom;
-			case GameDefine.DirectionType.Bottom:
-				return GameDefine.DirectionType.Top;
-			default:
-				Assert.IsTrue(false, "不正な値です. direction = " + direction);
-				return GameDefine.DirectionType.Left;
-			}
+			stageManager.CreateBlankChunk(this, GameDefine.InverseDirection(direction), chunkIndex);
 		}
 	}
 }

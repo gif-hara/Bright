@@ -6,10 +6,22 @@ namespace Bright
 {
     public class ChunkHolder : MonoBehaviour
     {
-        [SerializeField]
-        private List<ChunkCreator> chunkPrefabs;
+		[SerializeField]
+		private List<Chunk> initialChunkPrefabs;
 
-		public ChunkCreator GetChunkCreator(ChunkDoorway data)
+        [SerializeField]
+        private List<Chunk> chunkPrefabs;
+
+		public Chunk InitialChunk
+		{
+			get
+			{
+				var random = Random.Range(0, this.initialChunkPrefabs.Count);
+				return this.initialChunkPrefabs[random];
+			}
+		}
+
+		public Chunk GetChunkCreator(ChunkDoorway data)
 		{
 			return null;
 		}
