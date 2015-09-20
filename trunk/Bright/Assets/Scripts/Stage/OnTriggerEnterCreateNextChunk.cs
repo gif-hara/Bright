@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine.Networking;
 using System.Collections.Generic;
 
 namespace Bright
@@ -7,13 +6,15 @@ namespace Bright
 	/// <summary>
 	/// トリガーにヒットしたら次のチャンクを生成するコンポーネント.
 	/// </summary>
+	[RequireComponent(typeof(BlankChunk))]
 	public class OnTriggerEnterCreateNextChunk : MonoBehaviour
 	{
 		void OnTriggerEnter2D(Collider2D other)
 		{
-//			StageManager.Instance.CreateNextChunk(0, 0);
+			var blankChunk = GetComponent<BlankChunk>();
+			blankChunk.Hypostatization();
 			Destroy(gameObject);
-			NetworkServer.Destroy(gameObject);
+			Debug.Log("Create Index = " + blankChunk.Index + " other.name = " + other.name);
 		}
 	}
 }

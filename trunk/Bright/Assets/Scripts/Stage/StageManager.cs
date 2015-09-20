@@ -17,7 +17,7 @@ namespace Bright
 		private FloorHolder floorHolder;
 
 		[SerializeField]
-		private GameObject nextChunkColliderPrefab;
+		private BlankChunk blankChunkPrefab;
 
 		private int currentChunkIndex = 0;
 
@@ -54,13 +54,15 @@ namespace Bright
 				);
             var obj = Instantiate(prefab);
 			obj.transform.parent = parent;
-			obj.transform.position = GetPosition(chunkIndex.X, chunkIndex.Y, position.X, position.Y);
+			obj.transform.position = GetPosition(chunkIndex, position);
         }
 
-		public void CmdNextChunkCollider(Point chunkIndex)
+		public void CreateBlankChunk(Chunk linkedChunk, GameDefine.DirectionType linkedDirection, Point chunkIndex)
 		{
-			var nextChunkCollider = Instantiate(this.nextChunkColliderPrefab);
-			nextChunkCollider.transform.position = GetPosition(chunkIndex.X, chunkIndex.Y, 0, 0);
+			var blankChunk = Instantiate(this.blankChunkPrefab);
+			blankChunk.Initialize(this, chunkIndex);
+			blankChunk.Connect(linkedDirection, linkedChunk);
+			blankChunk.transform.position = GetPosition(chunkIndex, Point.Zero);
 		}
 
 		//[Command]
@@ -78,14 +80,16 @@ namespace Bright
 			CreateChunk(this.chunkPrefab, Point.Zero);
 		}
 
-		public void CreateNextChunk(int chunkXIndex, int chunkYIndex)
+		public void CreateChunk(BlankChunk blankChunk, Point chunkIndex)
 		{
+			var chunk = Instantiate(this.chunkPrefab);
+			chunk.Initialize(this, chunkIndex, blankChunk);
 		}
 
 		private void CreateChunk(Chunk prefab, Point chunkIndex)
 		{
 			var chunk = Instantiate(prefab);
-			chunk.Initialize(this, chunkIndex);
+			chunk.Initialize(this, chunkIndex, null);
 		}
 
 		private bool IsExistChunk(int chunkXIndex, int chunkYIndex)
@@ -113,9 +117,9 @@ namespace Bright
 			chunkMap[chunkYIndex].Add(chunkXIndex, true);
 		}
 
-		public Vector2 GetPosition(int chunkXIndex, int chunkYIndex, int xIndex, int yIndex)
+		public Vector2 GetPosition(Point chunkIndex, Point position)
 		{
-			return new Vector2(xIndex + (chunkXIndex * ChunkSize), yIndex + (chunkYIndex * ChunkSize));
+			return new Vector2(position.X + (chunkIndex.X * ChunkSize), position.Y + (chunkIndex.Y * ChunkSize));
 		}
 
 		public static Vector2 GetChunkIndexFromPosition(Vector3 position)

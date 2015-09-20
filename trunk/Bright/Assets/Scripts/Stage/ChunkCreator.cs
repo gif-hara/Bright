@@ -8,9 +8,6 @@ namespace Bright
 	/// </summary>
 	public class ChunkCreator : MonoBehaviour
     {
-		[SerializeField]
-		private Chunk chunk;
-
         [SerializeField]
         private GameObject groundPrefab;
 
@@ -25,11 +22,6 @@ namespace Bright
 		public void CreateWall(StageManager stageManager, Point chunkIndex, Point position)
 		{
 			stageManager.CreateStageObject(this.transform, this.wallPrefab, chunkIndex, position);
-		}
-		
-		public void CreateNextChunkCollider(StageManager stageManager, GameDefine.DirectionType direction, Point chunkIndex)
-		{
-			stageManager.CmdNextChunkCollider(chunkIndex);
 		}
     }
 }

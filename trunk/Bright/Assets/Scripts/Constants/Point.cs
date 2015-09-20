@@ -21,6 +21,11 @@ namespace Bright
 
 		public int Y{ set; get; }
 
+		public override string ToString ()
+		{
+			return string.Format ("[Point: X={0}, Y={1}]", X, Y);
+		}
+
 		public static Point Left{ get{ return new Point(-1, 0); } }
 
 		public static Point Right{ get{ return new Point(1, 0); } }
@@ -36,6 +41,11 @@ namespace Bright
 		public static Point operator +(Point a, Point b)
 		{
 			return new Point(a.X + b.X, a.Y + b.Y);
+		}
+
+		public static Vector3 operator +(Point a, Vector3 b)
+		{
+			return new Vector3(a.X + b.x, a.Y + b.y);
 		}
 
 		public static Point operator -(Point a, Point b)
