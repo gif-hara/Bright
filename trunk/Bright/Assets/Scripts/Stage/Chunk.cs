@@ -29,7 +29,7 @@ namespace Bright
 			collider.isTrigger = true;
 
 			Attach<ChunkCreator>();
-			Attach<OnTriggerEnter2DVisibleRelatedChunk>();
+			Attach<OnTriggerEnter2DVisibleChunk>();
 			Attach<OnTriggerEnter2DHiddenRelatedChunk>();
 		}
 

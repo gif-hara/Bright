@@ -4,9 +4,9 @@ using System.Collections.Generic;
 namespace Bright
 {
 	/// <summary>
-	/// 衝突時に隣接するチャンクを非表示にするコンポーネント.
+	/// 衝突時に隣接するチャンクを表示にするコンポーネント.
 	/// </summary>
-	public class OnTriggerEnter2DHiddenRelatedChunk : MonoBehaviour
+	public class OnTriggerEnter2DVisibleChunk : MonoBehaviour
 	{
 		private bool canExecute = true;
 
@@ -18,7 +18,8 @@ namespace Bright
 			}
 
 			this.canExecute = false;
-			GetComponent<Chunk>().HiddenRelatedChunk();
+			var chunk = GetComponent<Chunk>();
+			chunk.Visible(chunk);
 		}
 
 		void OnTriggerExit2D(Collider2D other)
@@ -29,7 +30,6 @@ namespace Bright
 			}
 
 			this.canExecute = true;
-			Debug.Log(gameObject.name + " OnTriggerEnter2DHiddenRelatedChunk");
 		}
 	}
 }
