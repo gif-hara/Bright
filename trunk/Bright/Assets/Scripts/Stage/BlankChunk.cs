@@ -8,6 +8,16 @@ namespace Bright
 	/// </summary>
 	public class BlankChunk : ChunkBase
 	{
+		private Chunk linkedChunk;
+
+		private GameDefine.DirectionType linkedDirection;
+
+		public override void Connect (GameDefine.DirectionType direction, Chunk chunk)
+		{
+			base.Connect (direction, chunk);
+			this.linkedChunk = chunk;
+			this.linkedDirection = direction;
+		}
 		public void Initialize(StageManager stageManager, Point index)
 		{
 			this.index = index;
@@ -16,7 +26,8 @@ namespace Bright
 
 		public void Hypostatization()
 		{
-			this.stageManager.CreateChunk(this, index);
+			var chunk = this.stageManager.CreateChunk(this, index);
+			this.linkedChunk.Connect(GameDefine.InverseDirection(this.linkedDirection), chunk);
 		}
 	}
 }

@@ -59,10 +59,12 @@ namespace Bright
 			CreateChunk(this.chunkHolder.InitialChunk, Point.Zero);
 		}
 
-		public void CreateChunk(BlankChunk blankChunk, Point chunkIndex)
+		public Chunk CreateChunk(BlankChunk blankChunk, Point chunkIndex)
 		{
 			var chunk = Instantiate(this.chunkPrefab);
 			chunk.Initialize(this, chunkIndex, blankChunk);
+
+			return chunk;
 		}
 
 		private void CreateChunk(Chunk prefab, Point chunkIndex)

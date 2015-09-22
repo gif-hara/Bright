@@ -26,7 +26,7 @@ namespace Bright
 //			}
 //		}
 
-		public void Connect(GameDefine.DirectionType direction, Chunk chunk)
+		public virtual void Connect(GameDefine.DirectionType direction, Chunk chunk)
 		{
 			this.node.Connect(direction, chunk);
 		}
