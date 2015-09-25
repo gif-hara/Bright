@@ -25,7 +25,7 @@ namespace Bright
 			this.CreateInitialChunk();
 		}
 
-        public void CreateStageObject(Transform parent, GameObject prefab, Point chunkIndex, Point position)
+        public GameObject CreateStageObject(Transform parent, GameObject prefab, Point chunkIndex, Point position)
         {
 			Assert.IsTrue(
 				(position.X >= 0 && position.X < ChunkSize) && (position.Y >= 0 && position.Y < ChunkSize),
@@ -34,22 +34,19 @@ namespace Bright
             var obj = Instantiate(prefab);
 			obj.transform.parent = parent;
 			obj.transform.position = GetPosition(chunkIndex, position);
+
+			return obj;
         }
 
-		public void CreateBlankChunk(Chunk linkedChunk, GameDefine.DirectionType linkedDirection, Point chunkIndex)
+		public BlankChunk CreateBlankChunk(Chunk linkedChunk, GameDefine.DirectionType linkedDirection, Point chunkIndex)
 		{
 			var blankChunk = Instantiate(this.blankChunkPrefab);
 			blankChunk.Initialize(this, chunkIndex);
 			blankChunk.Connect(linkedDirection, linkedChunk);
 			blankChunk.transform.position = GetPosition(chunkIndex, Point.Zero);
-		}
 
-		//[Command]
-		//private void CmdCreateFloorCreator()
-		//{
-		//	var floorCreator = new FloorCreator(this, (this.floorCreators.Count * FloorCreatorIntervalY) + 1);
-		//	this.floorCreators.Add(floorCreator);
-		//}
+			return blankChunk;
+		}
 
 		/// <summary>
 		/// 初期チャンクを生成する.

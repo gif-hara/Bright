@@ -115,7 +115,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorway:
-    flag: 8
+    flag: 12
 --- !u!114 &11441220
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -201,7 +201,7 @@ Prefab:
         type: 2}
     - target: {fileID: 0}
       propertyPath: doorway.flag
-      value: 8
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: nextCreateChunk.nextChunk

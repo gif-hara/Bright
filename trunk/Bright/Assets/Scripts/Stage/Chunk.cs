@@ -7,14 +7,82 @@ namespace Bright
 	/// <summary>
 	/// チャンクコンポーネント.
 	/// </summary>
-	[RequireComponent(typeof(ChunkCreator), typeof(OnTriggerEnter2DHiddenRelatedChunk))]
+	[ExecuteInEditMode][RequireComponent(typeof(ChunkCreator), typeof(OnTriggerEnter2DHiddenRelatedChunk))]
 	public class Chunk : ChunkBase
 	{
-		public ChunkDoorway Doorway{ get{ return this.doorway; } }
 		[SerializeField]
 		private ChunkDoorway doorway;
 
 #if UNITY_EDITOR
+
+		private StageManager _stageManager;
+
+		private ChunkCreator _creator;
+
+		private ChunkDoorway _doorway = new ChunkDoorway();
+
+		private GameObject _left;
+		private GameObject _right;
+		private GameObject _top;
+		private GameObject _bottom;
+
+		void Update()
+		{
+			if(this._stageManager == null)
+			{
+				this._stageManager = GameObject.Find("Stage").GetComponent<StageManager>();
+			}
+			if(this._creator == null)
+			{
+				this._creator = GetComponent<ChunkCreator>();
+			}
+
+			var max = StageManager.ChunkSize - 1;
+			this._Create(GameDefine.DirectionType.Left, ref this._left, () =>
+			{
+				return CreateWall(this._creator, this._stageManager, GameDefine.DirectionType.Left, Point.Zero, Point.Zero);
+			});
+			this._Create(GameDefine.DirectionType.Right, ref this._right, () =>
+			{
+				return CreateWall(this._creator, this._stageManager, GameDefine.DirectionType.Right, Point.Zero, Point.Right * max);
+			});
+			this._Create(GameDefine.DirectionType.Top, ref this._top, () =>
+			{
+				return CreateGround(this._creator, this._stageManager, GameDefine.DirectionType.Top, Point.Zero, Point.Top * max);
+			});
+			this._Create(GameDefine.DirectionType.Bottom, ref this._bottom, () =>
+			{
+				return CreateGround(this._creator, this._stageManager, GameDefine.DirectionType.Bottom, Point.Zero, Point.Zero);
+			});
+
+			this._doorway.Copy(this.doorway);
+		}
+
+		void OnDestroy()
+		{
+			DestroyImmediate(this._left);
+			DestroyImmediate(this._right);
+			DestroyImmediate(this._top);
+			DestroyImmediate(this._bottom);
+		}
+
+		void _Create(GameDefine.DirectionType type, ref GameObject go, System.Func<GameObject> createFunction)
+		{
+			if(!this.doorway.Difference(this._doorway, type))
+			{
+				return;
+			}
+
+			DestroyImmediate(go);
+
+			if(this.doorway.CanCreate(type))
+			{
+				go = createFunction();
+				go.transform.parent = null;
+				go.hideFlags = HideFlags.HideInHierarchy;
+			}
+		}
+
 		[ContextMenu("Setup")]
 		void Setup()
 		{
@@ -97,39 +165,39 @@ namespace Bright
 			this.node.HiddenRelatedChunk(this);
 		}
 
-		private void CreateGround(ChunkCreator creator, StageManager stageManager, GameDefine.DirectionType direction, Point chunkIndex, Point position)
+		public GameObject CreateGround(ChunkCreator creator, StageManager stageManager, GameDefine.DirectionType direction, Point chunkIndex, Point position)
 		{
 			if(!this.doorway.CanCreate(direction))
 			{
-				return;
+				return null;
 			}
 
-			creator.CreateGround(stageManager, chunkIndex, position);
+			return creator.CreateGround(stageManager, chunkIndex, position);
 		}
 
-		private void CreateWall(ChunkCreator creator, StageManager stageManager, GameDefine.DirectionType direction, Point chunkIndex, Point position)
+		public GameObject CreateWall(ChunkCreator creator, StageManager stageManager, GameDefine.DirectionType direction, Point chunkIndex, Point position)
 		{
 			if(!this.doorway.CanCreate(direction))
 			{
-				return;
+				return null;
 			}
 
-			creator.CreateWall(stageManager, chunkIndex, position);
+			return creator.CreateWall(stageManager, chunkIndex, position);
 		}
 
-		private void CreateBlankChunk(StageManager stageManager, GameDefine.DirectionType direction, Point chunkIndex)
+		public BlankChunk CreateBlankChunk(StageManager stageManager, GameDefine.DirectionType direction, Point chunkIndex)
 		{
 			if(this.doorway.CanCreate(direction))
 			{
-				return;
+				return null;
 			}
 
 			if(this.node.Contains(direction))
 			{
-				return;
+				return null;
 			}
 
-			stageManager.CreateBlankChunk(this, GameDefine.InverseDirection(direction), chunkIndex);
+			return stageManager.CreateBlankChunk(this, GameDefine.InverseDirection(direction), chunkIndex);
 		}
 	}
 }

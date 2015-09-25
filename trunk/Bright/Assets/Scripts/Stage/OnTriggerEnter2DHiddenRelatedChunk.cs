@@ -29,7 +29,6 @@ namespace Bright
 			}
 
 			this.canExecute = true;
-			Debug.Log(gameObject.name + " OnTriggerEnter2DHiddenRelatedChunk");
 		}
 	}
 }

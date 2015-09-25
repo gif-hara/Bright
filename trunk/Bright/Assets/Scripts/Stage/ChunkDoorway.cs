@@ -16,5 +16,15 @@ namespace Bright
 		{
 			return (flag & type) > 0;
 		}
+
+		public bool Difference(ChunkDoorway other, GameDefine.DirectionType type)
+		{
+			return this.CanCreate(type) != other.CanCreate(type);
+		}
+
+		public void Copy(ChunkDoorway other)
+		{
+			this.flag = other.flag;
+		}
 	}
 }

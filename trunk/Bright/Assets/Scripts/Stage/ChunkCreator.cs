@@ -14,14 +14,14 @@ namespace Bright
         [SerializeField]
         private GameObject wallPrefab;
 
-		public void CreateGround(StageManager stageManager, Point chunkIndex, Point position)
+		public GameObject CreateGround(StageManager stageManager, Point chunkIndex, Point position)
 		{
-			stageManager.CreateStageObject(this.transform, this.groundPrefab, chunkIndex, position);
+			return stageManager.CreateStageObject(this.transform, this.groundPrefab, chunkIndex, position);
 		}
 		
-		public void CreateWall(StageManager stageManager, Point chunkIndex, Point position)
+		public GameObject CreateWall(StageManager stageManager, Point chunkIndex, Point position)
 		{
-			stageManager.CreateStageObject(this.transform, this.wallPrefab, chunkIndex, position);
+			return stageManager.CreateStageObject(this.transform, this.wallPrefab, chunkIndex, position);
 		}
     }
 }
