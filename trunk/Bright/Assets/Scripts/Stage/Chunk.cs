@@ -13,6 +13,8 @@ namespace Bright
 		[SerializeField]
 		private ChunkDoorway doorway;
 
+		private List<BlankChunk> blankChunks = new List<BlankChunk>();
+
 #if UNITY_EDITOR
 
 		private StageManager _stageManager;
@@ -28,6 +30,11 @@ namespace Bright
 
 		void Update()
 		{
+			if(Application.isPlaying)
+			{
+				return;
+			}
+
 			if(this._stageManager == null)
 			{
 				this._stageManager = GameObject.Find("Stage").GetComponent<StageManager>();
@@ -66,6 +73,11 @@ namespace Bright
 
 		void OnDestroy()
 		{
+			if(Application.isPlaying)
+			{
+				return;
+			}
+
 			DestroyImmediate(this._left);
 			DestroyImmediate(this._right);
 			DestroyImmediate(this._top);
@@ -105,6 +117,7 @@ namespace Bright
 			Attach<ChunkCreator>();
 			Attach<OnTriggerEnter2DVisibleChunk>();
 			Attach<OnTriggerEnter2DHiddenRelatedChunk>();
+			Attach<OnTriggerEnter2DCreateNextChunk>();
 		}
 
 		T Attach<T>() where T : Component
@@ -171,7 +184,17 @@ namespace Bright
 			this.node.HiddenRelatedChunk(this);
 		}
 
-		public GameObject CreateGround(ChunkCreator creator, StageManager stageManager, GameDefine.DirectionType direction, Point chunkIndex, Point position)
+		public bool IsOpen(ChunkDoorway doorway)
+		{
+			return this.doorway.IsOpen(doorway);
+		}
+
+		public void Hypostatization()
+		{
+			this.blankChunks.ForEach(b => b.Hypostatization());
+		}
+
+		private GameObject CreateGround(ChunkCreator creator, StageManager stageManager, GameDefine.DirectionType direction, Point chunkIndex, Point position)
 		{
 			if(!this.doorway.CanCreate(direction))
 			{
@@ -181,7 +204,7 @@ namespace Bright
 			return creator.CreateGround(stageManager, chunkIndex, position);
 		}
 
-		public GameObject CreateWall(ChunkCreator creator, StageManager stageManager, GameDefine.DirectionType direction, Point chunkIndex, Point position)
+		private GameObject CreateWall(ChunkCreator creator, StageManager stageManager, GameDefine.DirectionType direction, Point chunkIndex, Point position)
 		{
 			if(!this.doorway.CanCreate(direction))
 			{
@@ -191,19 +214,19 @@ namespace Bright
 			return creator.CreateWall(stageManager, chunkIndex, position);
 		}
 
-		public BlankChunk CreateBlankChunk(StageManager stageManager, GameDefine.DirectionType direction, Point chunkIndex)
+		private void CreateBlankChunk(StageManager stageManager, GameDefine.DirectionType direction, Point chunkIndex)
 		{
 			if(this.doorway.CanCreate(direction))
 			{
-				return null;
+				return;
 			}
 
 			if(this.node.Contains(direction))
 			{
-				return null;
+				return;
 			}
 
-			return stageManager.CreateBlankChunk(this, GameDefine.InverseDirection(direction), chunkIndex);
+			this.blankChunks.Add(stageManager.CreateBlankChunk(this, GameDefine.InverseDirection(direction), chunkIndex));
 		}
 	}
 }

@@ -14,6 +14,8 @@ GameObject:
   - 114: {fileID: 11464608}
   - 114: {fileID: 11427688}
   - 114: {fileID: 11451942}
+  - 114: {fileID: 11468448}
+  - 114: {fileID: 11493770}
   m_Layer: 12
   m_Name: Chunk_Initial0
   m_TagString: Untagged
@@ -74,7 +76,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorway:
-    flag: 12
+    flag: 13
 --- !u!114 &11427688
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -110,6 +112,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   groundPrefab: {fileID: 136018, guid: 74e2a18f09db149b6afd2250ae2be425, type: 2}
   wallPrefab: {fileID: 136018, guid: 9b32ba861f71c47f79c4436fd4cf58af, type: 2}
+--- !u!114 &11468448
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 182948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e993bc40058e0403185ffa6a8e265bb7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11493770
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 182948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48db45d8f528243cfa66186d7f98bc05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -160,7 +184,7 @@ Prefab:
         type: 2}
     - target: {fileID: 0}
       propertyPath: doorway.flag
-      value: 12
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: nextCreateChunk.nextChunk

@@ -9,11 +9,18 @@ namespace Bright
 	[RequireComponent(typeof(BlankChunk))]
 	public class OnTriggerEnter2DCreateNextChunk : MonoBehaviour
 	{
+		private bool isCreated = false;
+
 		void OnTriggerEnter2D(Collider2D other)
 		{
-			var blankChunk = GetComponent<BlankChunk>();
-			blankChunk.Hypostatization();
-			Destroy(gameObject);
+			if(this.isCreated)
+			{
+				return;
+			}
+
+			var chunk = GetComponent<Chunk>();
+			chunk.Hypostatization();
+			this.isCreated = true;
 		}
 	}
 }

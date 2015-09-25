@@ -19,6 +19,11 @@ namespace Bright
 
 		void Update()
 		{
+			if(Application.isPlaying)
+			{
+				return;
+			}
+
 			if(this.prefab == null)
 			{
 				return;
@@ -37,6 +42,11 @@ namespace Bright
 
 		void OnDestroy()
 		{
+			if(Application.isPlaying)
+			{
+				return;
+			}
+
 			if(this._instance == null)
 			{
 				return;

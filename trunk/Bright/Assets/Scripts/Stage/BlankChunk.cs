@@ -29,5 +29,17 @@ namespace Bright
 			var chunk = this.stageManager.CreateChunk(this, index);
 			this.linkedChunk.Connect(GameDefine.InverseDirection(this.linkedDirection), chunk);
 		}
+
+		/// <summary>
+		/// 入り口のみ開いているChunkDoorwayを返す.
+		/// </summary>
+		/// <value>The opened doorway.</value>
+		public ChunkDoorway OpenedDoorway
+		{
+			get
+			{
+				return new ChunkDoorway(this.node);
+			}
+		}
 	}
 }

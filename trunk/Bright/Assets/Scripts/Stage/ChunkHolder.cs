@@ -21,9 +21,12 @@ namespace Bright
 			}
 		}
 
-		public Chunk GetChunkCreator(ChunkDoorway data)
+		public Chunk GetChunk(BlankChunk blankChunk)
 		{
-			return null;
+			var doorway = blankChunk.OpenedDoorway;
+			var findChunk = this.chunkPrefabs.FindAll(c => c.IsOpen(doorway));
+
+			return findChunk[Random.Range(0, findChunk.Count)];
 		}
     }
 }
