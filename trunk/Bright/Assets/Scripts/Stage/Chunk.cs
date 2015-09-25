@@ -37,6 +37,12 @@ namespace Bright
 				this._creator = GetComponent<ChunkCreator>();
 			}
 
+			if(!this._creator.ReadyEdit)
+			{
+				Debug.LogWarning("ChunkCreatorの準備が出来ていないためエディター機能をオフにします.");
+				return;
+			}
+
 			var max = StageManager.ChunkSize - 1;
 			this._Create(GameDefine.DirectionType.Left, ref this._left, () =>
 			{
