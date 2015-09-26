@@ -4,7 +4,7 @@ using System.Collections.Generic;
 namespace Bright
 {
 	/// <summary>
-	/// .
+	/// RenderSwitcherで最初に描画するRendererを決定するコンポーネント.
 	/// </summary>
 	[RequireComponent(typeof(RendererSwitcher))]
 	public class EnterRendererSwitcher : MonoBehaviour
