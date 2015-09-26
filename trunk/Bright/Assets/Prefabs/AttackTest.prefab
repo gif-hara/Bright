@@ -25,7 +25,6 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 443690}
-  - 114: {fileID: 11457724}
   - 114: {fileID: 11403478}
   m_Layer: 0
   m_Name: AttackTest
@@ -103,38 +102,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 141230}
   delay: .25
---- !u!114 &11457724
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 141230}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 372142912, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SceneId:
-    m_Value: 0
-  m_AssetId:
-    i0: 110
-    i1: 202
-    i2: 96
-    i3: 136
-    i4: 183
-    i5: 153
-    i6: 20
-    i7: 104
-    i8: 235
-    i9: 125
-    i10: 19
-    i11: 234
-    i12: 121
-    i13: 59
-    i14: 252
-    i15: 18
-  m_ServerOnly: 0
-  m_LocalPlayerAuthority: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
