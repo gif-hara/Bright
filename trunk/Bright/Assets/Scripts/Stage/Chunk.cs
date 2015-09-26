@@ -194,6 +194,11 @@ namespace Bright
 			this.blankChunks.ForEach(b => b.Hypostatization());
 		}
 
+		public void DestroyBlankChunk()
+		{
+			this.blankChunks.ForEach(b => Destroy(b.gameObject));
+		}
+
 		private GameObject CreateGround(ChunkCreator creator, StageManager stageManager, GameDefine.DirectionType direction, Point chunkIndex, Point position)
 		{
 			if(!this.doorway.CanCreate(direction))

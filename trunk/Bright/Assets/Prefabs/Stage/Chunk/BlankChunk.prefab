@@ -8,8 +8,6 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 481312}
-  - 50: {fileID: 5071036}
-  - 61: {fileID: 6195390}
   - 114: {fileID: 11459168}
   m_Layer: 11
   m_Name: BlankChunk
@@ -30,35 +28,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!50 &5071036
-Rigidbody2D:
-  serializedVersion: 2
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 136798}
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: .0500000007
-  m_GravityScale: 1
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!61 &6195390
-BoxCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 136798}
-  m_Enabled: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_Offset: {x: 15, y: 15}
-  serializedVersion: 2
-  m_Size: {x: 30, y: 30}
 --- !u!114 &11459168
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -80,7 +49,7 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: myCollider2D
       value: 
-      objectReference: {fileID: 6195390}
+      objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Size.x
       value: 30

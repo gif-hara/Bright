@@ -20,6 +20,7 @@ namespace Bright
 
 			var chunk = GetComponent<Chunk>();
 			chunk.Hypostatization();
+			chunk.DestroyBlankChunk();
 			this.isCreated = true;
 		}
 	}
