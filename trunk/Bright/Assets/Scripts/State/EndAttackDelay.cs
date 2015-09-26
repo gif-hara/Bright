@@ -8,7 +8,7 @@ namespace Bright
 	/// <summary>
 	/// .
 	/// </summary>
-	public class EndAttackDelay : MonoBehaviour, IReceiveActiveState
+	public class EndAttackDelay : MonoBehaviour, IReceiveStartAttack
 	{
 		[SerializeField]
 		private GameObject refTarget;
@@ -16,16 +16,16 @@ namespace Bright
 		[SerializeField]
 		private float delay;
 
-		public void OnActiveState()
+		public void OnStartAttack()
 		{
-			StartCoroutine(EndAttackCoroutine());
+			StartCoroutine(this.EndAttackCoroutine());
 		}
 
 		IEnumerator EndAttackCoroutine()
 		{
 			yield return new WaitForSeconds(delay);
 
-			ExecuteEvents.ExecuteHierarchy<IReceiveEndAttack>(this.refTarget, null, (handler, eventData) => handler.OnEndAttack());
+			ExecuteEvents.Execute<IReceiveEndAttack>(this.refTarget, null, (handler, eventData) => handler.OnEndAttack());
 		}
 	}
 }

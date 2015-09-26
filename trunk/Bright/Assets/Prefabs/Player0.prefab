@@ -10,7 +10,7 @@ GameObject:
   - 4: {fileID: 435492}
   - 114: {fileID: 11455358}
   - 114: {fileID: 11412588}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Attack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27,7 +27,7 @@ GameObject:
   - 4: {fileID: 467410}
   - 33: {fileID: 3325532}
   - 23: {fileID: 2343666}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Run0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,7 +44,7 @@ GameObject:
   - 4: {fileID: 451856}
   - 114: {fileID: 11496954}
   - 114: {fileID: 11477508}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Jump
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -61,7 +61,7 @@ GameObject:
   - 4: {fileID: 438240}
   - 33: {fileID: 3304146}
   - 23: {fileID: 2359552}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Run1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,7 +96,7 @@ GameObject:
   - 4: {fileID: 405428}
   - 114: {fileID: 11434456}
   - 114: {fileID: 11460268}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Event (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -130,7 +130,7 @@ GameObject:
   - 114: {fileID: 11444018}
   - 114: {fileID: 11403556}
   - 114: {fileID: 11449082}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: CameraPivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -147,7 +147,7 @@ GameObject:
   - 4: {fileID: 454554}
   - 114: {fileID: 11410008}
   - 114: {fileID: 11496192}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: State
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -164,7 +164,7 @@ GameObject:
   - 4: {fileID: 469716}
   - 114: {fileID: 11447282}
   - 114: {fileID: 11483980}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Event (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -181,7 +181,7 @@ GameObject:
   - 4: {fileID: 472480}
   - 33: {fileID: 3358002}
   - 23: {fileID: 2302126}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Fall0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -197,7 +197,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 467880}
   - 114: {fileID: 11442616}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Event (0)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -214,7 +214,7 @@ GameObject:
   - 4: {fileID: 495596}
   - 33: {fileID: 3334728}
   - 23: {fileID: 2346346}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Idle0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -231,7 +231,7 @@ GameObject:
   - 4: {fileID: 437500}
   - 114: {fileID: 11448200}
   - 114: {fileID: 11480984}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Run
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -248,7 +248,7 @@ GameObject:
   - 4: {fileID: 405258}
   - 33: {fileID: 3311766}
   - 23: {fileID: 2327044}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Jump0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -265,7 +265,7 @@ GameObject:
   - 4: {fileID: 401498}
   - 33: {fileID: 3329452}
   - 23: {fileID: 2376208}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Idle1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -281,7 +281,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 412696}
   - 114: {fileID: 11410268}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Event (0)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -298,7 +298,7 @@ GameObject:
   - 4: {fileID: 482768}
   - 114: {fileID: 11414016}
   - 114: {fileID: 11473868}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Event (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -315,7 +315,7 @@ GameObject:
   - 4: {fileID: 433642}
   - 114: {fileID: 11409322}
   - 114: {fileID: 11488158}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Event (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -332,7 +332,7 @@ GameObject:
   - 4: {fileID: 485044}
   - 114: {fileID: 11402026}
   - 114: {fileID: 11455024}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Event (0)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -349,7 +349,7 @@ GameObject:
   - 4: {fileID: 477854}
   - 33: {fileID: 3359150}
   - 23: {fileID: 2331888}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Attack0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -366,7 +366,7 @@ GameObject:
   - 4: {fileID: 449504}
   - 114: {fileID: 11459428}
   - 114: {fileID: 11491026}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Models
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -387,7 +387,7 @@ GameObject:
   - 114: {fileID: 11434680}
   - 114: {fileID: 11488558}
   - 114: {fileID: 11450154}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Player0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -404,7 +404,7 @@ GameObject:
   - 4: {fileID: 449688}
   - 114: {fileID: 11476626}
   - 114: {fileID: 11476050}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Event (0)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -421,7 +421,7 @@ GameObject:
   - 4: {fileID: 442224}
   - 114: {fileID: 11475584}
   - 114: {fileID: 11413790}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Event (0)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -438,7 +438,7 @@ GameObject:
   - 4: {fileID: 448178}
   - 114: {fileID: 11417454}
   - 114: {fileID: 11434040}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Idle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -453,7 +453,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 442162}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: GroundCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -472,7 +472,7 @@ GameObject:
   - 92: {fileID: 9227778}
   - 124: {fileID: 12440720}
   - 81: {fileID: 8103964}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -489,7 +489,7 @@ GameObject:
   - 4: {fileID: 404016}
   - 33: {fileID: 3383960}
   - 23: {fileID: 2332128}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Run2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -506,7 +506,7 @@ GameObject:
   - 4: {fileID: 400156}
   - 114: {fileID: 11406780}
   - 114: {fileID: 11475124}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Fall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
