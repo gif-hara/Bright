@@ -9,7 +9,7 @@ namespace Bright
 	public class OnGiveDamageAddForceReverce : MonoBehaviour, IReceiveGiveDamage
 	{
 		[SerializeField]
-		private float force;
+		private float force = 750.0f;
 
 		public void OnGiveDamage(GameObject giveObject, Collision2D takeObject)
 		{
