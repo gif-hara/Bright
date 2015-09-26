@@ -64,22 +64,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &147272
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 438550}
-  - 114: {fileID: 11409116}
-  m_Layer: 0
-  m_Name: CreateStageObject (8)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &148512
 GameObject:
   m_ObjectHideFlags: 0
@@ -90,7 +74,7 @@ GameObject:
   - 4: {fileID: 444572}
   - 114: {fileID: 11407924}
   m_Layer: 0
-  m_Name: CreateStageObject (9)
+  m_Name: CreateStageObject (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -219,18 +203,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 455792}
   m_RootOrder: 6
---- !u!4 &438550
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 147272}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 13, y: 25, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 455792}
-  m_RootOrder: 8
 --- !u!4 &444572
 Transform:
   m_ObjectHideFlags: 1
@@ -242,7 +214,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 455792}
-  m_RootOrder: 9
+  m_RootOrder: 8
 --- !u!4 &446656
 Transform:
   m_ObjectHideFlags: 1
@@ -273,7 +245,6 @@ Transform:
   - {fileID: 446656}
   - {fileID: 430046}
   - {fileID: 463484}
-  - {fileID: 438550}
   - {fileID: 444572}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -391,18 +362,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   doorway:
     flag: 8
---- !u!114 &11409116
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 147272}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf5f9622ddbcc459a9b78a8a995f8ebc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prefab: {fileID: 124242, guid: c72c01f2b76de45ffb4d2d48e7a18cc6, type: 2}
 --- !u!114 &11439924
 MonoBehaviour:
   m_ObjectHideFlags: 1
