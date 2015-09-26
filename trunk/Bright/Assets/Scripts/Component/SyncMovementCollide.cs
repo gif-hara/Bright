@@ -23,9 +23,14 @@ namespace Bright
 		// Update is called once per frame
 		void LateUpdate ()
 		{
+			if(this.collidedObjects.Count <= 0)
+			{
+				this.oldPosition = this.myTransform.position;
+				return;
+			}
+
 			var diffPosition = this.myTransform.position - this.oldPosition;
 			this.collidedObjects.ForEach(t => t.position += diffPosition);
-
 			this.oldPosition = this.myTransform.position;
 		}
 
