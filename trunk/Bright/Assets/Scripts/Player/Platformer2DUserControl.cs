@@ -49,7 +49,7 @@ namespace Bright
 			this.lockDirection = Bright.Input.AttackButton;
 
 			this.velocity = HorizontalMoveVelocity;
-			ChangeState(GetStateType(this.velocity));
+			ChangeState(CurrentStateType);
         }
 
         void FixedUpdate()
@@ -61,7 +61,7 @@ namespace Bright
 		public void OnEndAttack()
 		{
 			this.attack = false;
-			ChangeState(GetStateType(this.velocity));
+			ChangeState(CurrentStateType);
 		}
 
 		private void Move(float move, bool jump, bool lockDirection)
@@ -113,31 +113,49 @@ namespace Bright
 			}
 		}
 
-		private GameDefine.StateType GetStateType(float moveVector)
+		private bool IsMove
 		{
-			var result = GameDefine.StateType.Idle;
-
-			if(this.attack)
+			get
 			{
-				result = GameDefine.StateType.Attack;
+				return this.velocity > 0.0f || this.velocity < 0.0f;
 			}
-			else
+		}
+
+		private bool IsFall
+		{
+			get
 			{
-				if(this.character.Grounded)
+				return this.rigidBody2D.velocity.y <= 0.0f;
+			}
+		}
+
+		private GameDefine.StateType CurrentStateType
+		{
+			get
+			{
+				var result = GameDefine.StateType.Idle;
+
+				if(this.attack)
 				{
-					if(moveVector > 0.0f || moveVector < 0.0f)
-					{
-						result = GameDefine.StateType.Run;
-					}
+					result = GameDefine.StateType.Attack;
 				}
 				else
 				{
-					result = this.rigidBody2D.velocity.y > 0.0f ? GameDefine.StateType.Jump : GameDefine.StateType.Fall;
+					if(this.character.Grounded)
+					{
+						if(this.IsMove)
+						{
+							result = GameDefine.StateType.Run;
+						}
+					}
+					else
+					{
+						result = this.IsFall ? GameDefine.StateType.Fall : GameDefine.StateType.Jump;
+					}
 				}
+
+				return result;
 			}
-
-
-			return result;
 		}
-    }
+	}
 }
