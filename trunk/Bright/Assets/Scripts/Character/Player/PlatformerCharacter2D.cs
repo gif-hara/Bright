@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace Bright
 {
@@ -17,6 +18,7 @@ namespace Bright
         const float k_CeilingRadius = .01f; // Radius of the overlap circle to determine if the player can stand up
         private Rigidbody2D m_Rigidbody2D;
         private bool m_FacingRight = true;  // For determining which way the player is currently facing.
+		private bool notifyLanding = false;
 
         private void Awake()
         {
@@ -30,16 +32,18 @@ namespace Bright
         {
             Grounded = false;
 
-            // The player is grounded if a circlecast to the groundcheck position hits anything designated as ground
-            // This can be done using layers instead but Sample Assets will not overwrite your project settings.
-            Collider2D[] colliders = Physics2D.OverlapCircleAll(m_GroundCheck.position, k_GroundedRadius, m_WhatIsGround);
+            var colliders = Physics2D.OverlapCircleAll(m_GroundCheck.position, k_GroundedRadius, m_WhatIsGround);
             for (int i = 0; i < colliders.Length; i++)
             {
                 if (colliders[i].gameObject != gameObject)
+				{
                     Grounded = true;
+					break;
+				}
             }
-        }
 
+			NotifyLanding();
+        }
 
         public void Move(float move, bool jump, bool lockDirection)
         {
@@ -76,5 +80,19 @@ namespace Bright
             theScale.x *= -1;
             transform.localScale = theScale;
         }
+
+		private void NotifyLanding()
+		{
+			if(this.Grounded == this.notifyLanding)
+			{
+				return;
+			}
+
+			this.notifyLanding = this.Grounded;
+			if(this.notifyLanding)
+			{
+				ExecuteEvents.Execute<IReceiveLanding>(this.gameObject, null, (handler, eventData) => handler.OnLanding());
+			}
+		}
     }
 }

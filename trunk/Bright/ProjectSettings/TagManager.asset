@@ -18,9 +18,9 @@ TagManager:
   - CreateNextChunk
   - BlankChunk
   - Chunk
-  - 
-  - 
-  - 
+  - Enemy_Ground
+  - Enemy_Player
+  - Player_Enemy
   - 
   - 
   - 

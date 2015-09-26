@@ -6,7 +6,7 @@ using UnityStandardAssets.CrossPlatformInput;
 
 namespace Bright
 {
-    public class Platformer2DUserControl : MonoBehaviour, IReceiveEndAttack
+    public class Platformer2DUserControl : MonoBehaviour, IReceiveEndAttack, IReceiveSetMovement, IReceiveLanding
     {
         private bool jump;
 
@@ -15,6 +15,8 @@ namespace Bright
 		private float velocity;
 
 		private bool lockDirection;
+
+		private bool canMove = true;
 
 		private GameDefine.StateType currentStateType;
 
@@ -64,8 +66,23 @@ namespace Bright
 			ChangeState(CurrentStateType);
 		}
 
+		public void OnSetMovement(bool canMove)
+		{
+			this.canMove = canMove;
+		}
+
+		public void OnLanding()
+		{
+			this.canMove = true;
+		}
+
 		private void Move(float move, bool jump, bool lockDirection)
 		{
+			if(!this.canMove)
+			{
+				return;
+			}
+
 			this.character.Move(move, jump, lockDirection);
 		}
 
@@ -117,7 +134,7 @@ namespace Bright
 		{
 			get
 			{
-				return this.velocity > 0.0f || this.velocity < 0.0f;
+				return this.canMove && (this.velocity > 0.0f || this.velocity < 0.0f);
 			}
 		}
 
