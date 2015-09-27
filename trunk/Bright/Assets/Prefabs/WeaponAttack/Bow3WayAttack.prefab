@@ -141,7 +141,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 141230}
-  delay: .219999999
+  delay: .25
 --- !u!114 &11407100
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -190,7 +190,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe72b0d0e9cfb422394c031ec8862db1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coolTime: .219999999
+  coolTime: .25
 --- !u!114 &11434006
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -338,7 +338,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77acf0fa0cb35474c9ee8a734c55ce6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  direction: {x: .89442718, y: .44721359}
+  direction: {x: .92726028, y: .374417484}
   force: 1500
 --- !u!114 &11492486
 MonoBehaviour:
@@ -351,7 +351,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8dee00bb832f49018df3dc53cb3c929, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delay: .219999999
+  delay: .25
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -365,7 +365,7 @@ Prefab:
       objectReference: {fileID: 141230}
     - target: {fileID: 0}
       propertyPath: delay
-      value: .219999999
+      value: .25
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_LocalPosition.x
@@ -393,7 +393,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: coolTime
-      value: .219999999
+      value: .25
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: damage
@@ -442,6 +442,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: rightDirection.z
       value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: direction.y
+      value: .370000005
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

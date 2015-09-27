@@ -423,6 +423,7 @@ GameObject:
   - 114: {fileID: 11434680}
   - 114: {fileID: 11488558}
   - 114: {fileID: 11450154}
+  - 114: {fileID: 11491134}
   - 114: {fileID: 11479718}
   m_Layer: 0
   m_Name: Player0
@@ -1000,7 +1001,7 @@ Camera:
   m_GameObject: {fileID: 178384}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
+  m_ClearFlags: 2
   m_BackGroundColor: {r: .192156866, g: .301960796, b: .474509805, a: .0196078438}
   m_NormalizedViewPortRect:
     serializedVersion: 2
@@ -1787,7 +1788,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   receiver: {fileID: 425058}
-  data: {fileID: 11400000, guid: ad277479417d04180bc44c1420c12a77, type: 2}
+  data: {fileID: 11400000, guid: c7bdef3749e0045799a76b64393faca7, type: 2}
 --- !u!114 &11480984
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1880,6 +1881,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   refRenderer: {fileID: 2346346}
+--- !u!114 &11491134
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 158202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20cbc097882974d73a1fad145de1489d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11493340
 MonoBehaviour:
   m_ObjectHideFlags: 1
