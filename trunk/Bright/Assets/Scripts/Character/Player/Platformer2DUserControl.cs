@@ -158,7 +158,7 @@ namespace Bright
 		{
 			get
 			{
-				return !this.attack && this.coolTime <= 0.0f && Bright.Input.AttackButton;
+				return !this.attack && this.coolTime <= 0.0f && this.canMove && Bright.Input.AttackButton;
 			}
 		}
 

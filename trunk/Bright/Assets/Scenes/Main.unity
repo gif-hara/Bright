@@ -85,60 +85,6 @@ NavMeshSettings:
     cellSize: .166666672
     manualCellSize: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &4760377
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 4760378}
-  - 61: {fileID: 4760379}
-  - 114: {fileID: 4760380}
-  m_Layer: 11
-  m_Name: ChunkEventCollider
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4760378
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 4760377}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 825252497}
-  m_RootOrder: 2
---- !u!61 &4760379
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 4760377}
-  m_Enabled: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_Offset: {x: 0, y: .5}
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
---- !u!114 &4760380
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 4760377}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c22ad1ab8e1ca4b368bb6d5f916d872d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  child: {fileID: 1700207662}
 --- !u!1 &213726388
 GameObject:
   m_ObjectHideFlags: 0
@@ -326,10 +272,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!4 &825252497 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 415412, guid: 7aa66c526073bae40b9e7525606fe19c, type: 2}
-  m_PrefabInternal: {fileID: 1897107418}
 --- !u!1 &860454435
 GameObject:
   m_ObjectHideFlags: 0
@@ -763,10 +705,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!4 &1700207662 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 425058, guid: 7aa66c526073bae40b9e7525606fe19c, type: 2}
-  m_PrefabInternal: {fileID: 1897107418}
 --- !u!1001 &1897107418
 Prefab:
   m_ObjectHideFlags: 0
@@ -806,6 +744,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11479718, guid: 7aa66c526073bae40b9e7525606fe19c, type: 2}
+      propertyPath: data
+      value: 
+      objectReference: {fileID: 11400000, guid: 69487a155f6c54aa492d92a0daef4c50,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7aa66c526073bae40b9e7525606fe19c, type: 2}
   m_IsPrefabParent: 0

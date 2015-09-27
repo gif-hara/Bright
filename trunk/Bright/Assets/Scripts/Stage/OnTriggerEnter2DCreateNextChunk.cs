@@ -13,7 +13,7 @@ namespace Bright
 
 		void OnTriggerEnter2D(Collider2D other)
 		{
-			if(this.isCreated)
+			if(this.isCreated || !other.gameObject.IsPlayerTag())
 			{
 				return;
 			}

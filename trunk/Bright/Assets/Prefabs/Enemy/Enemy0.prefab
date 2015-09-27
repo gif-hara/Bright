@@ -17,6 +17,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &149958
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 454850}
+  - 114: {fileID: 11413932}
+  m_Layer: 0
+  m_Name: DeathEvent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &153114
 GameObject:
   m_ObjectHideFlags: 1
@@ -58,6 +74,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 464280}
   - 50: {fileID: 5090410}
+  - 114: {fileID: 11436632}
   m_Layer: 0
   m_Name: Enemy0
   m_TagString: Untagged
@@ -94,6 +111,7 @@ GameObject:
   - 4: {fileID: 476370}
   - 58: {fileID: 5882842}
   - 114: {fileID: 11422302}
+  - 114: {fileID: 11418018}
   m_Layer: 17
   m_Name: EnemyDamageCollider
   m_TagString: Untagged
@@ -165,6 +183,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 496116}
   m_RootOrder: 1
+--- !u!4 &454850
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 149958}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 464280}
+  m_RootOrder: 2
 --- !u!4 &464280
 Transform:
   m_ObjectHideFlags: 1
@@ -177,6 +207,7 @@ Transform:
   m_Children:
   - {fileID: 420536}
   - {fileID: 496116}
+  - {fileID: 454850}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &476370
@@ -306,6 +337,30 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: .5
+--- !u!114 &11413932
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 149958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e837719a59924531b5b8a7f608e4657, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destroyObject: {fileID: 160654}
+--- !u!114 &11418018
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 190414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 006cd2599e28f473ea62ed4002deb8e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitPointController: {fileID: 11436632}
 --- !u!114 &11422302
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -320,6 +375,19 @@ MonoBehaviour:
   rigidBody2D: {fileID: 5090410}
   velocityRate: 0
   forceRate: 1
+--- !u!114 &11436632
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 160654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89d0a90abcb22425588c9f3bce9a3aff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitPoint: 3
+  deathReceiver: {fileID: 160654}
 --- !u!114 &11448376
 MonoBehaviour:
   m_ObjectHideFlags: 1

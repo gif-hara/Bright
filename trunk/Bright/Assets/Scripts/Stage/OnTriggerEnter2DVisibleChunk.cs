@@ -12,7 +12,7 @@ namespace Bright
 
 		void OnTriggerEnter2D(Collider2D other)
 		{
-			if(!this.canExecute)
+			if(!this.canExecute || !other.gameObject.IsPlayerTag())
 			{
 				return;
 			}
@@ -24,7 +24,7 @@ namespace Bright
 
 		void OnTriggerExit2D(Collider2D other)
 		{
-			if(this.canExecute)
+			if(this.canExecute || !other.gameObject.IsPlayerTag())
 			{
 				return;
 			}
