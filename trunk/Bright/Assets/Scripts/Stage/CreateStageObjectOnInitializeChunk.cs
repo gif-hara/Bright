@@ -12,6 +12,9 @@ namespace Bright
 		[SerializeField]
 		private GameObject prefab;
 
+		[SerializeField]
+		private Probability probability;
+
 #if UNITY_EDITOR
 		private GameObject _prefab;
 
@@ -58,6 +61,11 @@ namespace Bright
 
 		public void OnInitializeChunk(StageManager stageManager, Point chunkIndex)
 		{
+			if(!probability.IsWinning)
+			{
+				return;
+			}
+
 			var createPrefab = this.gameObject.AddComponent<CreatePrefab>();
 			createPrefab.ChangePrefab(this.prefab);
 		}

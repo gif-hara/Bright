@@ -19,6 +19,17 @@ namespace Bright
 
 		void Start()
 		{
+			Broadcast();
+		}
+
+		public void Change(WeaponData data)
+		{
+			this.data = data;
+			Broadcast();
+		}
+
+		private void Broadcast()
+		{
 			ExecuteEventsExtensions.Broadcast<IReceiveSetWeaponData>(this.receiver, null, (handler, eventData) => handler.OnSetWeaponData(this.data));
 		}
 	}

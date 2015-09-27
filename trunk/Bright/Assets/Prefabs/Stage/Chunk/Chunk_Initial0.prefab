@@ -243,6 +243,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 124242, guid: a1896b91a19234891995be7d20a1eeb1, type: 2}
+  probability:
+    value: 1
 --- !u!114 &11408098
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -362,6 +364,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 124242, guid: 61480a00c9d66456e84dac37965ee82b, type: 2}
+  probability:
+    value: .5
 --- !u!114 &11458674
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -399,6 +403,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 124242, guid: 3e520bab381e849fea6d7f454c38f3e8, type: 2}
+  probability:
+    value: 1
 --- !u!114 &11468448
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -434,6 +440,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 124242, guid: 0ed00760b352a40799f59e3f0c250741, type: 2}
+  probability:
+    value: 1
 --- !u!114 &11477482
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -458,6 +466,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 160654, guid: 22a5cae89b5a64c6fa71ce351d0052db, type: 2}
+  probability:
+    value: 1
 --- !u!114 &11493770
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -552,6 +562,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_LocalPosition.y
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: probability.value
+      value: .5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
