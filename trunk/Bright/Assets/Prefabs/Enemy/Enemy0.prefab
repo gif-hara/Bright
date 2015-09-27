@@ -128,8 +128,8 @@ GameObject:
   m_Component:
   - 4: {fileID: 402412}
   - 58: {fileID: 5822848}
-  m_Layer: 13
-  m_Name: GroundCollider
+  m_Layer: 8
+  m_Name: LandingObjectCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

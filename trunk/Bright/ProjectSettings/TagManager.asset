@@ -13,12 +13,12 @@ TagManager:
   - UI
   - 
   - 
-  - Player_Ground
+  - LandingObject
   - Ground
-  - CreateNextChunk
+  - GroundEvent
   - ChunkEvent
   - Chunk
-  - Enemy_Ground
+  - LandingObject_EventOnly
   - ToPlayerDamage
   - Player_Damage
   - ToEnemyDamage

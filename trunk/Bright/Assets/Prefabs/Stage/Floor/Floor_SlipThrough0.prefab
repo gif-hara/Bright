@@ -49,6 +49,24 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &175312
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 483870}
+  - 61: {fileID: 6126122}
+  - 61: {fileID: 6170844}
+  - 61: {fileID: 6199584}
+  m_Layer: 9
+  m_Name: Collider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &190812
 GameObject:
   m_ObjectHideFlags: 0
@@ -66,6 +84,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &192606
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 483834}
+  - 61: {fileID: 6127870}
+  - 114: {fileID: 11436814}
+  m_Layer: 10
+  m_Name: ChangeLayerCollider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &196686
 GameObject:
   m_ObjectHideFlags: 0
@@ -74,11 +109,10 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 476706}
-  - 61: {fileID: 6126122}
-  - 61: {fileID: 6170844}
   - 61: {fileID: 6124506}
-  m_Layer: 9
-  m_Name: Collider
+  - 114: {fileID: 11477640}
+  m_Layer: 10
+  m_Name: DownButtonDownEventCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -121,6 +155,8 @@ Transform:
   - {fileID: 418678}
   - {fileID: 400920}
   - {fileID: 400174}
+  - {fileID: 483870}
+  - {fileID: 483834}
   - {fileID: 476706}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -143,7 +179,31 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 196686}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.5, y: .5, z: 0}
+  m_LocalPosition: {x: 1.5, y: 1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 415030}
+  m_RootOrder: 5
+--- !u!4 &483834
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 192606}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.5, y: .75, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 415030}
+  m_RootOrder: 4
+--- !u!4 &483870
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 175312}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.5, y: .899999976, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 415030}
@@ -249,37 +309,89 @@ BoxCollider2D:
   m_GameObject: {fileID: 196686}
   m_Enabled: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_Offset: {x: 0, y: .349999994}
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Size: {x: 2.79999995, y: .300000012}
+  m_Size: {x: 3, y: .100000001}
 --- !u!61 &6126122
 BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 196686}
+  m_GameObject: {fileID: 175312}
   m_Enabled: 1
   m_Material: {fileID: 6200000, guid: 3136eba6941b4467c8f3d46fdbedb9f8, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: 1.45000005, y: .349999994}
+  m_Offset: {x: 1.45000005, y: 0}
   serializedVersion: 2
-  m_Size: {x: .100000001, y: .300000012}
+  m_Size: {x: .100000001, y: .200000003}
+--- !u!61 &6127870
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 192606}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Size: {x: 3, y: .100000001}
 --- !u!61 &6170844
 BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 196686}
+  m_GameObject: {fileID: 175312}
   m_Enabled: 1
   m_Material: {fileID: 6200000, guid: 3136eba6941b4467c8f3d46fdbedb9f8, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: -1.45000005, y: .349999994}
+  m_Offset: {x: -1.45000005, y: 0}
   serializedVersion: 2
-  m_Size: {x: .100000001, y: .300000012}
+  m_Size: {x: .100000001, y: .200000003}
+--- !u!61 &6199584
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 175312}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Size: {x: 2.79999995, y: .200000003}
+--- !u!114 &11436814
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 192606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46f44ba5c644c4bf0a79b99ae0373514, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enterLayerName: LandingObject_EventOnly
+  exitLayerName: LandingObject
+--- !u!114 &11477640
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 196686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7626a02a74bb8464a88c8c96bb14f35b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enterLayerName: LandingObject_EventOnly
+  exitLayerName: LandingObject
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -302,6 +414,18 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_Material
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: enterLayerName
+      value: LandingObject_EventOnly
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: exitLayerName
+      value: LandingObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
