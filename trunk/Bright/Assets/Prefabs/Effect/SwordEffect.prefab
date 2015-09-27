@@ -26,22 +26,22 @@ GameObject:
   m_Component:
   - 4: {fileID: 400010}
   m_Layer: 0
-  m_Name: SwordEffect_ToLeft
+  m_Name: SwordEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &137196
+--- !u!1 &106332
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 454586}
-  - 198: {fileID: 19859446}
-  - 199: {fileID: 19905122}
+  - 4: {fileID: 493740}
+  - 198: {fileID: 19868048}
+  - 199: {fileID: 19950256}
   m_Layer: 0
   m_Name: par1
   m_TagString: Untagged
@@ -55,12 +55,12 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: -1.62920685e-07}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.5, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400010}
-  m_RootOrder: 0
+  m_RootOrder: 1
 --- !u!4 &400010
 Transform:
   m_ObjectHideFlags: 1
@@ -71,22 +71,22 @@ Transform:
   m_LocalPosition: {x: 4.48999977, y: 3.06999993, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 493740}
   - {fileID: 400000}
-  - {fileID: 454586}
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!4 &454586
+--- !u!4 &493740
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 137196}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: -1.62920685e-07}
+  m_GameObject: {fileID: 106332}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400010}
-  m_RootOrder: 1
+  m_RootOrder: 0
 --- !u!198 &19800000
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -1075,12 +1075,12 @@ ParticleSystem:
     subEmitterCollision1: {fileID: 0}
     subEmitterDeath: {fileID: 0}
     subEmitterDeath1: {fileID: 0}
---- !u!198 &19859446
+--- !u!198 &19868048
 ParticleSystem:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 137196}
+  m_GameObject: {fileID: 106332}
   lengthInSec: .100000001
   startDelay: 0
   speed: 1
@@ -1349,11 +1349,11 @@ ParticleSystem:
         - time: 0
           value: 1
           inSlope: 0
-          outSlope: -.800000012
+          outSlope: -.199999988
           tangentMode: 21
         - time: 1
-          value: .199999988
-          inSlope: -.800000012
+          value: .800000012
+          inSlope: -.199999988
           outSlope: 0
           tangentMode: 21
         m_PreInfinity: 2
@@ -1408,16 +1408,16 @@ ParticleSystem:
           rgba: 4294967295
         key1:
           serializedVersion: 2
-          rgba: 4294967295
+          rgba: 4278190335
         key2:
           serializedVersion: 2
-          rgba: 1929380095
+          rgba: 1946157055
         key3:
           serializedVersion: 2
           rgba: 255
         key4:
           serializedVersion: 2
-          rgba: 0
+          rgba: 255
         key5:
           serializedVersion: 2
           rgba: 0
@@ -1428,10 +1428,10 @@ ParticleSystem:
           serializedVersion: 2
           rgba: 0
         ctime0: 0
-        ctime1: 19661
-        ctime2: 31033
-        ctime3: 65535
-        ctime4: 0
+        ctime1: 9638
+        ctime2: 19661
+        ctime3: 31033
+        ctime4: 65535
         ctime5: 0
         ctime6: 0
         ctime7: 0
@@ -1443,7 +1443,7 @@ ParticleSystem:
         atime5: 65535
         atime6: 65535
         atime7: 65535
-        m_NumColorKeys: 4
+        m_NumColorKeys: 5
         m_NumAlphaKeys: 4
       minGradient:
         key0:
@@ -1539,7 +1539,7 @@ ParticleSystem:
   VelocityModule:
     enabled: 1
     x:
-      scalar: 20
+      scalar: 5
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -2099,12 +2099,12 @@ ParticleSystemRenderer:
   m_Mesh1: {fileID: 0}
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
---- !u!199 &19905122
+--- !u!199 &19950256
 ParticleSystemRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 137196}
+  m_GameObject: {fileID: 106332}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -2144,23 +2144,55 @@ Prefab:
     m_Modifications:
     - target: {fileID: 0}
       propertyPath: VelocityModule.x.scalar
-      value: 20
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[0].outSlope
-      value: -.800000012
+      value: -.199999988
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[1].value
-      value: .199999988
+      value: .800000012
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[1].inSlope
-      value: -.800000012
+      value: -.199999988
       objectReference: {fileID: 0}
     - target: {fileID: 0}
-      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[1].time
-      value: 1
+      propertyPath: ColorModule.gradient.maxGradient.ctime0
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: ColorModule.gradient.maxGradient.key2.rgba
+      value: 1946157055
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: ColorModule.gradient.maxGradient.key4.rgba
+      value: 255
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: ColorModule.gradient.maxGradient.ctime1
+      value: 9638
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: ColorModule.gradient.maxGradient.ctime2
+      value: 19661
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: ColorModule.gradient.maxGradient.ctime3
+      value: 31033
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: ColorModule.gradient.maxGradient.ctime4
+      value: 65535
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: ColorModule.gradient.maxGradient.m_NumColorKeys
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: ColorModule.gradient.maxGradient.key1.rgba
+      value: 4278190335
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

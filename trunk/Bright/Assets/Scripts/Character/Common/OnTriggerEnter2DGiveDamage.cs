@@ -24,7 +24,7 @@ namespace Bright
 				return;
 			}
 
-			Debug.Log("GiveDamage other = " + other.gameObject.name);
+//			Debug.Log("GiveDamage other = " + other.gameObject.name);
 			ExecuteEvents.Execute<IReceiveGiveDamage>(this.gameObject, null, (handler, eventData) => handler.OnGiveDamage(this.giveObject, other));
 		}
 	}
