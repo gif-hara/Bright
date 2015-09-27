@@ -12,3 +12,4 @@ MonoBehaviour:
   m_Name: Dagger
   m_EditorClassIdentifier: 
   weaponName: "\u30C0\u30AC\u30FC"
+  attackPrefab: {fileID: 141230, guid: 6eca6088b7991468eb7d13ea793bfc12, type: 2}

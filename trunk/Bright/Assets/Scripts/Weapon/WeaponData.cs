@@ -9,7 +9,12 @@ namespace Bright
 	[CreateAssetMenu()]
 	public class WeaponData : ScriptableObject
 	{
+		public string WeaponName{ get{ return this.weaponName; } }
 		[SerializeField]
 		private string weaponName;
+
+		public GameObject AttackPrefab{ get{ return this.attackPrefab; } }
+		[SerializeField]
+		private GameObject attackPrefab;
 	}
 }

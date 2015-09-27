@@ -42,7 +42,7 @@ namespace Bright
         	{
 				jump = Bright.Input.JumpButtonDown;
         	}
-			if(!this.attack && Bright.Input.AttackButton)
+			if(this.CanAttack)
 			{
 				this.attack = true;
 				this.executeOnStartAttack.Execute();
@@ -143,6 +143,14 @@ namespace Bright
 			get
 			{
 				return this.rigidBody2D.velocity.y <= 0.0f;
+			}
+		}
+
+		private bool CanAttack
+		{
+			get
+			{
+				return !this.attack && Bright.Input.AttackButton;
 			}
 		}
 
