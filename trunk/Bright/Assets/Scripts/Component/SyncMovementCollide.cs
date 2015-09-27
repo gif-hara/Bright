@@ -29,6 +29,7 @@ namespace Bright
 				return;
 			}
 
+			this.collidedObjects.RemoveAll(t => t == null);
 			var diffPosition = this.myTransform.position - this.oldPosition;
 			this.collidedObjects.ForEach(t => t.position += diffPosition);
 			this.oldPosition = this.myTransform.position;
