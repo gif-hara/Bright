@@ -16,7 +16,7 @@ TagManager:
   - Player_Ground
   - Ground
   - CreateNextChunk
-  - BlankChunk
+  - ChunkEvent
   - Chunk
   - Enemy_Ground
   - ToPlayerDamage

@@ -80,7 +80,7 @@ GameObject:
   - 114: {fileID: 11490468}
   - 114: {fileID: 11494516}
   m_Layer: 15
-  m_Name: EnemyCollider
+  m_Name: PlayerDamageCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1265,7 +1265,7 @@ CircleCollider2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 146384}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Material: {fileID: 6200000, guid: 90248314334643d45b129c2e14be1b63, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
@@ -1278,7 +1278,7 @@ CircleCollider2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 146384}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Material: {fileID: 6200000, guid: 90248314334643d45b129c2e14be1b63, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
@@ -1310,7 +1310,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: .699999988}
   serializedVersion: 2
-  m_Size: {x: .5, y: 1.39999998}
+  m_Size: {x: .5, y: 1.10000002}
 --- !u!81 &8103964
 AudioListener:
   m_ObjectHideFlags: 1
@@ -1731,7 +1731,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   receiver: {fileID: 425058}
-  data: {fileID: 11400000, guid: ad277479417d04180bc44c1420c12a77, type: 2}
+  data: {fileID: 11400000, guid: c7bdef3749e0045799a76b64393faca7, type: 2}
 --- !u!114 &11480984
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1792,6 +1792,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rigidBody2D: {fileID: 5036072}
+  velocityRate: 0
+  forceRate: 1
 --- !u!114 &11490508
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -247,6 +247,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rigidBody2D: {fileID: 5090410}
+  velocityRate: 0
+  forceRate: 1
 --- !u!114 &11448376
 MonoBehaviour:
   m_ObjectHideFlags: 1

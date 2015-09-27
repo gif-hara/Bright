@@ -36,6 +36,11 @@ namespace Bright
 
 		void OnCollisionEnter2D(Collision2D other)
 		{
+			if(this.collidedObjects.Find(t => t == other.transform) != null)
+			{
+				return;
+			}
+
 			this.collidedObjects.Add(other.transform);
 		}
 
