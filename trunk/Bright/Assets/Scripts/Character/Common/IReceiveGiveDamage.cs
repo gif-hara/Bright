@@ -9,6 +9,6 @@ namespace Bright
 	/// </summary>
 	public interface IReceiveGiveDamage : IEventSystemHandler
 	{
-		void OnGiveDamage(GameObject giveObject, Collision2D takeObject);
+		void OnGiveDamage(GameObject giveObject, Collider2D takeObject);
 	}
 }

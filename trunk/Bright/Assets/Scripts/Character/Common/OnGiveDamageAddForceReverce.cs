@@ -11,10 +11,14 @@ namespace Bright
 		[SerializeField]
 		private float force = 750.0f;
 
-		public void OnGiveDamage(GameObject giveObject, Collision2D takeObject)
+		public void OnGiveDamage(GameObject giveObject, Collider2D takeObject)
 		{
-			takeObject.rigidbody.velocity = Vector2.zero;
-			takeObject.rigidbody.AddForce(ReverceVelocity(giveObject.transform.position, takeObject.transform.position) * force);
+			var addForceRigidBody2D = takeObject.GetComponent<AddForceRigidBody2D>();
+			if(addForceRigidBody2D == null)
+			{
+				return;
+			}
+			addForceRigidBody2D.AddForce(ReverceVelocity(giveObject.transform.position, takeObject.transform.position) * force);
 		}
 
 		private Vector2 ReverceVelocity(Vector3 my, Vector3 target)

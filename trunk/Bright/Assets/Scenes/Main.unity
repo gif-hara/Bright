@@ -518,6 +518,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 11422302, guid: 22a5cae89b5a64c6fa71ce351d0052db, type: 2}
+      propertyPath: rate
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 22a5cae89b5a64c6fa71ce351d0052db, type: 2}
   m_IsPrefabParent: 0
@@ -786,18 +790,22 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 11450582, guid: 7aa66c526073bae40b9e7525606fe19c, type: 2}
-      propertyPath: attackerLayer.m_Bits
+    - target: {fileID: 113404, guid: 7aa66c526073bae40b9e7525606fe19c, type: 2}
+      propertyPath: m_Name
+      value: PlayerDamageCollider
+      objectReference: {fileID: 0}
+    - target: {fileID: 11490468, guid: 7aa66c526073bae40b9e7525606fe19c, type: 2}
+      propertyPath: velocityRate
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 11450582, guid: 7aa66c526073bae40b9e7525606fe19c, type: 2}
-      propertyPath: attackerLayerName
-      value: Weapon_Enemy
+    - target: {fileID: 11490468, guid: 7aa66c526073bae40b9e7525606fe19c, type: 2}
+      propertyPath: forceRate
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11479718, guid: 7aa66c526073bae40b9e7525606fe19c, type: 2}
       propertyPath: data
       value: 
-      objectReference: {fileID: 11400000, guid: 69487a155f6c54aa492d92a0daef4c50,
+      objectReference: {fileID: 11400000, guid: c7bdef3749e0045799a76b64393faca7,
         type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7aa66c526073bae40b9e7525606fe19c, type: 2}

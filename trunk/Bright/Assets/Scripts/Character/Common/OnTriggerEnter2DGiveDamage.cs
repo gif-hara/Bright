@@ -7,7 +7,7 @@ namespace Bright
 	/// <summary>
 	/// 他コライダーと衝突したらダメージを与えるコンポーネント.
 	/// </summary>
-	public class OnCollisionEnter2DGiveDamage : MonoBehaviour, IReceiveSetAttacker
+	public class OnTriggerEnter2DGiveDamage : MonoBehaviour, IReceiveSetAttacker
 	{
 		[SerializeField]
 		private GameObject giveObject;
@@ -17,9 +17,9 @@ namespace Bright
 			this.giveObject = attacker;
 		}
 
-		void OnCollisionEnter2D(Collision2D other)
+		void OnTriggerEnter2D(Collider2D other)
 		{
-			if(other.collider.GetComponent<DisableOtherOnGiveDamage>() != null)
+			if(other.gameObject.GetComponent<DisableOtherOnGiveDamage>() != null)
 			{
 				return;
 			}

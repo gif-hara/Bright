@@ -19,10 +19,10 @@ TagManager:
   - BlankChunk
   - Chunk
   - Enemy_Ground
-  - Enemy_Player
-  - Player_Enemy
-  - Weapon_Enemy
-  - 
+  - ToPlayerDamage
+  - Player_Damage
+  - ToEnemyDamage
+  - Enemy_Damage
   - 
   - 
   - 

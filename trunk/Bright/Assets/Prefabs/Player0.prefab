@@ -77,6 +77,8 @@ GameObject:
   m_Component:
   - 4: {fileID: 442270}
   - 61: {fileID: 6133594}
+  - 114: {fileID: 11490468}
+  - 114: {fileID: 11494516}
   m_Layer: 15
   m_Name: EnemyCollider
   m_TagString: Untagged
@@ -1574,9 +1576,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attacker: {fileID: 158202}
   prefabParent: {fileID: 410988}
-  attackerLayer:
-    serializedVersion: 2
-    m_Bits: 65536
+  attackerLayerName: ToEnemyDamage
 --- !u!114 &11455024
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1780,6 +1780,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68fbebf58749342b4bc5eec7a0a4424a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &11490468
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 113404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e60553828059c409caaee5bd49fc5c06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rigidBody2D: {fileID: 5036072}
 --- !u!114 &11490508
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1810,6 +1822,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   refRenderer: {fileID: 2346346}
+--- !u!114 &11494516
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 113404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 875e52d857830447a99dfe8e23a50a78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  receiver: {fileID: 158202}
 --- !u!114 &11496192
 MonoBehaviour:
   m_ObjectHideFlags: 1

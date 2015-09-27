@@ -10,10 +10,9 @@ GameObject:
   - 4: {fileID: 488688}
   - 114: {fileID: 11421734}
   - 114: {fileID: 11425780}
-  - 114: {fileID: 11486364}
   - 61: {fileID: 6109618}
-  m_Layer: 15
-  m_Name: EnemyCollider
+  m_Layer: 16
+  m_Name: ToEnemyDamageCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -132,7 +131,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 122760}
   m_Enabled: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
@@ -198,17 +197,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   force: 800
---- !u!114 &11486364
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 122760}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b00e1d8502374b1cab0ece0a3119d75, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &11492486
 MonoBehaviour:
   m_ObjectHideFlags: 1
