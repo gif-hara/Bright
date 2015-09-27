@@ -794,6 +794,11 @@ Prefab:
       propertyPath: attackerLayerName
       value: Weapon_Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 11479718, guid: 7aa66c526073bae40b9e7525606fe19c, type: 2}
+      propertyPath: data
+      value: 
+      objectReference: {fileID: 11400000, guid: 69487a155f6c54aa492d92a0daef4c50,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7aa66c526073bae40b9e7525606fe19c, type: 2}
   m_IsPrefabParent: 0
