@@ -12,10 +12,11 @@ namespace Bright
 	public class CreatePrefabExtensionSetParent : MonoBehaviour, IReceiveCreatePrefabExtension
 	{
 		[SerializeField]
-		private Transform parent;
+		private Transform parent = null;
 
 		public void OnCreatePrefabExtension(GameObject instance)
 		{
+			this.parent = this.parent == null ? this.transform : this.parent;
 			instance.transform.parent = this.parent;
 		}
 	}

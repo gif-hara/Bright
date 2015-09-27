@@ -93,8 +93,9 @@ GameObject:
   - 114: {fileID: 11448288}
   - 114: {fileID: 11478758}
   - 114: {fileID: 11417182}
+  - 114: {fileID: 11450408}
   m_Layer: 0
-  m_Name: Enemy0
+  m_Name: Slime0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -130,6 +131,7 @@ GameObject:
   - 58: {fileID: 5882842}
   - 114: {fileID: 11422302}
   - 114: {fileID: 11418018}
+  - 114: {fileID: 11481154}
   m_Layer: 17
   m_Name: EnemyDamageCollider
   m_TagString: Untagged
@@ -310,7 +312,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: .0500000007
-  m_GravityScale: 7
+  m_GravityScale: 3
   m_IsKinematic: 0
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -392,7 +394,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   character: {fileID: 11448288}
-  speed: 1
+  smooth: .0500000007
 --- !u!114 &11418018
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -443,9 +445,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00ea300ce2e094c8390e4643a22cbc13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_MaxSpeed: 1
-  m_JumpForce: 400
-  m_AirControl: 0
+  m_MaxSpeed: 2
+  m_JumpForce: 700
+  m_AirControl: 1
   m_WhatIsGround:
     serializedVersion: 2
     m_Bits: 512
@@ -461,6 +463,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   force: 750
+--- !u!114 &11450408
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 160654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c53baa82088a4122829f1320211b8b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  min: 3
+  max: 7
 --- !u!114 &11460380
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -509,6 +524,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   character: {fileID: 11448288}
   propertyHolder: {fileID: 160654}
+--- !u!114 &11481154
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 190414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 875e52d857830447a99dfe8e23a50a78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  receiver: {fileID: 160654}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

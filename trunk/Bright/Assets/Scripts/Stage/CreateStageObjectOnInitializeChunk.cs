@@ -58,7 +58,8 @@ namespace Bright
 
 		public void OnInitializeChunk(StageManager stageManager, Point chunkIndex)
 		{
-			stageManager.CreateStageObject(this.transform, this.prefab, chunkIndex, new Point(this.transform.localPosition));
+			var createPrefab = this.gameObject.AddComponent<CreatePrefab>();
+			createPrefab.ChangePrefab(this.prefab);
 		}
 	}
 }
