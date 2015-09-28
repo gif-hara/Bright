@@ -7,9 +7,9 @@ using System.Collections;
 namespace Bright
 {
 	/// <summary>
-	/// .
+	/// Start時にプレハブを生成するコンポーネント.
 	/// </summary>
-	public class CreatePrefab : MonoBehaviour
+	public class StartCreatePrefab : MonoBehaviour
 	{
 		[SerializeField]
 		private GameObject prefab;

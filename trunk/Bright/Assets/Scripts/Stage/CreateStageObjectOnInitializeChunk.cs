@@ -66,7 +66,7 @@ namespace Bright
 				return;
 			}
 
-			var createPrefab = this.gameObject.AddComponent<CreatePrefab>();
+			var createPrefab = this.gameObject.AddComponent<StartCreatePrefab>();
 			createPrefab.ChangePrefab(this.prefab);
 		}
 	}
