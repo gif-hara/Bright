@@ -433,6 +433,7 @@ GameObject:
   - 114: {fileID: 1271678471}
   - 114: {fileID: 1271678470}
   - 114: {fileID: 1271678473}
+  - 114: {fileID: 1271678474}
   m_Layer: 0
   m_Name: ChangeWeapon
   m_TagString: Untagged
@@ -543,6 +544,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: 5273c6188be6848a3aea71ea883fceca, type: 2}
   keyCode: 55
+--- !u!114 &1271678474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1271678465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b301ac055b114a55bb88f9a58d3b916, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: {fileID: 11400000, guid: 954d7284aab5d42d78f34dfc7902e888, type: 2}
+  keyCode: 56
 --- !u!1 &1505288879
 GameObject:
   m_ObjectHideFlags: 0
