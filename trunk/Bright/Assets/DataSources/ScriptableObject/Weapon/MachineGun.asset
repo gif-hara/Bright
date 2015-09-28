@@ -1,0 +1,15 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12f772c1e2699401baf21ab16456efe1, type: 3}
+  m_Name: MachineGun
+  m_EditorClassIdentifier: 
+  weaponName: "\u30DE\u30B7\u30F3\u30AC\u30F3"
+  attackPrefab: {fileID: 141230, guid: cc29acc8064e247c18247c549633da74, type: 2}

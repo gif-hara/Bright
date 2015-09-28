@@ -20,7 +20,7 @@ namespace Bright
 		{
 			while(Bright.Input.AttackButton)
 			{
-				yield return 0;
+				yield return new WaitForEndOfFrame();
 			}
 
 			ExecuteEvents.Execute<IReceiveEndAttack>(attacker, null, (handler, eventData) => handler.OnEndAttack());
