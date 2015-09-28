@@ -519,7 +519,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 107468}
-  delay: .5
+  delay: .100000001
 --- !u!114 &11450808
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -544,7 +544,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 144348}
-  delay: .5
+  delay: .100000001
 --- !u!114 &11463884
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -9938,7 +9938,7 @@ Prefab:
       objectReference: {fileID: 100010}
     - target: {fileID: 0}
       propertyPath: delay
-      value: 5
+      value: .100000001
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: multiplier

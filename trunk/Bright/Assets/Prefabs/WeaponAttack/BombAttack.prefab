@@ -161,8 +161,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8467d283cab324cf2a74a3c11cad58ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leftDirection: {x: 0, y: 180, z: 0}
-  rightDirection: {x: 0, y: 0, z: 0}
+  leftDirection: {x: 0, y: 0, z: 25}
+  rightDirection: {x: 0, y: 0, z: -25}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -236,7 +236,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: leftDirection.y
-      value: 180
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: leftDirection.z
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: rightDirection.z
+      value: -25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
