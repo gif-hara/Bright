@@ -14,8 +14,16 @@ namespace Bright
 		[SerializeField]
 		private CreatePrefab creator = new CreatePrefab();
 
-		void Start()
+		[SerializeField]
+		private float delay = 0.0f;
+
+		IEnumerator Start()
 		{
+			if(this.delay > 0.0f)
+			{
+				yield return new WaitForSeconds(this.delay);
+			}
+
 			this.creator.Create(this.gameObject);
 		}
 
