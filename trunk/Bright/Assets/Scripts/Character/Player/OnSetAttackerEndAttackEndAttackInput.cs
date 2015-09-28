@@ -24,7 +24,6 @@ namespace Bright
 			}
 
 			ExecuteEvents.Execute<IReceiveEndAttack>(attacker, null, (handler, eventData) => handler.OnEndAttack());
-			Debug.Log("OK");
 		}
 	}
 }

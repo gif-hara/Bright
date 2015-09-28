@@ -27,9 +27,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 468386}
   - 114: {fileID: 11468544}
-  - 114: {fileID: 11407100}
-  - 114: {fileID: 11415698}
-  - 114: {fileID: 11421974}
+  - 114: {fileID: 11479326}
   - 114: {fileID: 11498320}
   m_Layer: 0
   m_Name: CreatePrefab
@@ -76,30 +74,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 141230}
   delay: .100000001
---- !u!114 &11407100
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 167394}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc4a8c3cd8f8a4034938a10d9f27e67d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  parent: {fileID: 468386}
---- !u!114 &11415698
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 167394}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e05518c5a8dc4f1bb1ad4779d7d8276, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  localPosition: {x: 0, y: 0, z: 0}
 --- !u!114 &11421738
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -112,18 +86,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coolTime: 1
---- !u!114 &11421974
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 167394}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 08cfaa982278e49cda095f29209bfb18, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  localScale: {x: 1, y: 1, z: 1}
 --- !u!114 &11468544
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -138,6 +100,18 @@ MonoBehaviour:
   creator:
     prefab: {fileID: 141230, guid: 9ed0f48bacbad4bf0a09548494ee2d9a, type: 2}
   delay: 0
+--- !u!114 &11479326
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 167394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1b481a27dfbe42e5a064cd336f46080, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 468386}
 --- !u!114 &11492486
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -173,7 +147,7 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: target
       value: 
-      objectReference: {fileID: 141230}
+      objectReference: {fileID: 468386}
     - target: {fileID: 0}
       propertyPath: delay
       value: .100000001
