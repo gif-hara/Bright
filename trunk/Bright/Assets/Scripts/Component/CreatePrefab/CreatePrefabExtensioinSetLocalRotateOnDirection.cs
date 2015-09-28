@@ -19,7 +19,7 @@ namespace Bright
 
 		public void OnCreatePrefabExtension(GameObject instance)
 		{
-			var direction = this.transform.lossyScale.x > 0.0f ? this.rightDirection : this.leftDirection;
+			var direction = this.transform.SelectValueFromDirection(leftDirection, rightDirection);
 			instance.transform.localRotation = Quaternion.Euler(direction);
 		}
 	}

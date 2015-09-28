@@ -204,6 +204,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   creator:
     prefab: {fileID: 141230, guid: 48722aaab8e7242f2adf822e16c55c49, type: 2}
+  delay: 0
 --- !u!114 &11446740
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -279,6 +280,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   creator:
     prefab: {fileID: 141230, guid: 48722aaab8e7242f2adf822e16c55c49, type: 2}
+  delay: 0
 --- !u!114 &11471056
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -318,6 +320,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   creator:
     prefab: {fileID: 141230, guid: 48722aaab8e7242f2adf822e16c55c49, type: 2}
+  delay: 0
 --- !u!114 &11488220
 MonoBehaviour:
   m_ObjectHideFlags: 1
