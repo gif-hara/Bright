@@ -38,23 +38,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &126500
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 458646}
-  - 33: {fileID: 3332924}
-  - 23: {fileID: 2320676}
-  m_Layer: 0
-  m_Name: Sphere
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
 --- !u!1 &141230
 GameObject:
   m_ObjectHideFlags: 0
@@ -83,7 +66,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 443690}
-  m_RootOrder: 2
+  m_RootOrder: 1
 --- !u!4 &443690
 Transform:
   m_ObjectHideFlags: 1
@@ -94,22 +77,9 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 458646}
   - {fileID: 488688}
   - {fileID: 407238}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
---- !u!4 &458646
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 126500}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .5, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 443690}
   m_RootOrder: 0
 --- !u!4 &488688
 Transform:
@@ -122,38 +92,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 443690}
-  m_RootOrder: 1
---- !u!23 &2320676
-MeshRenderer:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 126500}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 1
-  m_ReflectionProbeUsage: 1
-  m_ProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 1
-  m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
---- !u!33 &3332924
-MeshFilter:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 126500}
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+  m_RootOrder: 0
 --- !u!58 &5890580
 CircleCollider2D:
   m_ObjectHideFlags: 1
@@ -250,7 +189,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1972ed1415d484c5db55128f330c1ecf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 100010, guid: 6d203f9ff17224983ad4af9041e2bf9a, type: 2}
+  creator:
+    prefab: {fileID: 100010, guid: 6d203f9ff17224983ad4af9041e2bf9a, type: 2}
 --- !u!114 &11492486
 MonoBehaviour:
   m_ObjectHideFlags: 1

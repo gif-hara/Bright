@@ -169,7 +169,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1972ed1415d484c5db55128f330c1ecf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 141230, guid: 48722aaab8e7242f2adf822e16c55c49, type: 2}
+  creator:
+    prefab: {fileID: 141230, guid: 48722aaab8e7242f2adf822e16c55c49, type: 2}
 --- !u!114 &11446740
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -231,7 +232,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1972ed1415d484c5db55128f330c1ecf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 141230, guid: 48722aaab8e7242f2adf822e16c55c49, type: 2}
+  creator:
+    prefab: {fileID: 141230, guid: 48722aaab8e7242f2adf822e16c55c49, type: 2}
 --- !u!114 &11471310
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -332,6 +334,10 @@ Prefab:
       propertyPath: leftDirection.y
       value: 180
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: creator.prefab
+      value: 
+      objectReference: {fileID: 141230, guid: 48722aaab8e7242f2adf822e16c55c49, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 141230}

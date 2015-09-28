@@ -216,7 +216,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1972ed1415d484c5db55128f330c1ecf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 100010, guid: af764cfab965645aeb1bbf6c875fe727, type: 2}
+  creator:
+    prefab: {fileID: 100010, guid: af764cfab965645aeb1bbf6c875fe727, type: 2}
 --- !u!114 &11492486
 MonoBehaviour:
   m_ObjectHideFlags: 1

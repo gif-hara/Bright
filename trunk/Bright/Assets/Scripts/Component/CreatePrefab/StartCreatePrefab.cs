@@ -12,17 +12,16 @@ namespace Bright
 	public class StartCreatePrefab : MonoBehaviour
 	{
 		[SerializeField]
-		private GameObject prefab;
+		private CreatePrefab creator = new CreatePrefab();
 
 		void Start()
 		{
-			var instance = Instantiate(prefab);
-			ExecuteEvents.Execute<IReceiveCreatePrefabExtension>(this.gameObject, null, (handler, eventData) => handler.OnCreatePrefabExtension(instance));
+			this.creator.Create(this.gameObject);
 		}
 
 		public void ChangePrefab(GameObject prefab)
 		{
-			this.prefab = prefab;
+			this.creator.Change(prefab);
 		}
 	}
 }
