@@ -9,7 +9,7 @@ namespace Bright
 	/// <summary>
 	/// 近くに存在するゲームオブジェクトを保持するコンポーネント.
 	/// </summary>
-	public class HoldNearObjectWithTag : MonoBehaviour
+	public class HoldNearGameObjectWithTag : HoldGameObjectBase
 	{
 		[SerializeField]
 		private string searchTag;
@@ -19,8 +19,6 @@ namespace Bright
 
 		[SerializeField]
 		private bool alwaysSearch;
-
-		public GameObject HoldObject{ private set; get; }
 
 		void Update()
 		{

@@ -9,10 +9,10 @@ namespace Bright
 	/// <summary>
 	/// 近くにいるオブジェクトを注視するコンポーネント.
 	/// </summary>
-	public class LookAtNearObject : MonoBehaviour
+	public class LookAtHoldGameObject : MonoBehaviour
 	{
 		[SerializeField]
-		private HoldNearObjectWithTag holder;
+		private HoldGameObjectBase holder;
 
 		void LateUpdate()
 		{

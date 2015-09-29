@@ -7,9 +7,10 @@ using System.Collections;
 namespace Bright
 {
 	/// <summary>
-	/// .
+	/// ゲームオブジェクトを保持する抽象コンポーネント.
 	/// </summary>
-	public class CanCreatePrefabNotNullHoldObject : MonoBehaviour
+	public class HoldGameObjectBase : MonoBehaviour
 	{
+		public GameObject HoldObject{ protected set; get; }
 	}
 }
