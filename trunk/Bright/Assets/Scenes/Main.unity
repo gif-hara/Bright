@@ -437,6 +437,8 @@ GameObject:
   - 114: {fileID: 1271678475}
   - 114: {fileID: 1271678476}
   - 114: {fileID: 1271678477}
+  - 114: {fileID: 1271678478}
+  - 114: {fileID: 1271678479}
   m_Layer: 0
   m_Name: ChangeWeapon
   m_TagString: Untagged
@@ -599,6 +601,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: f729fc088253b4b448d6359e72e7da54, type: 2}
   keyCode: 113
+--- !u!114 &1271678478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1271678465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b301ac055b114a55bb88f9a58d3b916, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: {fileID: 11400000, guid: 4ddc475689b0746ea90bfe487f552020, type: 2}
+  keyCode: 119
+--- !u!114 &1271678479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1271678465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b301ac055b114a55bb88f9a58d3b916, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: {fileID: 11400000, guid: d47135648bf1e406bb9564e9a7bc72af, type: 2}
+  keyCode: 101
 --- !u!1 &1505288879
 GameObject:
   m_ObjectHideFlags: 0
@@ -916,6 +944,10 @@ Prefab:
       value: 
       objectReference: {fileID: 11400000, guid: ad277479417d04180bc44c1420c12a77,
         type: 2}
+    - target: {fileID: 5036072, guid: 7aa66c526073bae40b9e7525606fe19c, type: 2}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7aa66c526073bae40b9e7525606fe19c, type: 2}
   m_IsPrefabParent: 0

@@ -12,7 +12,7 @@ GameObject:
   - 114: {fileID: 11492486}
   - 114: {fileID: 11421738}
   m_Layer: 0
-  m_Name: FunnelAttack
+  m_Name: SuperBallAttack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27,9 +27,9 @@ GameObject:
   m_Component:
   - 4: {fileID: 468386}
   - 114: {fileID: 11468544}
-  - 114: {fileID: 11479326}
-  - 114: {fileID: 11420574}
-  - 114: {fileID: 11460988}
+  - 114: {fileID: 11462530}
+  - 114: {fileID: 11481058}
+  - 114: {fileID: 11484868}
   m_Layer: 0
   m_Name: CreatePrefab
   m_TagString: Untagged
@@ -57,7 +57,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 167394}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1, y: 0, z: 0}
+  m_LocalPosition: {x: .5, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 443690}
@@ -75,19 +75,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 141230}
   delay: .100000001
---- !u!114 &11420574
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 167394}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8467d283cab324cf2a74a3c11cad58ec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  leftDirection: {x: 0, y: -90, z: 0}
-  rightDirection: {x: 0, y: 90, z: 0}
 --- !u!114 &11421738
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -99,8 +86,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe72b0d0e9cfb422394c031ec8862db1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coolTime: 3
---- !u!114 &11460988
+  coolTime: .100000001
+--- !u!114 &11462530
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -108,11 +95,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 167394}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 77acf0fa0cb35474c9ee8a734c55ce6b, type: 3}
+  m_Script: {fileID: 11500000, guid: cc4a8c3cd8f8a4034938a10d9f27e67d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  direction: {x: .680693328, y: .732568502}
-  force: 2000
+  parent: {fileID: 468386}
 --- !u!114 &11468544
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -125,9 +111,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   creator:
-    prefab: {fileID: 141230, guid: 2f8d7a3b72fb142cb9c621d858680799, type: 2}
+    prefab: {fileID: 141230, guid: d17c698fc969348b4b133def6b388899, type: 2}
   delay: 0
---- !u!114 &11479326
+--- !u!114 &11481058
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -135,10 +121,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 167394}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1b481a27dfbe42e5a064cd336f46080, type: 3}
+  m_Script: {fileID: 11500000, guid: 9e05518c5a8dc4f1bb1ad4779d7d8276, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 468386}
+  localPosition: {x: 0, y: 0, z: 0}
+--- !u!114 &11484868
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 167394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77acf0fa0cb35474c9ee8a734c55ce6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  direction: {x: .707106769, y: -.707106769}
+  force: 300
 --- !u!114 &11492486
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -168,7 +167,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_LocalPosition.x
-      value: 1
+      value: .5
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_LocalPosition.y
@@ -176,7 +175,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: force
-      value: 2000
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_IsTrigger
@@ -192,7 +191,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: coolTime
-      value: 3
+      value: .100000001
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: damage
@@ -212,7 +211,7 @@ Prefab:
       objectReference: {fileID: 100010, guid: a0e785d0002934c6fb67c6e0f7fe7463, type: 2}
     - target: {fileID: 0}
       propertyPath: localScale.x
-      value: 8
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: localScale.y
@@ -224,7 +223,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: leftDirection.y
-      value: -90
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: leftDirection.z
@@ -237,19 +236,39 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: creator.prefab
       value: 
-      objectReference: {fileID: 141230, guid: 2f8d7a3b72fb142cb9c621d858680799, type: 2}
+      objectReference: {fileID: 141230, guid: d17c698fc969348b4b133def6b388899, type: 2}
     - target: {fileID: 0}
-      propertyPath: direction.y
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: direction.x
-      value: .889999986
+      value: .699999988
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: direction.y
+      value: -.699999988
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: rightDirection.y
-      value: 90
+      value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: parent
+      value: 
+      objectReference: {fileID: 468386}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 141230}
