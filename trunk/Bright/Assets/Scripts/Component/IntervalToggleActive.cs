@@ -15,20 +15,18 @@ namespace Bright
 		private GameObject target;
 
 		[SerializeField]
-		private float interval;
-
-		private float duration = 0.0f;
+		private DelayTimer interval;
 
 		void Update()
 		{
-			if(this.duration < this.interval)
+			this.interval.Update();
+			if(!this.interval.Complete)
 			{
-				this.duration += Time.deltaTime;
 				return;
 			}
 
-			this.duration = 0.0f;
 			this.target.SetActive(!this.target.activeSelf);
+			this.interval.Reset();
 		}
 	}
 }

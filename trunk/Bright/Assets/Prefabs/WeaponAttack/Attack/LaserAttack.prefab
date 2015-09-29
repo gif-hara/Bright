@@ -12,7 +12,7 @@ GameObject:
   - 114: {fileID: 11489934}
   - 114: {fileID: 11477606}
   m_Layer: 0
-  m_Name: Laser
+  m_Name: LaserAttack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -191,7 +191,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 170772}
-  interval: .100000001
+  interval:
+    delay: .150000006
 --- !u!114 &11489934
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -300,6 +301,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: rightDirection.z
       value: -25
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: interval.delay
+      value: .150000006
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

@@ -19,7 +19,7 @@ namespace Bright
 
 		void Update()
 		{
-			this.interval.Update(Time.deltaTime);
+			this.interval.Update();
 			if(!this.interval.Complete)
 			{
 				return;

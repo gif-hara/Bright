@@ -17,6 +17,10 @@ namespace Bright
 
 		private float duration = 0.0f;
 
+		public void Update()
+		{
+			this.Update(Time.deltaTime);
+		}
 		public void Update(float t)
 		{
 			this.duration += t;
