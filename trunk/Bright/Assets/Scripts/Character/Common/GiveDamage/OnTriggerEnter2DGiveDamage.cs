@@ -19,11 +19,6 @@ namespace Bright
 
 		void OnTriggerEnter2D(Collider2D other)
 		{
-			if(other.gameObject.GetComponent<DisableOtherOnGiveDamage>() != null)
-			{
-				return;
-			}
-
 			ExecuteEvents.Execute<IReceiveGiveDamage>(this.gameObject, null, (handler, eventData) => handler.OnGiveDamage(this.giveObject, other));
 			ExecuteEvents.Execute<IReceiveTakeDamage>(other.gameObject, null, (handler, eventData) => handler.OnTakeDamage(this.giveObject));
 		}
