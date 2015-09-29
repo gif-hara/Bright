@@ -439,6 +439,7 @@ GameObject:
   - 114: {fileID: 1271678477}
   - 114: {fileID: 1271678478}
   - 114: {fileID: 1271678479}
+  - 114: {fileID: 1271678480}
   m_Layer: 0
   m_Name: ChangeWeapon
   m_TagString: Untagged
@@ -627,6 +628,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: d47135648bf1e406bb9564e9a7bc72af, type: 2}
   keyCode: 101
+--- !u!114 &1271678480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1271678465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b301ac055b114a55bb88f9a58d3b916, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: {fileID: 11400000, guid: 065d3c27772604836b5102f398ee7fcf, type: 2}
+  keyCode: 114
 --- !u!1 &1505288879
 GameObject:
   m_ObjectHideFlags: 0
@@ -895,7 +909,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneName: Main
-  keyCode: 114
+  keyCode: 108
 --- !u!1001 &1987808807
 Prefab:
   m_ObjectHideFlags: 0
@@ -947,6 +961,10 @@ Prefab:
     - target: {fileID: 5036072, guid: 7aa66c526073bae40b9e7525606fe19c, type: 2}
       propertyPath: m_Mass
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11478210, guid: 7aa66c526073bae40b9e7525606fe19c, type: 2}
+      propertyPath: m_WhatIsGround.m_Bits
+      value: 512
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7aa66c526073bae40b9e7525606fe19c, type: 2}
