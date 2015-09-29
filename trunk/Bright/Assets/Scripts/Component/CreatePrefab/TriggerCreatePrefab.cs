@@ -16,7 +16,7 @@ namespace Bright
 
 		public void Trigger()
 		{
-			this.creator.Create(this.gameObject);
+			this.creator.Create(this.gameObject, this.gameObject);
 		}
 	}
 }

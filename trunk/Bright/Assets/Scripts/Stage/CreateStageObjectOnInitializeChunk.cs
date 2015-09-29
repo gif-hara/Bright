@@ -67,7 +67,7 @@ namespace Bright
 			}
 
 			var creator = new CreatePrefab(this.prefab);
-			creator.Create(this.gameObject);
+			creator.Create(this.gameObject, this.gameObject);
 		}
 	}
 }

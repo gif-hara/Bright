@@ -25,7 +25,7 @@ namespace Bright
 				return;
 			}
 
-			this.creator.Create(this.gameObject);
+			this.creator.Create(this.gameObject, this.gameObject);
 			this.interval.Reset();
 		}
 	}

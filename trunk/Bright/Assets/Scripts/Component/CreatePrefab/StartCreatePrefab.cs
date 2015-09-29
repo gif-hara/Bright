@@ -24,7 +24,7 @@ namespace Bright
 				yield return new WaitForSeconds(this.delay);
 			}
 
-			this.creator.Create(this.gameObject);
+			this.creator.Create(this.gameObject, this.gameObject);
 		}
 
 		public void ChangePrefab(GameObject prefab)
