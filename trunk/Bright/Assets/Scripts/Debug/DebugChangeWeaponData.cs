@@ -12,17 +12,14 @@ namespace Bright
 	public class DebugChangeWeaponData : MonoBehaviour
 	{
 		[SerializeField]
-		private WeaponData data;
+		private DebugInputAction inputAction;
 
 		[SerializeField]
-		private KeyCode keyCode;
+		private WeaponData data;
 
 		void Update()
 		{
-			if(UnityEngine.Input.GetKeyDown(this.keyCode))
-			{
-				ObjectFinder.Player.GetComponent<WeaponObserver>().Change(this.data);
-			}
+			this.inputAction.Proccess(() => ObjectFinder.Player.GetComponent<WeaponObserver>().Change(this.data));
 		}
 	}
 }

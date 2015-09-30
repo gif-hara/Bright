@@ -12,17 +12,14 @@ namespace Bright
 	public class DebugChangeScene : MonoBehaviour
 	{
 		[SerializeField]
-		private string sceneName;
+		private DebugInputAction inputAction;
 
 		[SerializeField]
-		private KeyCode keyCode;
+		private string sceneName;
 
 		void Update()
 		{
-			if(UnityEngine.Input.GetKeyDown(this.keyCode))
-			{
-				Application.LoadLevel(this.sceneName);
-			}
+			this.inputAction.Proccess(() => Application.LoadLevel(this.sceneName));
 		}
 	}
 }
