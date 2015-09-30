@@ -49,7 +49,7 @@ GameObject:
   - 114: {fileID: 11403478}
   - 114: {fileID: 11492486}
   m_Layer: 0
-  m_Name: DaggerAttack
+  m_Name: PoisonDaggerAttack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -190,7 +190,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   creator:
-    prefab: {fileID: 100010, guid: 3076e0250d62a4bd98031f8d4ba1ad41, type: 2}
+    prefab: {fileID: 100010, guid: 6d203f9ff17224983ad4af9041e2bf9a, type: 2}
   delay: 0
 --- !u!114 &11492486
 MonoBehaviour:
@@ -259,10 +259,6 @@ Prefab:
       propertyPath: damage
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: creator.prefab
-      value: 
-      objectReference: {fileID: 100010, guid: 3076e0250d62a4bd98031f8d4ba1ad41, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 141230}
