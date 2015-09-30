@@ -32,7 +32,7 @@ GameObject:
   - 114: {fileID: 11492486}
   - 114: {fileID: 11421738}
   m_Layer: 0
-  m_Name: SwordAttack
+  m_Name: AxeAttack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -108,7 +108,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Size: {x: 3, y: 1}
+  m_Size: {x: 3, y: 3}
 --- !u!114 &11403478
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -193,7 +193,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b22e870c46eab4c9392ce75e7f72b0df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  force: 100
+  force: 700
 --- !u!114 &11432592
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -217,7 +217,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   creator:
-    prefab: {fileID: 100010, guid: af764cfab965645aeb1bbf6c875fe727, type: 2}
+    prefab: {fileID: 100010, guid: f0ec8b20c40ea4f13bba7fd59a523d6f, type: 2}
     canCreateReceiver: {fileID: 0}
     extensionReceiver: {fileID: 0}
   delay: 0
@@ -283,7 +283,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: force
-      value: 100
+      value: 700
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_IsTrigger
@@ -333,6 +333,10 @@ Prefab:
       propertyPath: leftDirection.y
       value: 180
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: creator.prefab
+      value: 
+      objectReference: {fileID: 100010, guid: f0ec8b20c40ea4f13bba7fd59a523d6f, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 141230}

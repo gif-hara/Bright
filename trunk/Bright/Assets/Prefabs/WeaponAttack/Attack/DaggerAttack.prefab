@@ -28,9 +28,7 @@ GameObject:
   - 4: {fileID: 488688}
   - 58: {fileID: 5890580}
   - 114: {fileID: 11421734}
-  - 114: {fileID: 11425780}
   - 114: {fileID: 11499584}
-  - 114: {fileID: 11400182}
   m_Layer: 16
   m_Name: ToEnemyDamageCollider
   m_TagString: Untagged
@@ -106,17 +104,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: .5
---- !u!114 &11400182
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 122760}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7ef7e12b183848a38ac51b026029ab6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &11403478
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -166,18 +153,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   giveObject: {fileID: 0}
---- !u!114 &11425780
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 122760}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b22e870c46eab4c9392ce75e7f72b0df, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  force: 400
 --- !u!114 &11470816
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -191,6 +166,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   creator:
     prefab: {fileID: 100010, guid: 6d203f9ff17224983ad4af9041e2bf9a, type: 2}
+    canCreateReceiver: {fileID: 0}
+    extensionReceiver: {fileID: 0}
   delay: 0
 --- !u!114 &11492486
 MonoBehaviour:
