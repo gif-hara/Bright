@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Name: PoisonDagger
   m_EditorClassIdentifier: 
   weaponName: "\u30DD\u30A4\u30BA\u30F3\u30C0\u30AC\u30FC"
-  attackPrefab: {fileID: 141230, guid: 6eca6088b7991468eb7d13ea793bfc12, type: 2}
+  attackPrefab: {fileID: 141230, guid: 3b150f6b5dbe249559145fe8013c5a39, type: 2}

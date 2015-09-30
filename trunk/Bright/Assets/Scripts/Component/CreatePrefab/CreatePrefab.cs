@@ -15,6 +15,12 @@ namespace Bright
 		[SerializeField]
 		private GameObject prefab = null;
 
+		[SerializeField]
+		private GameObject canCreateReceiver;
+
+		[SerializeField]
+		private GameObject extensionReceiver;
+
 		public CreatePrefab()
 		{
 		}
@@ -26,13 +32,23 @@ namespace Bright
 
 		public void Create(GameObject canCreateReceiver, GameObject extensionReceiver)
 		{
-			if(!this.CanCreate(canCreateReceiver))
+			if(this.canCreateReceiver == null)
+			{
+				this.canCreateReceiver = canCreateReceiver;
+			}
+
+			if(!this.CanCreate)
 			{
 				return;
 			}
 
+			if(this.extensionReceiver == null)
+			{
+				this.extensionReceiver = extensionReceiver;
+			}
+
 			var instance = Object.Instantiate(prefab);
-			ExecuteEvents.Execute<IReceiveCreatePrefabExtension>(extensionReceiver, null, (handler, eventData) => handler.OnCreatePrefabExtension(instance));
+			ExecuteEvents.Execute<IReceiveCreatePrefabExtension>(this.extensionReceiver, null, (handler, eventData) => handler.OnCreatePrefabExtension(instance));
 		}
 
 		public void Change(GameObject prefab)
@@ -40,16 +56,19 @@ namespace Bright
 			this.prefab = prefab;
 		}
 
-		private bool CanCreate(GameObject canCreateReceiver)
+		private bool CanCreate
 		{
-			if(canCreateReceiver == null)
+			get
 			{
-				return true;
-			}
+				if(canCreateReceiver == null)
+				{
+					return true;
+				}
 
-			var result = true;
-			ExecuteEvents.Execute<IReceiveCanCreatePrefab>(canCreateReceiver, null, (handler, eventData) => result = handler.CanCreatePrefab());
-			return result;
+				var result = true;
+				ExecuteEvents.Execute<IReceiveCanCreatePrefab>(this.canCreateReceiver, null, (handler, eventData) => result = handler.CanCreatePrefab());
+				return result;
+			}
 		}
 	}
 }

@@ -95,7 +95,7 @@ GameObject:
   - 114: {fileID: 11417182}
   - 114: {fileID: 11450408}
   m_Layer: 0
-  m_Name: Slime0
+  m_Name: Slime_Level0
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -604,6 +604,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   creator:
     prefab: {fileID: 125154, guid: c348dad37682844c3aba3176d6d5c188, type: 2}
+    canCreateReceiver: {fileID: 0}
+    extensionReceiver: {fileID: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
