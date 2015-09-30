@@ -103,7 +103,7 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 30
+  m_Radius: 15
 --- !u!114 &11403478
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -272,6 +272,10 @@ Prefab:
       propertyPath: creator.prefab
       value: 
       objectReference: {fileID: 100010, guid: c4fdae3ba9d734d34a33778fecdedceb, type: 2}
+    - target: {fileID: 0}
+      propertyPath: m_Radius
+      value: 15
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 141230}
