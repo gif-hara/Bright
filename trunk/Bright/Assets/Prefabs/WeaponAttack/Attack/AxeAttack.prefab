@@ -8,7 +8,6 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 488688}
-  - 114: {fileID: 11421734}
   - 114: {fileID: 11425780}
   - 61: {fileID: 6109618}
   - 114: {fileID: 11494642}
@@ -31,6 +30,7 @@ GameObject:
   - 114: {fileID: 11403478}
   - 114: {fileID: 11492486}
   - 114: {fileID: 11421738}
+  - 114: {fileID: 11442942}
   m_Layer: 0
   m_Name: AxeAttack
   m_TagString: Untagged
@@ -146,18 +146,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   localPosition: {x: 0, y: 0, z: 0}
---- !u!114 &11421734
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 122760}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 635bfe58859b04c1bb5f911b2a987e8e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  giveObject: {fileID: 0}
 --- !u!114 &11421738
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -194,6 +182,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   force: 700
+  attackerHolder: {fileID: 11442942}
 --- !u!114 &11432592
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -203,6 +192,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c7ef7e12b183848a38ac51b026029ab6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11442942
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 141230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca747caf3aad5421b81a6c19dd0424c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &11468544
@@ -337,6 +337,10 @@ Prefab:
       propertyPath: creator.prefab
       value: 
       objectReference: {fileID: 100010, guid: f0ec8b20c40ea4f13bba7fd59a523d6f, type: 2}
+    - target: {fileID: 0}
+      propertyPath: attackerHolder
+      value: 
+      objectReference: {fileID: 11442942}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 141230}

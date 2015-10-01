@@ -129,7 +129,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 452124}
   - 58: {fileID: 5886570}
-  - 114: {fileID: 11472100}
   - 114: {fileID: 11448376}
   - 114: {fileID: 11460380}
   m_Layer: 14
@@ -168,7 +167,7 @@ GameObject:
   - 114: {fileID: 11422302}
   - 114: {fileID: 11418018}
   - 114: {fileID: 11481154}
-  - 114: {fileID: 11477572}
+  - 114: {fileID: 11432980}
   m_Layer: 17
   m_Name: EnemyDamageCollider
   m_TagString: Untagged
@@ -510,6 +509,21 @@ MonoBehaviour:
   rigidBody2D: {fileID: 5090410}
   velocityRate: 0
   forceRate: 1
+--- !u!114 &11432980
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 190414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5beb39f057d35473ba4121790da956f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  creator:
+    prefab: {fileID: 125154, guid: c348dad37682844c3aba3176d6d5c188, type: 2}
+    canCreateReceiver: {fileID: 186922}
+    extensionReceiver: {fileID: 186922}
 --- !u!114 &11436632
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -591,18 +605,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7ef7e12b183848a38ac51b026029ab6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &11472100
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 184264}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 635bfe58859b04c1bb5f911b2a987e8e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  giveObject: {fileID: 160654}
 --- !u!114 &11472246
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -644,18 +646,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   child: {fileID: 464280}
---- !u!114 &11477572
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 190414}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0ee149a197df48d1b72f6ee8001bee7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  trigger: {fileID: 11483284}
 --- !u!114 &11478758
 MonoBehaviour:
   m_ObjectHideFlags: 1

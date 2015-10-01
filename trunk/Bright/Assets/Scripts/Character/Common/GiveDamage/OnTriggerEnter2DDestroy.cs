@@ -9,7 +9,7 @@ namespace Bright
 	/// <summary>
 	/// 指定したゲームオブジェクトを死亡させるコンポーネント.
 	/// </summary>
-	public class OnGiveDamageDestroy : MonoBehaviour, IReceiveGiveDamage
+	public class OnTriggerEnter2DDestroy : MonoBehaviour
 	{
 		[SerializeField]
 		private GameObject target;
@@ -17,7 +17,7 @@ namespace Bright
 		[SerializeField]
 		private float delay;
 
-		public void OnGiveDamage(GameObject giveObject, Collider2D takeObject)
+		void OnTriggerEnter2D(Collider2D other)
 		{
 			Destroy(this.target, this.delay);
 		}

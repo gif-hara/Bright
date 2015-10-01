@@ -12,7 +12,7 @@ namespace Bright
 	public class CreatePrefabExtensionSetParentTakeDamageObject : MonoBehaviour, IReceiveCreatePrefabExtension
 	{
 		[SerializeField]
-		private OnTriggerEnter2DExecuteDamageEvent trigger;
+		private OnTriggerEnter2DCreatePrefab trigger;
 
 		public void OnCreatePrefabExtension(GameObject instance)
 		{

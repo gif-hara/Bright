@@ -9,13 +9,16 @@ namespace Bright
 	/// <summary>
 	/// OnGiveDamageイベント時にプレハブを生成するコンポーネント.
 	/// </summary>
-	public class OnGiveDamageCreatePrefab : MonoBehaviour, IReceiveGiveDamage
+	public class OnTriggerEnter2DCreatePrefab : MonoBehaviour
 	{
 		[SerializeField]
 		private CreatePrefab creator;
 
-		public void OnGiveDamage(GameObject giveObject, Collider2D takeObject)
+		public Collider2D Other{ private set; get; }
+
+		void OnTriggerEnter2D(Collider2D other)
 		{
+			this.Other = other;
 			this.creator.Create(this.gameObject, this.gameObject);
 		}
 	}

@@ -7,16 +7,16 @@ using System.Collections;
 namespace Bright
 {
 	/// <summary>
-	/// OnGiveDamageイベントでダメージを与えるコンポーネント.
+	/// OnTriggerEnter2Dイベントで相手側にダメージを与えるコンポーネント.
 	/// </summary>
-	public class OnGiveDamageGiveDamage : MonoBehaviour, IReceiveGiveDamage
+	public class OnTriggerEnter2DOpponentGiveDamage : MonoBehaviour
 	{
 		[SerializeField]
 		private int damage;
 
-		public void OnGiveDamage(GameObject giveObject, Collider2D takeObject)
+		void OnTriggerEnter2D(Collider2D other)
 		{
-			var takeDamage = takeObject.gameObject.GetComponent<TakeDamage>();
+			var takeDamage = other.gameObject.GetComponent<TakeDamage>();
 			if(takeDamage == null)
 			{
 				return;
