@@ -5,9 +5,9 @@ using System.Collections.Generic;
 namespace Bright
 {
 	/// <summary>
-	/// 他コライダーと衝突したらダメージを与えるコンポーネント.
+	/// 他コライダーと衝突したらダメージイベントを実行するコンポーネント.
 	/// </summary>
-	public class OnTriggerEnter2DGiveDamage : MonoBehaviour, IReceiveSetAttacker
+	public class OnTriggerEnter2DExecuteDamageEvent : MonoBehaviour, IReceiveSetAttacker
 	{
 		[SerializeField]
 		private GameObject giveObject;
