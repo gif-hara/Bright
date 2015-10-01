@@ -15,17 +15,14 @@ namespace Bright
 	public class ForLoop
 	{
 		[SerializeField]
-		private int min;
-
-		[SerializeField]
-		private int max;
+		private int number;
 
 		[SerializeField]
 		private UnityEvent functor;
 
 		public void Execute()
 		{
-			for(int i=min; i<max; i++)
+			for(int i=0; i<this.number; i++)
 			{
 				functor.Invoke();
 			}
