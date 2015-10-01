@@ -21,9 +21,9 @@ TagManager:
   - Chunk
   - LandingObject_EventOnly
   - ToPlayerDamage
-  - Player_Damage
+  - Player
   - ToEnemyDamage
-  - Enemy_Damage
+  - Enemy
   - Money
   - 
   - 
