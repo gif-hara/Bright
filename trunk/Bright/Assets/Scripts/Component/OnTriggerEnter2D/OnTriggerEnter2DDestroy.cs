@@ -12,6 +12,9 @@ namespace Bright
 	public class OnTriggerEnter2DDestroy : MonoBehaviour
 	{
 		[SerializeField]
+		private LayerMask ignoreLayer;
+
+		[SerializeField]
 		private GameObject target;
 
 		[SerializeField]
@@ -19,6 +22,11 @@ namespace Bright
 
 		void OnTriggerEnter2D(Collider2D other)
 		{
+			if(this.ignoreLayer.IsIncluded(other.gameObject))
+			{
+				return;
+			}
+
 			Destroy(this.target, this.delay);
 		}
 	}
