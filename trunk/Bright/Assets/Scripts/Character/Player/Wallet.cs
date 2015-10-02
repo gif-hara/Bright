@@ -21,6 +21,7 @@ namespace Bright
 		public void Add(int value)
 		{
 			this.Money += value;
+			Debug.Log("Money = " + this.Money);
 		}
 
 		public bool IsEnough(int value)

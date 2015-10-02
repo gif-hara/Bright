@@ -44,6 +44,7 @@ GameObject:
   - 4: {fileID: 429364}
   - 61: {fileID: 6192028}
   - 114: {fileID: 11470900}
+  - 114: {fileID: 11484932}
   m_Layer: 18
   m_Name: Trigger
   m_TagString: Untagged
@@ -60,7 +61,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 490382}
   - 61: {fileID: 6136814}
-  - 114: {fileID: 11460348}
   m_Layer: 18
   m_Name: Collider
   m_TagString: Untagged
@@ -205,19 +205,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   axis: {x: 0, y: -1, z: 0}
   speed: 500
---- !u!114 &11460348
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 196262}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 457fd29882e484fd4aea8f8d570dad8e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 142960}
-  delay: 0
 --- !u!114 &11470900
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -229,8 +216,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 457fd29882e484fd4aea8f8d570dad8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ignoreLayer:
+    serializedVersion: 2
+    m_Bits: 512
   target: {fileID: 142960}
   delay: 0
+--- !u!114 &11484932
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 181572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 901b1ba8cc2f141feba8835454b5f027, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ignoreLayer:
+    serializedVersion: 2
+    m_Bits: 512
+  value: 1
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

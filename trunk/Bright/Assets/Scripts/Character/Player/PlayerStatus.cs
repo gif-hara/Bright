@@ -11,9 +11,19 @@ namespace Bright
 	/// </summary>
 	public class PlayerStatus
 	{
+		public static PlayerStatus Instance
+		{
+			get
+			{
+				instance = instance ?? new PlayerStatus();
+				return instance;
+			}
+		}
+		private static PlayerStatus instance;
+
 		public Wallet Wallet{ private set; get; }
 
-		public PlayerStatus()
+		private PlayerStatus()
 		{
 			this.Wallet = new Wallet();
 		}
