@@ -8,9 +8,9 @@ using System.Collections;
 namespace Bright
 {
 	/// <summary>
-	/// OnAddMoneyイベント時にテキストを設定するコンポーネント.
+	/// Startイベント時にお金をテキストに設定するコンポーネント.
 	/// </summary>
-	public class OnAddMoneySetText : MonoBehaviour, IReceiveAddMoney
+	public class StartSetTextMoney : MonoBehaviour
 	{
 		[SerializeField]
 		private Text target;
@@ -18,9 +18,10 @@ namespace Bright
 		[SerializeField]
 		private string key;
 
-		public void OnAddMoney(int total, int addValue)
+		void Start()
 		{
-			this.target.text = StringAsset.Format(this.key, total);
+			this.target.text = StringAsset.Format(this.key, PlayerStatus.Instance.Wallet.Money);
 		}
+
 	}
 }
