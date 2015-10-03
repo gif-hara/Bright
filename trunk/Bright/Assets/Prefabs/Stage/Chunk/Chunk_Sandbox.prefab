@@ -53,7 +53,7 @@ GameObject:
   - 114: {fileID: 11468448}
   - 114: {fileID: 11493770}
   m_Layer: 12
-  m_Name: Chunk_Initial0
+  m_Name: Chunk_Sandbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -138,7 +138,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorway:
-    flag: 13
+    flag: -1
 --- !u!114 &11427688
 MonoBehaviour:
   m_ObjectHideFlags: 1

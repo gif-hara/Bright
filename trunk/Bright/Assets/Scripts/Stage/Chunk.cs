@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.Assertions;
 using System.Collections.Generic;
 
@@ -50,18 +50,19 @@ namespace Bright
 				return;
 			}
 
-			var max = StageManager.ChunkSize - 1;
+			var maxX = StageManager.ChunkSizeX - 1;
+			var maxY = StageManager.ChunkSizeY - 1;
 			this._Create(GameDefine.DirectionType.Left, ref this._left, () =>
 			{
 				return CreateWall(this._creator, this._stageManager, GameDefine.DirectionType.Left, Point.Zero, Point.Zero);
 			});
 			this._Create(GameDefine.DirectionType.Right, ref this._right, () =>
 			{
-				return CreateWall(this._creator, this._stageManager, GameDefine.DirectionType.Right, Point.Zero, Point.Right * max);
+				return CreateWall(this._creator, this._stageManager, GameDefine.DirectionType.Right, Point.Zero, Point.Right * maxX);
 			});
 			this._Create(GameDefine.DirectionType.Top, ref this._top, () =>
 			{
-				return CreateGround(this._creator, this._stageManager, GameDefine.DirectionType.Top, Point.Zero, Point.Top * max);
+				return CreateGround(this._creator, this._stageManager, GameDefine.DirectionType.Top, Point.Zero, Point.Top * maxY);
 			});
 			this._Create(GameDefine.DirectionType.Bottom, ref this._bottom, () =>
 			{
@@ -110,8 +111,8 @@ namespace Bright
 			rigidBody2D.isKinematic = true;
 
 			var collider = Attach<BoxCollider2D>();
-			collider.size = Vector2.one * StageManager.ChunkSize;
-			collider.offset = Vector2.one * (StageManager.ChunkSize / 2);
+			collider.size = new Vector2(StageManager.ChunkSizeX, StageManager.ChunkSizeY);
+			collider.offset = new Vector2(StageManager.ChunkSizeX / 2, StageManager.ChunkSizeY / 2);
 			collider.isTrigger = true;
 
 			Attach<ChunkCreator>();
@@ -144,13 +145,14 @@ namespace Bright
 			this.index = index;
 
 			var creator = GetComponent<ChunkCreator>();
-			var max = StageManager.ChunkSize - 1;
+			var maxX = StageManager.ChunkSizeX - 1;
+			var maxY = StageManager.ChunkSizeY - 1;
 
 			this.transform.position = stageManager.GetPosition(index, Point.Zero);
 
 			this.CreateWall(creator, stageManager, GameDefine.DirectionType.Left, index, Point.Zero);
-			this.CreateWall(creator, stageManager, GameDefine.DirectionType.Right, index, Point.Right * max);
-			this.CreateGround(creator, stageManager, GameDefine.DirectionType.Top, index, Point.Top * max);
+			this.CreateWall(creator, stageManager, GameDefine.DirectionType.Right, index, Point.Right * maxX);
+			this.CreateGround(creator, stageManager, GameDefine.DirectionType.Top, index, Point.Top * maxY);
 			this.CreateGround(creator, stageManager, GameDefine.DirectionType.Bottom, index, Point.Zero);
 			this.CreateBlankChunk(stageManager, GameDefine.DirectionType.Left, index + Point.Left);
 			this.CreateBlankChunk(stageManager, GameDefine.DirectionType.Right, index + Point.Right);

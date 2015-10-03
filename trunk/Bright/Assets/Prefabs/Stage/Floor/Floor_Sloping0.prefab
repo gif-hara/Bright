@@ -79,8 +79,6 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 470294}
-  - 114: {fileID: 11424098}
-  - 114: {fileID: 11401962}
   m_Layer: 9
   m_Name: Floor_Sloping0
   m_TagString: Untagged
@@ -438,51 +436,6 @@ BoxCollider2D:
   m_Offset: {x: 4.4749999, y: -.5}
   serializedVersion: 2
   m_Size: {x: .100000001, y: .0599999987}
---- !u!114 &11401962
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 182374}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f03aed8dc3014830bc4b232a5aada1a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  width: 7
-  height: 1
---- !u!114 &11424098
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 182374}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 372142912, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SceneId:
-    m_Value: 0
-  m_AssetId:
-    i0: 89
-    i1: 42
-    i2: 189
-    i3: 228
-    i4: 231
-    i5: 21
-    i6: 145
-    i7: 212
-    i8: 184
-    i9: 175
-    i10: 162
-    i11: 48
-    i12: 159
-    i13: 195
-    i14: 151
-    i15: 29
-  m_ServerOnly: 0
-  m_LocalPlayerAuthority: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

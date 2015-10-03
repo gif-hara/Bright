@@ -18,7 +18,9 @@ namespace Bright
 		[SerializeField]
 		private ChunkHolder chunkHolder;
 
-		public const int ChunkSize = 30;
+		public const int ChunkSizeX = 60;
+
+		public const int ChunkSizeY = 30;
 
 		void Start ()
 		{
@@ -28,7 +30,7 @@ namespace Bright
         public GameObject CreateStageObject(Transform parent, GameObject prefab, Point chunkIndex, Point position)
         {
 			Assert.IsTrue(
-				(position.X >= 0 && position.X < ChunkSize) && (position.Y >= 0 && position.Y < ChunkSize),
+				(position.X >= 0 && position.X < ChunkSizeX) && (position.Y >= 0 && position.Y < ChunkSizeY),
 				string.Format("チャンクサイズを超えています. xIndex = {0} yIndex = {1}", position.X, position.Y)
 				);
             var obj = Instantiate(prefab);
@@ -67,12 +69,12 @@ namespace Bright
 
 		public Vector2 GetPosition(Point chunkIndex, Point position)
 		{
-			return new Vector2(position.X + (chunkIndex.X * ChunkSize), position.Y + (chunkIndex.Y * ChunkSize));
+			return new Vector2(position.X + (chunkIndex.X * ChunkSizeX), position.Y + (chunkIndex.Y * ChunkSizeY));
 		}
 
 		public static Vector2 GetChunkIndexFromPosition(Vector3 position)
 		{
-			return new Vector2(position.x / ChunkSize, position.y / ChunkSize);
+			return new Vector2(position.x / ChunkSizeX, position.y / ChunkSizeY);
 		}
 	}
 }
