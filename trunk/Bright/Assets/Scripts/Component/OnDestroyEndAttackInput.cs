@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.EventSystems;
 using System.Collections.Generic;
@@ -19,7 +19,7 @@ namespace Bright
 
 		void Update()
 		{
-			if(Bright.Input.AttackButton)
+			if(Bright.Input.DecideButton)
 			{
 				return;
 			}

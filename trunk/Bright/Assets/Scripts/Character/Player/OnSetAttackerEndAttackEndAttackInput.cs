@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.EventSystems;
 using System.Collections.Generic;
@@ -18,7 +18,7 @@ namespace Bright
 
 		IEnumerator EndAttackCoroutine(GameObject attacker)
 		{
-			while(Bright.Input.AttackButton)
+			while(Bright.Input.DecideButton)
 			{
 				yield return new WaitForEndOfFrame();
 			}

@@ -70,14 +70,14 @@ namespace Bright
 			}
 		}
 
-		public static bool AttackButton
+		public static bool DecideButton
 		{
 			get
 			{
 				return CrossPlatformInputManager.GetButton(AttackName);
 			}
 		}
-		public static bool AttackButtonDown
+		public static bool DecideButtonDown
 		{
 			get
 			{

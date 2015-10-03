@@ -25,11 +25,24 @@ namespace Bright
 
 		private bool canMove = true;
 
+		private float cachedMove = 0.0f;
+
+		private bool cachedJump = false;
+
+		private bool cachedLockDirection = false;
+
 		void Start()
 		{
 			this.move = this.propertyHolder.GetComponent(typeof(IPlatformerCharacter2DMove)) as IPlatformerCharacter2DMove;
 			this.jump = this.propertyHolder.GetComponent(typeof(IPlatformerCharacter2DJump)) as IPlatformerCharacter2DJump;
 			this.lockDirection = this.propertyHolder.GetComponent(typeof(IPlatformerCharacter2DLockDirection)) as IPlatformerCharacter2DLockDirection;
+		}
+
+		void Update()
+		{
+			this.cachedMove = this.Move;
+			this.cachedJump = this.Jump;
+			this.cachedLockDirection = this.LockDirection;
 		}
 
 		void FixedUpdate()
@@ -39,7 +52,7 @@ namespace Bright
 				return;
 			}
 
-			this.character.Move(this.Move, this.Jump, this.LockDirection);
+			this.character.Move(this.cachedMove, this.cachedJump, this.cachedLockDirection);
 		}
 
 		public void OnSetMovement(bool canMove)

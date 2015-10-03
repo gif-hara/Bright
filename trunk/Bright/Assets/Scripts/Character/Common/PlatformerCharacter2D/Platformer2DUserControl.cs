@@ -50,7 +50,7 @@ namespace Bright
 				this.executeOnStartAttack.Execute();
 			}
 
-			this.lockDirection = Bright.Input.AttackButton;
+			this.lockDirection = Bright.Input.DecideButton;
 
 			this.velocity = HorizontalMoveVelocity;
 			ChangeState(CurrentStateType);
@@ -158,7 +158,7 @@ namespace Bright
 		{
 			get
 			{
-				return !this.attack && this.coolTime <= 0.0f && this.canMove && Bright.Input.AttackButton;
+				return !this.attack && this.coolTime <= 0.0f && this.canMove && Bright.Input.DecideButton;
 			}
 		}
 

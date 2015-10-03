@@ -1275,7 +1275,8 @@ Prefab:
       propertyPath: m_WhatIsGround.m_Bits
       value: 512
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 11450154, guid: 7aa66c526073bae40b9e7525606fe19c, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 7aa66c526073bae40b9e7525606fe19c, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &2011748966
