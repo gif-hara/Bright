@@ -7,10 +7,13 @@ using System.Collections;
 namespace Bright
 {
 	/// <summary>
-	/// 武器データを保持するイベントをフック出来るインターフェイス.
+	/// PlayerStatusクラスの更新処理を行うコンポーネント.
 	/// </summary>
-	public interface IReceiveSetWeaponData : IEventSystemHandler
+	public class UpdatePlayerStatus : MonoBehaviour
 	{
-		void OnSetWeaponData(WeaponData data);
+		void Update()
+		{
+			PlayerStatus.Instance.Update();
+		}
 	}
 }

@@ -23,9 +23,22 @@ namespace Bright
 
 		public Wallet Wallet{ private set; get; }
 
+		public InventoryEquipment InventoryEquipment{ private set; get; }
+
 		private PlayerStatus()
 		{
 			this.Wallet = new Wallet();
+			this.InventoryEquipment = new InventoryEquipment();
+		}
+
+		public void Update()
+		{
+			this.InventoryEquipment.Update();
+		}
+
+		public void AddEquipment(EquipmentData equipment)
+		{
+
 		}
 	}
 }

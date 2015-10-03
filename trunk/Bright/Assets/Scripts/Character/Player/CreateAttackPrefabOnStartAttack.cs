@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.EventSystems;
 using System.Collections.Generic;
 
@@ -7,7 +7,7 @@ namespace Bright
 	/// <summary>
 	/// OnStartAttackイベント時にプレハブを生成するコンポーネント.
 	/// </summary>
-	public class CreateAttackPrefabOnStartAttack : MonoBehaviour, IReceiveSetWeaponData, IReceiveStartAttack
+	public class CreateAttackPrefabOnStartAttack : MonoBehaviour, IReceiveSetEquipmentData, IReceiveStartAttack
 	{
 		[SerializeField]
 		private GameObject attacker;
@@ -20,7 +20,7 @@ namespace Bright
 
 		private GameObject prefab;
 
-		public void OnSetWeaponData(WeaponData data)
+		public void OnSetEquipmentData(EquipmentData data)
 		{
 			this.prefab = data.AttackPrefab;
 		}

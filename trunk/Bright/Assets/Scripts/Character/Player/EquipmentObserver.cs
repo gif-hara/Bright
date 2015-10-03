@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.EventSystems;
 using System.Collections.Generic;
@@ -7,22 +7,22 @@ using System.Collections;
 namespace Bright
 {
 	/// <summary>
-	/// 装備している武器を監視するコンポーネント.
+	/// 装備している装備品を監視するコンポーネント.
 	/// </summary>
-	public class WeaponObserver : MonoBehaviour
+	public class EquipmentObserver : MonoBehaviour
 	{
 		[SerializeField]
 		private Transform receiver;
 
 		[SerializeField]
-		private WeaponData data;
+		private EquipmentData data;
 
 		void Start()
 		{
 			Broadcast();
 		}
 
-		public void Change(WeaponData data)
+		public void Change(EquipmentData data)
 		{
 			this.data = data;
 			Broadcast();
@@ -30,7 +30,7 @@ namespace Bright
 
 		private void Broadcast()
 		{
-			ExecuteEventsExtensions.Broadcast<IReceiveSetWeaponData>(this.receiver, null, (handler, eventData) => handler.OnSetWeaponData(this.data));
+			ExecuteEventsExtensions.Broadcast<IReceiveSetEquipmentData>(this.receiver, null, (handler, eventData) => handler.OnSetEquipmentData(this.data));
 		}
 	}
 }

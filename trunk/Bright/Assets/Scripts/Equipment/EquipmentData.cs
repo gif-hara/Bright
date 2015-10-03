@@ -7,7 +7,7 @@ namespace Bright
 	/// 武器データ.
 	/// </summary>
 	[CreateAssetMenu()]
-	public class WeaponData : ScriptableObject
+	public class EquipmentData : ScriptableObject
 	{
 		public string WeaponName{ get{ return this.weaponName; } }
 		[SerializeField]
@@ -16,5 +16,19 @@ namespace Bright
 		public GameObject AttackPrefab{ get{ return this.attackPrefab; } }
 		[SerializeField]
 		private GameObject attackPrefab;
+
+		private float coolTime = 0.0f;
+
+		public EquipmentData(EquipmentData other)
+		{
+			this.weaponName = other.weaponName;
+			this.attackPrefab = other.attackPrefab;
+			this.coolTime = other.coolTime;
+		}
+
+		public void Update()
+		{
+			coolTime -= Time.deltaTime;
+		}
 	}
 }
