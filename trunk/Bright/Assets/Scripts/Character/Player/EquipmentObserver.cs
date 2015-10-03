@@ -9,28 +9,14 @@ namespace Bright
 	/// <summary>
 	/// 装備している装備品を監視するコンポーネント.
 	/// </summary>
-	public class EquipmentObserver : MonoBehaviour
+	public class EquipmentObserver : MonoBehaviour, IReceiveSetEquipmentData
 	{
 		[SerializeField]
 		private Transform receiver;
 
-		[SerializeField]
-		private EquipmentData data;
-
-		void Start()
+		public void OnSetEquipmentData(EquipmentData data)
 		{
-			Broadcast();
-		}
-
-		public void Change(EquipmentData data)
-		{
-			this.data = data;
-			Broadcast();
-		}
-
-		private void Broadcast()
-		{
-			ExecuteEventsExtensions.Broadcast<IReceiveSetEquipmentData>(this.receiver, null, (handler, eventData) => handler.OnSetEquipmentData(this.data));
+			ExecuteEventsExtensions.Broadcast<IReceiveSetEquipmentData>(this.receiver, null, (handler, eventData) => handler.OnSetEquipmentData(data));
 		}
 	}
 }

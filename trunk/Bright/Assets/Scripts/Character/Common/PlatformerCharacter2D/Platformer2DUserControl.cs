@@ -40,7 +40,7 @@ namespace Bright
 
         void Update()
         {
-        	if (!this.jump)
+        	if(!this.jump)
         	{
 				jump = Bright.Input.JumpButtonDown;
         	}
@@ -48,6 +48,10 @@ namespace Bright
 			{
 				this.attack = true;
 				this.executeOnStartAttack.Execute();
+			}
+			if(this.CanChangeEquipment)
+			{
+				PlayerStatus.Instance.InventoryEquipment.ChangeSelectId();
 			}
 
 			this.lockDirection = Bright.Input.DecideButton;
@@ -159,6 +163,14 @@ namespace Bright
 			get
 			{
 				return !this.attack && this.coolTime <= 0.0f && this.canMove && Bright.Input.DecideButton;
+			}
+		}
+
+		private bool CanChangeEquipment
+		{
+			get
+			{
+				return !this.attack && Bright.Input.CancelButtonDown;
 			}
 		}
 

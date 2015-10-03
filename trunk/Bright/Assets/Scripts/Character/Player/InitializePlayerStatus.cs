@@ -14,9 +14,10 @@ namespace Bright
 		[SerializeField]
 		private List<EquipmentData> initializeEquipments;
 
-		void Awake()
+		void Start()
 		{
 			this.initializeEquipments.ForEach(e => PlayerStatus.Instance.InventoryEquipment.Add(e));
+			ExecuteEvents.Execute<IReceiveSetEquipmentData>(ObjectFinder.Player, null, (handler, eventData) => handler.OnSetEquipmentData(this.initializeEquipments[0]));
 		}
 	}
 }

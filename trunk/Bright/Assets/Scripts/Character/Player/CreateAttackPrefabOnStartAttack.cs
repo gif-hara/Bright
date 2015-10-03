@@ -22,11 +22,15 @@ namespace Bright
 
 		public void OnSetEquipmentData(EquipmentData data)
 		{
-			this.prefab = data.AttackPrefab;
+			this.prefab = data == null ? null : data.AttackPrefab;
 		}
 
 		public void OnStartAttack()
 		{
+			if(this.prefab == null)
+			{
+				return;
+			}
 			var instance = Instantiate(prefab);
 			instance.transform.parent = this.prefabParent;
 			instance.transform.localPosition = Vector3.zero;

@@ -15,7 +15,9 @@ namespace Bright
 
 		private const string DownName = "Down";
 
-		private const string AttackName = "Attack";
+		private const string DecideName = "Attack";
+
+		private const string CancelName = "Cancel";
 
 		public static bool LeftButton
 		{
@@ -74,14 +76,22 @@ namespace Bright
 		{
 			get
 			{
-				return CrossPlatformInputManager.GetButton(AttackName);
+				return CrossPlatformInputManager.GetButton(DecideName);
 			}
 		}
 		public static bool DecideButtonDown
 		{
 			get
 			{
-				return CrossPlatformInputManager.GetButtonDown(AttackName);
+				return CrossPlatformInputManager.GetButtonDown(DecideName);
+			}
+		}
+
+		public static bool CancelButtonDown
+		{
+			get
+			{
+				return CrossPlatformInputManager.GetButtonDown(CancelName);
 			}
 		}
 	}

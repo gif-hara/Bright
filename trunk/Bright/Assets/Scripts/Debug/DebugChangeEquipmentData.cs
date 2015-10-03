@@ -19,7 +19,7 @@ namespace Bright
 
 		void Update()
 		{
-			this.inputAction.Proccess(() => ObjectFinder.Player.GetComponent<EquipmentObserver>().Change(this.data));
+			this.inputAction.Proccess(() => ExecuteEvents.Execute<IReceiveSetEquipmentData>(ObjectFinder.Player, null, (handler, eventData) => handler.OnSetEquipmentData(this.data)));
 		}
 	}
 }
