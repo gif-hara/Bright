@@ -6,7 +6,7 @@ using UnityStandardAssets.CrossPlatformInput;
 
 namespace Bright
 {
-    public class Platformer2DUserControl : MonoBehaviour, IReceiveEndAttack, IReceiveSetMovement, IReceiveLanding, IReceiveSetCoolTime
+    public class Platformer2DUserControl : MonoBehaviour, IReceiveEndAttack, IReceiveSetMovement, IReceiveLanding
     {
         private bool jump;
 
@@ -83,11 +83,6 @@ namespace Bright
 			this.canMove = true;
 		}
 
-		public void SetCoolTime(float coolTime)
-		{
-			this.coolTime = coolTime;
-		}
-
 		private void Move(float move, bool jump, bool lockDirection)
 		{
 			if(!this.canMove)
@@ -162,7 +157,7 @@ namespace Bright
 		{
 			get
 			{
-				return !this.attack && this.coolTime <= 0.0f && this.canMove && Bright.Input.DecideButton;
+				return !this.attack && PlayerStatus.Instance.InventoryEquipment.CanAttack && this.canMove && Bright.Input.DecideButton;
 			}
 		}
 

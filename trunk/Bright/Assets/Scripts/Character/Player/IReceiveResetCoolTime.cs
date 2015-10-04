@@ -7,10 +7,10 @@ using System.Collections;
 namespace Bright
 {
 	/// <summary>
-	/// クールタイムを設定するイベントをフックするインターフェイス.
+	/// クールタイムをリセットするイベントをフックするインターフェイス.
 	/// </summary>
-	public interface IReceiveSetCoolTime : IEventSystemHandler
+	public interface IReceiveResetCoolTime : IEventSystemHandler
 	{
-		void SetCoolTime(float coolTime);
+		void ResetCoolTime();
 	}
 }

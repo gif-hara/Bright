@@ -48,6 +48,7 @@ GameObject:
   - 4: {fileID: 443690}
   - 114: {fileID: 11403478}
   - 114: {fileID: 11492486}
+  - 114: {fileID: 11469570}
   m_Layer: 0
   m_Name: PoisonDaggerAttack
   m_TagString: Untagged
@@ -211,6 +212,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   force: 400
+  attackerHolder: {fileID: 0}
 --- !u!114 &11431048
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -223,6 +225,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trigger: {fileID: 11423958}
+--- !u!114 &11469570
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 141230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe72b0d0e9cfb422394c031ec8862db1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11470816
 MonoBehaviour:
   m_ObjectHideFlags: 1

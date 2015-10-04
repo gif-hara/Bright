@@ -44,6 +44,11 @@ namespace Bright
 			equipment.Update();
 		}
 
+		public void ResetCoolTime()
+		{
+			this.Equipments[this.selectId].ResetCoolTime();
+		}
+
 		public void ChangeSelectId()
 		{
 			this.selectId++;
@@ -72,6 +77,14 @@ namespace Bright
 		public void RemoveSetEquipmentDataEvent(GameObject receiver)
 		{
 			this.setEquipmentDataReceivers.Remove(receiver);
+		}
+
+		public bool CanAttack
+		{
+			get
+			{
+				return this.Equipments[this.selectId].CanAttack;
+			}
 		}
 	}
 }

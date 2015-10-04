@@ -17,18 +17,40 @@ namespace Bright
 		[SerializeField]
 		private GameObject attackPrefab;
 
-		private float coolTime = 0.0f;
+		[SerializeField]
+		private DelayTimer coolTime;
 
 		public void Copy(EquipmentData other)
 		{
 			this.equipmentName = other.equipmentName;
 			this.attackPrefab = other.attackPrefab;
-			this.coolTime = other.coolTime;
+			this.coolTime = new DelayTimer(other.coolTime);
 		}
 
 		public void Update()
 		{
-			coolTime -= Time.deltaTime;
+			this.coolTime.Update();
+		}
+
+		public void ResetCoolTime()
+		{
+			this.coolTime.Reset();
+		}
+
+		public bool CanAttack
+		{
+			get
+			{
+				return this.coolTime.Complete;
+			}
+		}
+
+		public float NormalizeCoolTime
+		{
+			get
+			{
+				return this.coolTime.Normalize;
+			}
 		}
 	}
 }
