@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   direction: {x: 1, y: 0}
-  force: 3000
+  force: 100
 --- !u!114 &11421738
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -111,7 +111,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe72b0d0e9cfb422394c031ec8862db1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coolTime: .0500000007
 --- !u!114 &11468544
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -125,6 +124,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   creator:
     prefab: {fileID: 141230, guid: 29a1732974e254515a8fe23f82e4343e, type: 2}
+    canCreateReceiver: {fileID: 0}
+    extensionReceiver: {fileID: 0}
   delay: 0
 --- !u!114 &11471310
 MonoBehaviour:
@@ -176,7 +177,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: force
-      value: 3000
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_IsTrigger

@@ -1342,6 +1342,9 @@ MonoBehaviour:
   initializeEquipments:
   - {fileID: 11400000, guid: ad277479417d04180bc44c1420c12a77, type: 2}
   - {fileID: 11400000, guid: 8016a908fe0af4fd396c8025455b2111, type: 2}
+  - {fileID: 11400000, guid: 4ddc475689b0746ea90bfe487f552020, type: 2}
+  - {fileID: 11400000, guid: 64295110ea891407788b3cf847507cfb, type: 2}
+  - {fileID: 11400000, guid: 1402e5e0555454e56a461331db3c357b, type: 2}
 --- !u!1 &930273662
 GameObject:
   m_ObjectHideFlags: 0

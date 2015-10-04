@@ -64,7 +64,7 @@ GameObject:
   - 50: {fileID: 5055958}
   - 114: {fileID: 11403478}
   m_Layer: 0
-  m_Name: MachineGun_Bullet
+  m_Name: Gun_Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -221,7 +221,7 @@ Rigidbody2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 141230}
-  m_Mass: 1
+  m_Mass: .0199999996
   m_LinearDrag: 0
   m_AngularDrag: .0500000007
   m_GravityScale: 1
@@ -306,6 +306,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 457fd29882e484fd4aea8f8d570dad8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ignoreLayer:
+    serializedVersion: 2
+    m_Bits: 0
   target: {fileID: 141230}
   delay: .0500000007
 --- !u!114 &11436404
@@ -442,6 +445,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_Time
       value: .100000001
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Mass
+      value: .0199999996
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
