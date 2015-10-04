@@ -18,5 +18,10 @@ namespace Bright
 		{
 			this.creator.Create(this.gameObject, this.gameObject);
 		}
+
+		public void ChangePrefab(GameObject prefab)
+		{
+			this.creator.Change(prefab);
+		}
 	}
 }

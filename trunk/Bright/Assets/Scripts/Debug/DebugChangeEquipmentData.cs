@@ -21,9 +21,7 @@ namespace Bright
 		{
 			this.inputAction.Proccess(() =>
 			{
-				var instance = ScriptableObject.CreateInstance<EquipmentData>();
-				instance.Copy(this.data);
-				PlayerStatus.Instance.InventoryEquipment.ChangeEquipment(instance);
+				PlayerStatus.Instance.InventoryEquipment.ChangeEquipment(this.data.Copy);
 			});
 		}
 	}

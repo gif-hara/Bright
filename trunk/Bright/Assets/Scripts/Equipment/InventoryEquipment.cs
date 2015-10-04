@@ -92,5 +92,13 @@ namespace Bright
 				return this.Equipments[this.selectId].CanAttack;
 			}
 		}
+
+		public EquipmentData CurrentEquipmentData
+		{
+			get
+			{
+				return this.Equipments[this.selectId];
+			}
+		}
 	}
 }

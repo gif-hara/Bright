@@ -17,14 +17,25 @@ namespace Bright
 		[SerializeField]
 		private GameObject attackPrefab;
 
+		public GameObject ItemPrefab{ get{ return this.itemPrefab; } }
+		[SerializeField]
+		private GameObject itemPrefab;
+
 		[SerializeField]
 		private DelayTimer coolTime;
 
-		public void Copy(EquipmentData other)
+		public EquipmentData Copy
 		{
-			this.equipmentName = other.equipmentName;
-			this.attackPrefab = other.attackPrefab;
-			this.coolTime = new DelayTimer(other.coolTime);
+			get
+			{
+				var copy = ScriptableObject.CreateInstance<EquipmentData>();
+				copy.equipmentName = this.equipmentName;
+				copy.attackPrefab = this.attackPrefab;
+				copy.itemPrefab = this.itemPrefab;
+				copy.coolTime = new DelayTimer(this.coolTime);
+
+				return copy;
+			}
 		}
 
 		public void Update()

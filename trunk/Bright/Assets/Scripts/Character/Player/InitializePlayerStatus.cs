@@ -18,9 +18,7 @@ namespace Bright
 		{
 			this.initializeEquipments.ForEach(e =>
 			{
-				var instance = ScriptableObject.CreateInstance<EquipmentData>();
-				instance.Copy(e);
-				PlayerStatus.Instance.InventoryEquipment.Add(instance);
+				PlayerStatus.Instance.InventoryEquipment.Add(e.Copy);
 			});
 			ObjectFinder.Player.GetComponent<EquipmentObserver>().OnSetEquipmentData(PlayerStatus.Instance.InventoryEquipment.Equipments[0]);
 

@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Assertions;
 using UnityEngine.EventSystems;
 using System.Collections.Generic;
 using System.Collections;
@@ -6,15 +7,12 @@ using System.Collections;
 namespace Bright
 {
 	/// <summary>
-	/// 指定したゲームオブジェクトのアクティブフラグを設定するコンポーネント.
+	/// OnTriggerEnter2Dイベントで装備品を切り替えるコンポーネント.
 	/// </summary>
-	public class OnTriggerEnter2DSetActive : MonoBehaviour
+	public class OnTriggerEnter2DChangeEquipmentData : MonoBehaviour
 	{
 		[SerializeField]
-		private GameObject target;
-
-		[SerializeField]
-		private bool isActive;
+		private EquipmentData data;
 
 		[SerializeField]
 		private LayerMask ignoreLayer;
@@ -26,7 +24,7 @@ namespace Bright
 				return;
 			}
 
-			this.target.SetActive(this.isActive);
+			PlayerStatus.Instance.InventoryEquipment.ChangeEquipment(this.data.Copy);
 		}
 	}
 }
