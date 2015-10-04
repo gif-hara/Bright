@@ -24,6 +24,11 @@ namespace Bright
 			this.setEquipmentDataReceivers = new List<GameObject>();
 		}
 
+		public void Initialized()
+		{
+			ChangeSelectId(0);
+		}
+
 		public void Add(EquipmentData equipment)
 		{
 			this.Equipments.Add(equipment);
@@ -49,9 +54,9 @@ namespace Bright
 			this.Equipments[this.selectId].ResetCoolTime();
 		}
 
-		public void ChangeSelectId()
+		public void ChangeSelectId(int value)
 		{
-			this.selectId++;
+			this.selectId += value;
 			this.selectId = this.selectId >= this.Equipments.Count ? 0 : this.selectId;
 			this.setEquipmentDataReceivers.ForEach((r) =>
 			{

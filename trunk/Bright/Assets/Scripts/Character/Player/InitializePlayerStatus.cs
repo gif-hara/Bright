@@ -23,6 +23,8 @@ namespace Bright
 				PlayerStatus.Instance.InventoryEquipment.Add(instance);
 			});
 			ObjectFinder.Player.GetComponent<EquipmentObserver>().OnSetEquipmentData(PlayerStatus.Instance.InventoryEquipment.Equipments[0]);
+
+			PlayerStatus.Instance.Initialized();
 //			ExecuteEvents.Execute<IReceiveSetEquipmentData>(ObjectFinder.Player, null, (handler, eventData) => handler.OnSetEquipmentData(this.initializeEquipments[0]));
 		}
 	}

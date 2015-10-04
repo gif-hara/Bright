@@ -36,9 +36,9 @@ namespace Bright
 			this.InventoryEquipment.Update();
 		}
 
-		public void AddEquipment(EquipmentData equipment)
+		public void Initialized()
 		{
-
+			this.InventoryEquipment.Initialized();
 		}
 	}
 }

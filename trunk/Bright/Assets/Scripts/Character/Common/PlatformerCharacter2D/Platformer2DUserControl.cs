@@ -51,7 +51,7 @@ namespace Bright
 			}
 			if(this.CanChangeEquipment)
 			{
-				PlayerStatus.Instance.InventoryEquipment.ChangeSelectId();
+				PlayerStatus.Instance.InventoryEquipment.ChangeSelectId(1);
 			}
 
 			this.lockDirection = Bright.Input.DecideButton;

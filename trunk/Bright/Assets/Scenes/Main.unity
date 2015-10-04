@@ -497,6 +497,7 @@ GameObject:
   - 114: {fileID: 289075845}
   - 114: {fileID: 289075846}
   - 114: {fileID: 289075847}
+  - 114: {fileID: 289075848}
   m_Layer: 5
   m_Name: Equipments
   m_TagString: Untagged
@@ -554,6 +555,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4a3bab2563be441edaa0b28a46ad9444, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &289075848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 289075843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ef2ee802ddda4cedb6e0e915a996474, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &347148360
