@@ -11,5 +11,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12f772c1e2699401baf21ab16456efe1, type: 3}
   m_Name: Bomb
   m_EditorClassIdentifier: 
-  weaponName: "\u30DC\u30E0"
+  equipmentName: "\u30DC\u30E0"
   attackPrefab: {fileID: 141230, guid: 61607efae959a4debad782f0b2713ab7, type: 2}

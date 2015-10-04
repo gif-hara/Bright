@@ -11,5 +11,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12f772c1e2699401baf21ab16456efe1, type: 3}
   m_Name: Funnel
   m_EditorClassIdentifier: 
-  weaponName: "\u30D5\u30A1\u30F3\u30CD\u30EB"
+  equipmentName: "\u30D5\u30A1\u30F3\u30CD\u30EB"
   attackPrefab: {fileID: 141230, guid: 47cebe55d57804082a7ccd1643198ec4, type: 2}

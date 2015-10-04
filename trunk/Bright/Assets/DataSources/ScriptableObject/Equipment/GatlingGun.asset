@@ -11,5 +11,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12f772c1e2699401baf21ab16456efe1, type: 3}
   m_Name: GatlingGun
   m_EditorClassIdentifier: 
-  weaponName: "\u30AC\u30C8\u30EA\u30F3\u30B0\u30AC\u30F3"
+  equipmentName: "\u30AC\u30C8\u30EA\u30F3\u30B0\u30AC\u30F3"
   attackPrefab: {fileID: 141230, guid: 39384b4f0f375482e82d7015106035f7, type: 2}

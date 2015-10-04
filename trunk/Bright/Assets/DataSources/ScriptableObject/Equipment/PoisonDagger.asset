@@ -11,5 +11,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12f772c1e2699401baf21ab16456efe1, type: 3}
   m_Name: PoisonDagger
   m_EditorClassIdentifier: 
-  weaponName: "\u30DD\u30A4\u30BA\u30F3\u30C0\u30AC\u30FC"
+  equipmentName: "\u30DD\u30A4\u30BA\u30F3\u30C0\u30AC\u30FC"
   attackPrefab: {fileID: 141230, guid: 3b150f6b5dbe249559145fe8013c5a39, type: 2}

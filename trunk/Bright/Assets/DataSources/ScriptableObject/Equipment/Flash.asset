@@ -11,5 +11,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12f772c1e2699401baf21ab16456efe1, type: 3}
   m_Name: Flash
   m_EditorClassIdentifier: 
-  weaponName: "\u30D5\u30E9\u30C3\u30B7\u30E5"
+  equipmentName: "\u30D5\u30E9\u30C3\u30B7\u30E5"
   attackPrefab: {fileID: 141230, guid: 0fc0b830a7e4949f5880ff86583c5f72, type: 2}

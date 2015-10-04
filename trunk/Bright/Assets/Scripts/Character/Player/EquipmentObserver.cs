@@ -14,9 +14,18 @@ namespace Bright
 		[SerializeField]
 		private Transform receiver;
 
+		private bool executing = false;
+
 		public void OnSetEquipmentData(EquipmentData data)
 		{
+			if(this.executing)
+			{
+				return;
+			}
+
+			this.executing = true;
 			ExecuteEventsExtensions.Broadcast<IReceiveSetEquipmentData>(this.receiver, null, (handler, eventData) => handler.OnSetEquipmentData(data));
+			this.executing = false;
 		}
 	}
 }

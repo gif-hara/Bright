@@ -11,5 +11,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12f772c1e2699401baf21ab16456efe1, type: 3}
   m_Name: Laser
   m_EditorClassIdentifier: 
-  weaponName: "\u30EC\u30FC\u30B6\u30FC"
+  equipmentName: "\u30EC\u30FC\u30B6\u30FC"
   attackPrefab: {fileID: 141230, guid: 7a62359093cf34f678e09d8f2474f084, type: 2}

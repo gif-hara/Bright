@@ -11,5 +11,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12f772c1e2699401baf21ab16456efe1, type: 3}
   m_Name: Surfborad
   m_EditorClassIdentifier: 
-  weaponName: "\u30B5\u30FC\u30D5\u30DC\u30FC\u30C9"
+  equipmentName: "\u30B5\u30FC\u30D5\u30DC\u30FC\u30C9"
   attackPrefab: {fileID: 141230, guid: a5dfc9e9b417e4edba4b14778f540229, type: 2}

@@ -11,5 +11,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12f772c1e2699401baf21ab16456efe1, type: 3}
   m_Name: Makibishi
   m_EditorClassIdentifier: 
-  weaponName: "\u30DE\u30AD\u30D3\u30B7"
+  equipmentName: "\u30DE\u30AD\u30D3\u30B7"
   attackPrefab: {fileID: 141230, guid: 9f1c63469bbb44728a6d6d1f77a9bc55, type: 2}

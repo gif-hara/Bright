@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections.Generic;
 
 namespace Bright
@@ -9,9 +9,9 @@ namespace Bright
 	[CreateAssetMenu()]
 	public class EquipmentData : ScriptableObject
 	{
-		public string WeaponName{ get{ return this.weaponName; } }
+		public string EquipmentName{ get{ return this.equipmentName; } }
 		[SerializeField]
-		private string weaponName;
+		private string equipmentName;
 
 		public GameObject AttackPrefab{ get{ return this.attackPrefab; } }
 		[SerializeField]
@@ -19,9 +19,9 @@ namespace Bright
 
 		private float coolTime = 0.0f;
 
-		public EquipmentData(EquipmentData other)
+		public void Copy(EquipmentData other)
 		{
-			this.weaponName = other.weaponName;
+			this.equipmentName = other.equipmentName;
 			this.attackPrefab = other.attackPrefab;
 			this.coolTime = other.coolTime;
 		}

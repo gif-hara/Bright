@@ -16,8 +16,14 @@ namespace Bright
 
 		void Start()
 		{
-			this.initializeEquipments.ForEach(e => PlayerStatus.Instance.InventoryEquipment.Add(e));
-			ExecuteEvents.Execute<IReceiveSetEquipmentData>(ObjectFinder.Player, null, (handler, eventData) => handler.OnSetEquipmentData(this.initializeEquipments[0]));
+			this.initializeEquipments.ForEach(e =>
+			{
+				var instance = ScriptableObject.CreateInstance<EquipmentData>();
+				instance.Copy(e);
+				PlayerStatus.Instance.InventoryEquipment.Add(instance);
+			});
+			ObjectFinder.Player.GetComponent<EquipmentObserver>().OnSetEquipmentData(PlayerStatus.Instance.InventoryEquipment.Equipments[0]);
+//			ExecuteEvents.Execute<IReceiveSetEquipmentData>(ObjectFinder.Player, null, (handler, eventData) => handler.OnSetEquipmentData(this.initializeEquipments[0]));
 		}
 	}
 }

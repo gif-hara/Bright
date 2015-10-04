@@ -11,7 +11,7 @@ namespace Bright
 	/// </summary>
 	public class RegistPlayerStatusInventoryEquipmentEvent : MonoBehaviour
 	{
-		void Start()
+		void Awake()
 		{
 			PlayerStatus.Instance.InventoryEquipment.RegistSetEquipmentDataEvent(this.gameObject);
 		}
