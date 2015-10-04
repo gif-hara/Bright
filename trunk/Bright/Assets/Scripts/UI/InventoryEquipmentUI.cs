@@ -9,7 +9,7 @@ namespace Bright
 	/// <summary>
 	/// 装備品インベントリUIクラス.
 	/// </summary>
-	public class InventoryEquipmentUI : MonoBehaviour, IReceiveModifiedEquipmentSelectId
+	public class InventoryEquipmentUI : MonoBehaviour, IReceiveModifiedEquipmentSelectId, IReceiveChangeEquipmentData
 	{
 		[SerializeField]
 		private EquipmentObserver observer;
@@ -34,6 +34,16 @@ namespace Bright
 					handler.OnUnselectEquipment();
 				}
 			});
+		}
+
+		public void OnChangeEquipmentData(int id, EquipmentData data)
+		{
+			if(this.id != id)
+			{
+				return;
+			}
+
+			this.Broadcast(data);
 		}
 
 		public void Broadcast(EquipmentData data)

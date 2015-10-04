@@ -65,6 +65,7 @@ namespace Bright
 			this.Equipments[this.selectId] = equipment;
 			this.setEquipmentDataReceivers.ForEach((r) =>
 			{
+				ExecuteEvents.Execute<IReceiveChangeEquipmentData>(r, null, (handler, eventData) => handler.OnChangeEquipmentData(this.selectId, equipment));
 				ExecuteEvents.Execute<IReceiveSetEquipmentData>(r, null, (handler, eventData) => handler.OnSetEquipmentData(this.Equipments[this.selectId]));
 			});
 		}

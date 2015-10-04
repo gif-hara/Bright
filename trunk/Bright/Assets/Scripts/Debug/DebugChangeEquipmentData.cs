@@ -19,7 +19,12 @@ namespace Bright
 
 		void Update()
 		{
-			this.inputAction.Proccess(() => ExecuteEvents.Execute<IReceiveSetEquipmentData>(ObjectFinder.Player, null, (handler, eventData) => handler.OnSetEquipmentData(this.data)));
+			this.inputAction.Proccess(() =>
+			{
+				var instance = ScriptableObject.CreateInstance<EquipmentData>();
+				instance.Copy(this.data);
+				PlayerStatus.Instance.InventoryEquipment.ChangeEquipment(instance);
+			});
 		}
 	}
 }

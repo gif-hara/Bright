@@ -496,6 +496,7 @@ GameObject:
   - 224: {fileID: 289075844}
   - 114: {fileID: 289075845}
   - 114: {fileID: 289075846}
+  - 114: {fileID: 289075847}
   m_Layer: 5
   m_Name: Equipments
   m_TagString: Untagged
@@ -544,6 +545,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 11474032, guid: 68b8a2ce0ee584cb18aebdea5f315cae, type: 2}
   intervalY: 65
+--- !u!114 &289075847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 289075843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a3bab2563be441edaa0b28a46ad9444, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &347148360
 GameObject:
   m_ObjectHideFlags: 0
@@ -1914,7 +1926,7 @@ GameObject:
   - 114: {fileID: 1271678483}
   - 114: {fileID: 1271678484}
   m_Layer: 0
-  m_Name: ChangeWeapon
+  m_Name: ChangeEquipment
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

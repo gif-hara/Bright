@@ -13,3 +13,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   equipmentName: "\u30EC\u30FC\u30B6\u30FC"
   attackPrefab: {fileID: 141230, guid: 7a62359093cf34f678e09d8f2474f084, type: 2}
+  coolTime:
+    delay: .00999999978
