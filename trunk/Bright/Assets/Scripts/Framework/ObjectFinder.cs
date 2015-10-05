@@ -12,5 +12,7 @@ namespace Bright
 	public static class ObjectFinder
 	{
 		public static GameObject Player{ set; get; }
+
+		public static Camera MainCamera{ set; get; }
 	}
 }
