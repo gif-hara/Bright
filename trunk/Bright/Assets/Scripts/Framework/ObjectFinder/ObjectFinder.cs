@@ -15,6 +15,8 @@ namespace Bright
 
 		public static Camera MainCamera{ set; get; }
 
+		public static Camera UICamera{ set; get; }
+
 		public static Canvas MainCanvas{ set; get; }
 	}
 }

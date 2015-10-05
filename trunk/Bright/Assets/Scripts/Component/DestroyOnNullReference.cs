@@ -41,5 +41,10 @@ namespace Bright
 			this.isQuitApplication = true;
 		}
 #endif
+
+		public void SetTarget(GameObject target)
+		{
+			this.target = target;
+		}
 	}
 }
