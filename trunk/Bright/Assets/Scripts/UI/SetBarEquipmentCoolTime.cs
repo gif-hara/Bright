@@ -23,7 +23,15 @@ namespace Bright
 
 		void Update()
 		{
-			this.target.Set(this.data.NormalizeCoolTime);
+			this.target.Set(this.CoolTime);
+		}
+
+		private float CoolTime
+		{
+			get
+			{
+				return this.data == null ? 0.0f : this.data.NormalizeCoolTime;
+			}
 		}
 	}
 }

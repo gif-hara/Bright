@@ -13,5 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   key:
   - UI_Money
+  - None
   asset:
   - '{0}z'
+  - "\u306A\u3057"

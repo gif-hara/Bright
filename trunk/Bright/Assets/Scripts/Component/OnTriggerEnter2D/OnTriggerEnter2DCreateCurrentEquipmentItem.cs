@@ -23,8 +23,13 @@ namespace Bright
 			{
 				return;
 			}
-			
-			this.trigger.ChangePrefab(PlayerStatus.Instance.InventoryEquipment.CurrentEquipmentData.ItemPrefab);
+			var currentEquipment = PlayerStatus.Instance.InventoryEquipment.CurrentEquipmentData;
+			if(currentEquipment == null)
+			{
+				return;
+			}
+
+			this.trigger.ChangePrefab(currentEquipment.ItemPrefab);
 			this.trigger.Trigger();
 		}
 	}

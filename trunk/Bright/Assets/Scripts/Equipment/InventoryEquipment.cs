@@ -89,7 +89,8 @@ namespace Bright
 		{
 			get
 			{
-				return this.Equipments[this.selectId].CanAttack;
+				var equipment = this.Equipments[this.selectId];
+				return equipment == null ? false : equipment.CanAttack;
 			}
 		}
 

@@ -15,9 +15,17 @@ namespace Bright
 		[SerializeField]
 		private Text target;
 
+		[SerializeField]
+		private string noneKey;
+
 		public void OnSetEquipmentData(EquipmentData data)
 		{
-			this.target.text = data.EquipmentName;
+			this.target.text = this.GetEquipmentName(data);
+		}
+
+		private string GetEquipmentName(EquipmentData data)
+		{
+			return data == null ? StringAsset.Get(this.noneKey) : data.EquipmentName;
 		}
 	}
 }

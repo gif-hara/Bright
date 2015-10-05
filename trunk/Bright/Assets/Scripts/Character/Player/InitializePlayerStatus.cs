@@ -18,12 +18,22 @@ namespace Bright
 		{
 			this.initializeEquipments.ForEach(e =>
 			{
-				PlayerStatus.Instance.InventoryEquipment.Add(e.Copy);
+				PlayerStatus.Instance.InventoryEquipment.Add(this.GetCopy(e));
 			});
 			ObjectFinder.Player.GetComponent<EquipmentObserver>().OnSetEquipmentData(PlayerStatus.Instance.InventoryEquipment.Equipments[0]);
 
 			PlayerStatus.Instance.Initialized();
 //			ExecuteEvents.Execute<IReceiveSetEquipmentData>(ObjectFinder.Player, null, (handler, eventData) => handler.OnSetEquipmentData(this.initializeEquipments[0]));
+		}
+
+		private EquipmentData GetCopy(EquipmentData data)
+		{
+			if(data == null)
+			{
+				return null;
+			}
+
+			return data.Copy;
 		}
 	}
 }
