@@ -9,6 +9,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 451846}
   - 58: {fileID: 5899116}
+  - 114: {fileID: 11483004}
   - 114: {fileID: 11426496}
   - 114: {fileID: 11439304}
   - 114: {fileID: 11478880}
@@ -46,7 +47,8 @@ GameObject:
   m_Component:
   - 4: {fileID: 442864}
   - 114: {fileID: 11421048}
-  - 114: {fileID: 11464038}
+  - 114: {fileID: 11405978}
+  - 114: {fileID: 11440798}
   - 114: {fileID: 11406826}
   m_Layer: 0
   m_Name: CreateCurrentEquipmentItem
@@ -193,7 +195,7 @@ Rigidbody2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 117920}
-  m_Mass: 2
+  m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: .0500000007
   m_GravityScale: 5
@@ -241,6 +243,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   axis: {x: 0, y: 0, z: 1}
   speed: 200
+--- !u!114 &11405978
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 159236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77fb1f379c3b34fcfa318478d015378c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  holder: {fileID: 11483004}
 --- !u!114 &11406826
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -252,9 +266,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07a33903b29be44d6a1b6c98db8d3791, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minAngle: -45
-  maxAngle: 45
-  force: 2000
+  minAngle: 0
+  maxAngle: 0
+  force: 1000
 --- !u!114 &11418818
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -269,7 +283,7 @@ MonoBehaviour:
   target: {fileID: 113708}
   isActive: 1
   delay:
-    delay: 1
+    delay: .5
 --- !u!114 &11421048
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -328,7 +342,7 @@ MonoBehaviour:
   ignoreLayer:
     serializedVersion: 2
     m_Bits: 524800
---- !u!114 &11464038
+--- !u!114 &11440798
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -336,10 +350,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 159236}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1b481a27dfbe42e5a064cd336f46080, type: 3}
+  m_Script: {fileID: 11500000, guid: e5a4533feb4174bd4bad9fab63234a7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 442864}
+  position: {x: 0, y: 2, z: 0}
 --- !u!114 &11478880
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -353,6 +367,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 113708}
   isActive: 0
+  ignoreLayer:
+    serializedVersion: 2
+    m_Bits: 524800
+--- !u!114 &11483004
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 113708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f68b8bc6a0984ca5b4d1ad729e30128, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   ignoreLayer:
     serializedVersion: 2
     m_Bits: 524800
@@ -398,23 +426,31 @@ Prefab:
       objectReference: {fileID: 461536}
     - target: {fileID: 0}
       propertyPath: minAngle
-      value: -45
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: maxAngle
-      value: 45
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: force
-      value: 2000
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_Mass
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: delay
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: delay.delay
+      value: .5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: position.y
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
