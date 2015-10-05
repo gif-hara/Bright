@@ -10,6 +10,8 @@ GameObject:
   - 224: {fileID: 22441042}
   - 222: {fileID: 22222640}
   - 114: {fileID: 11422950}
+  - 114: {fileID: 11451566}
+  - 114: {fileID: 11478520}
   m_Layer: 5
   m_Name: Bar
   m_TagString: Untagged
@@ -104,6 +106,18 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &11451566
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 116322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14701d0946ab645e9a2d682bb6d275a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 11478520}
 --- !u!114 &11452976
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -117,6 +131,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   myTransform: {fileID: 22459508}
+--- !u!114 &11478520
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 116322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a369756c545f24d618c33771e9fa6ef8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 22441042}
 --- !u!222 &22222640
 CanvasRenderer:
   m_ObjectHideFlags: 1
@@ -193,6 +219,10 @@ Prefab:
       propertyPath: myTransform
       value: 
       objectReference: {fileID: 22459508}
+    - target: {fileID: 0}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 11478520}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 195172}

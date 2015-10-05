@@ -15,23 +15,36 @@ namespace Bright
 		private int hitPoint;
 
 		[SerializeField]
+		private List<GameObject> modifiedReceiver;
+
+		[SerializeField]
 		private GameObject deathReceiver;
 
-		//private int max;
+		private int max;
 
 		void Awake()
 		{
-			//this.max = this.hitPoint;
+			this.max = this.hitPoint;
 		}
 
 		public void TakeDamage(int damage)
 		{
 			this.hitPoint -= damage;
 
+			this.modifiedReceiver.ForEach(r =>
+			{
+				ExecuteEventsExtensions.Broadcast<IReceiveModifiedHitPoint>(r, null, (handler, eventData) => handler.OnModifiedHitPoint(this.max, this.hitPoint, damage));
+			});
+
 			if(this.hitPoint <= 0)
 			{
 				ExecuteEventsExtensions.Broadcast<IReceiveDeath>(this.deathReceiver, null, (handler, eventData) => handler.OnDeath());
 			}
+		}
+
+		public void AddModifiedReceiver(GameObject receiver)
+		{
+			this.modifiedReceiver.Add(receiver);
 		}
 	}
 }
