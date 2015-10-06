@@ -26,10 +26,12 @@ namespace Bright
 
 		void Update()
 		{
-			var screenPosition = ObjectFinder.MainCamera.WorldToScreenPoint(this.target.position);
-			var localPosition = Vector2.zero;
-			RectTransformUtility.ScreenPointToLocalPointInRectangle(this.parentRectTransform, screenPosition, ObjectFinder.MainCanvas.worldCamera, out localPosition);
-			this.myTransform.localPosition = localPosition;
+			this.myTransform.localPosition = RectTransformUtilityExtensions.ScreenPoint(
+				ObjectFinder.MainCamera,
+				this.target.position,
+				this.parentRectTransform,
+				ObjectFinder.MainCanvas
+				);
 		}
 
 		public void SetTarget(Transform target)
