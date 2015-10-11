@@ -26,7 +26,6 @@ namespace Bright
 			}
 
 			otherEvent.Invoke();
-			Debug.Log("other = " + other.gameObject.name);
 		}
 	}
 }
