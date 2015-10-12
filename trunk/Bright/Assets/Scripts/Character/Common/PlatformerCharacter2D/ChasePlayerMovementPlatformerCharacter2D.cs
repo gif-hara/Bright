@@ -17,6 +17,9 @@ namespace Bright
 		[SerializeField][Range(0.0f, 1.0f)]
 		private float smooth;
 
+		[SerializeField]
+		private float multipleSpeed = 1.0f;
+
 		private float move = 0.0f;
 
 		void Update()
@@ -35,7 +38,7 @@ namespace Bright
 
 		public float Move()
 		{
-			return this.move;
+			return this.move * this.multipleSpeed;
 		}
 	}
 }
