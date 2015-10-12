@@ -8,7 +8,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 461152}
-  - 58: {fileID: 5885564}
+  - 61: {fileID: 6103806}
   - 114: {fileID: 11419708}
   - 114: {fileID: 11483120}
   m_Layer: 14
@@ -59,8 +59,8 @@ Transform:
   m_Children: []
   m_Father: {fileID: 436010}
   m_RootOrder: 0
---- !u!58 &5885564
-CircleCollider2D:
+--- !u!61 &6103806
+BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -69,9 +69,9 @@ CircleCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 1, y: 0}
   serializedVersion: 2
-  m_Radius: .5
+  m_Size: {x: 1, y: 1}
 --- !u!114 &11419708
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -115,7 +115,11 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 173154}
