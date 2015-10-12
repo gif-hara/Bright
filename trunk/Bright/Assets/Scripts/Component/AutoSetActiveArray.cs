@@ -9,13 +9,25 @@ namespace Bright
 	/// <summary>
 	/// 自動でSetActiveを呼び出すコンポーネント.
 	/// </summary>
-	public class AutoSetActive : MonoBehaviour
+	public class AutoSetActiveArray : MonoBehaviour
 	{
-		[SerializeField]
-		private GameObject target;
+		[System.Serializable]
+		public class Element
+		{
+			[SerializeField]
+			private GameObject target;
+			
+			[SerializeField]
+			private bool isActive;
+
+			public void Proccess()
+			{
+				this.target.SetActive(this.isActive);
+			}
+		}
 
 		[SerializeField]
-		private bool isActive;
+		private List<Element> elements;
 
 		[SerializeField]
 		private DelayTimer delay;
@@ -32,7 +44,7 @@ namespace Bright
 				return;
 			}
 
-			this.target.SetActive(this.isActive);
+			this.elements.ForEach(e => e.Proccess());
 
 			if(this.loop)
 			{
