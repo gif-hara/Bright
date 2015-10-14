@@ -321,6 +321,7 @@ MonoBehaviour:
   m_WhatIsGround:
     serializedVersion: 2
     m_Bits: 512
+  movableDelay: 0
 --- !u!50 &61506877
 Rigidbody2D:
   serializedVersion: 2
@@ -7128,9 +7129,9 @@ GameObject:
   - 4: {fileID: 2115465418}
   - 50: {fileID: 2115465419}
   - 114: {fileID: 2115465426}
+  - 114: {fileID: 2115465423}
   - 114: {fileID: 2115465425}
   - 114: {fileID: 2115465424}
-  - 114: {fileID: 2115465423}
   - 114: {fileID: 2115465421}
   - 114: {fileID: 2115465420}
   - 114: {fileID: 2115465422}
@@ -7276,6 +7277,7 @@ MonoBehaviour:
   m_WhatIsGround:
     serializedVersion: 2
     m_Bits: 512
+  movableDelay: .5
 --- !u!114 &2115465427
 MonoBehaviour:
   m_ObjectHideFlags: 0
