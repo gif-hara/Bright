@@ -11,6 +11,7 @@ GameObject:
   - 61: {fileID: 6103806}
   - 114: {fileID: 11419708}
   - 114: {fileID: 11483120}
+  - 114: {fileID: 11446774}
   m_Layer: 14
   m_Name: ToPlayerDamageCollider
   m_TagString: Untagged
@@ -98,6 +99,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 173154}
   delay: .100000001
+--- !u!114 &11446774
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 102640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 261213fec22194fa1b3a33263deca26f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 2
 --- !u!114 &11483120
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -119,6 +132,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_IsTrigger
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: damage
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
