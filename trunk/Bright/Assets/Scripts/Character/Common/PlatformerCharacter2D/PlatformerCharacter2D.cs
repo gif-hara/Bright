@@ -99,7 +99,6 @@ namespace Bright
 			this.notifyLanding = this.Grounded;
 			if(this.notifyLanding)
 			{
-				Debug.Log("Notify");
 				ExecuteEvents.Execute<IReceiveLanding>(this.gameObject, null, (handler, eventData) => handler.OnLanding());
 			}
 		}
