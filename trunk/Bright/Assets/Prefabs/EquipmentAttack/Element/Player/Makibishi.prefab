@@ -507,6 +507,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 457fd29882e484fd4aea8f8d570dad8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ignoreLayer:
+    serializedVersion: 2
+    m_Bits: 0
   target: {fileID: 112176}
   delay: .0500000007
 --- !u!1001 &100100000

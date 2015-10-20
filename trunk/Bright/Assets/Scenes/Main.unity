@@ -886,6 +886,48 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ef2ee802ddda4cedb6e0e915a996474, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &335304634
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 166666, guid: 27de1e2cea57b4acfbebef9396188ad8, type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 335304635}
+  - 114: {fileID: 335304636}
+  m_Layer: 0
+  m_Name: Event (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &335304635
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 431468, guid: 27de1e2cea57b4acfbebef9396188ad8, type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 335304634}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1976968414}
+  m_RootOrder: 3
+--- !u!114 &335304636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11483470, guid: 27de1e2cea57b4acfbebef9396188ad8,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 335304634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a06fa26acd9d0548ba534d773958a66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  refNextState: {fileID: 1976968413}
+  delay: 0
 --- !u!1 &347148360
 GameObject:
   m_ObjectHideFlags: 0
@@ -1004,7 +1046,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4dc7eef6470154bd6afc620bd21e8a5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
+  target: {fileID: 646770655}
   isActive: 0
   ignoreLayer:
     serializedVersion: 2
@@ -1726,7 +1768,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   refNextState: {fileID: 1717358002}
-  delay: .600000024
+  delay: 2
 --- !u!114 &776159921
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4776,6 +4818,7 @@ Transform:
   - {fileID: 776159919}
   - {fileID: 1717358003}
   - {fileID: 2024007649}
+  - {fileID: 335304635}
   m_Father: {fileID: 1338167488}
   m_RootOrder: 3
 --- !u!114 &1976968415
@@ -4844,7 +4887,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a06fa26acd9d0548ba534d773958a66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  refNextState: {fileID: 0}
+  refNextState: {fileID: 335304634}
   delay: 1
 --- !u!114 &2024007651
 MonoBehaviour:
