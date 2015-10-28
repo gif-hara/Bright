@@ -9,12 +9,12 @@ namespace Bright
 	/// <summary>
 	/// .
 	/// </summary>
-	public class OnCollisionEnter2DKinematicRigidbody2D : MonoBehaviour
+	public class OnCollisionEnter2DAttachOtherParent : MonoBehaviour
 	{
 		void OnCollisionEnter2D(Collision2D other)
 		{
 			var rigidbody = GetComponentInParent<Rigidbody2D>();
-			rigidbody.isKinematic = true;
+			rigidbody.transform.parent = other.transform;
 		}
 	}
 }

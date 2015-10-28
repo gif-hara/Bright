@@ -29,6 +29,7 @@ GameObject:
   - 61: {fileID: 6109618}
   - 114: {fileID: 11494642}
   - 114: {fileID: 11442284}
+  - 114: {fileID: 11429626}
   m_Layer: 14
   m_Name: ToPlayerDamageCollider
   m_TagString: Untagged
@@ -222,6 +223,22 @@ MonoBehaviour:
     prefab: {fileID: 104100, guid: 71e4e226e6d2743499d9b420bff66268, type: 2}
     canCreateReceiver: {fileID: 0}
     extensionReceiver: {fileID: 0}
+  delay: 0
+--- !u!114 &11429626
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 122760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 457fd29882e484fd4aea8f8d570dad8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ignoreLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  target: {fileID: 141230}
   delay: 0
 --- !u!114 &11436404
 MonoBehaviour:
@@ -1333,7 +1350,7 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: target
       value: 
-      objectReference: {fileID: 122760}
+      objectReference: {fileID: 141230}
     - target: {fileID: 0}
       propertyPath: delay
       value: .0500000007

@@ -95,13 +95,15 @@ GameObject:
   - 114: {fileID: 11475002}
   - 114: {fileID: 11411066}
   - 114: {fileID: 11411660}
+  - 114: {fileID: 11440750}
+  - 114: {fileID: 11450488}
   m_Layer: 8
   m_Name: Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &169084
 GameObject:
   m_ObjectHideFlags: 1
@@ -518,6 +520,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 178474}
   isActive: 0
+--- !u!114 &11440750
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 138872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd391d0ea06a743799b66b25d410dd19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11450488
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 138872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 964a868a3034347a29682e0cb47a2dd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11471494
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -609,6 +633,10 @@ Prefab:
       objectReference: {fileID: 11471494}
     - target: {fileID: 0}
       propertyPath: isActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

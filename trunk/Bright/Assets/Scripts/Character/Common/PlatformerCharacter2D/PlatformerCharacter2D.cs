@@ -81,7 +81,7 @@ namespace Bright
             }
         }
 
-        private void Flip()
+        public void Flip()
         {
             m_FacingRight = !m_FacingRight;
             Vector3 theScale = transform.localScale;

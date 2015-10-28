@@ -9,12 +9,15 @@ namespace Bright
 	/// <summary>
 	/// .
 	/// </summary>
-	public class OnCollisionEnter2DKinematicRigidbody2D : MonoBehaviour
+	public class OnCollisionEnter2DDestroyAllCollider : MonoBehaviour
 	{
 		void OnCollisionEnter2D(Collision2D other)
 		{
-			var rigidbody = GetComponentInParent<Rigidbody2D>();
-			rigidbody.isKinematic = true;
+			var colliders = GetComponentInParent<Rigidbody2D>().GetComponentsInChildren<Collider2D>();
+			foreach(var c in colliders)
+			{
+				Destroy(c);
+			}
 		}
 	}
 }
