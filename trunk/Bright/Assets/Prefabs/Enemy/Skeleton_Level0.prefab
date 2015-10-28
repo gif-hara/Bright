@@ -1522,7 +1522,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89d0a90abcb22425588c9f3bce9a3aff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitPoint: 3
+  hitPoint: 6
   modifiedReceiver: []
   deathReceiver: {fileID: 171352}
 --- !u!114 &11437454
